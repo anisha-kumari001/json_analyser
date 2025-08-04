@@ -1,13 +1,14 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { BarChart3, FileJson, Search, Tags, Target, Calendar } from 'lucide-react';
 import JsonViewer from './components/JsonViewer';
+import JsonInput from './components/JsonInput';
 import DataOverview from './components/DataOverview';
 import IssueAnalysis from './components/IssueAnalysis';
 import TagAnalytics from './components/TagAnalytics';
 import GroupInsights from './components/GroupInsights';
 
-// Sample JSON data
-const sampleData = {
+// Default sample JSON data
+const defaultSampleData = {
  
   "Items": [
     {
@@ -1719,35 +1720,27 @@ const sampleData = {
 };
 
 function App() {
-  const [activeTab, setActiveTab] = useState('overview');
-  const [jsonData, setJsonData] = useState(sampleData);
+  const [activeTab, setActiveTab] = useState('input');
+  const [jsonData, setJsonData] = useState(defaultSampleData);
 
   const tabs = [
+    { id: 'input', name: 'Input', icon: FileJson },
     { id: 'overview', name: 'Overview', icon: BarChart3 },
     { id: 'issues', name: 'Issues', icon: Search },
     { id: 'tags', name: 'Tags', icon: Tags },
     { id: 'groups', name: 'Groups', icon: Target },
-    { id: 'json', name: 'JSON', icon: FileJson },
+    { id: 'json', name: 'Raw JSON', icon: Calendar },
   ];
 
-  const handleJsonUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const file = event.target.files?.[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onload = (e) => {
-        try {
-          const parsedData = JSON.parse(e.target?.result as string);
-          setJsonData(parsedData);
-        } catch (error) {
-          alert('Invalid JSON file. Please check the format.');
-        }
-      };
-      reader.readAsText(file);
-    }
+  const handleJsonSubmit = (data: any) => {
+    setJsonData(data);
+    setActiveTab('overview'); // Auto-switch to overview after successful input
   };
 
   const renderActiveTab = () => {
     switch (activeTab) {
+      case 'input':
+        return <JsonInput onJsonSubmit={handleJsonSubmit} currentData={jsonData} />;
       case 'overview':
         return <DataOverview data={jsonData} />;
       case 'issues':
@@ -1759,7 +1752,7 @@ function App() {
       case 'json':
         return <JsonViewer data={jsonData} title="JSON Data" />;
       default:
-        return <DataOverview data={jsonData} />;
+        return <JsonInput onJsonSubmit={handleJsonSubmit} currentData={jsonData} />;
     }
   };
 
@@ -1772,18 +1765,6 @@ function App() {
             <div>
               <h1 className="text-2xl font-bold text-gray-900">JSON Analysis Dashboard</h1>
               <p className="text-sm text-gray-600">JIRA Activity Data Intelligence</p>
-            </div>
-            <div className="flex items-center gap-4">
-              <label className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 cursor-pointer transition-colors">
-                <FileJson className="w-4 h-4" />
-                Upload JSON
-                <input
-                  type="file"
-                  accept=".json"
-                  onChange={handleJsonUpload}
-                  className="hidden"
-                />
-              </label>
             </div>
           </div>
         </div>
