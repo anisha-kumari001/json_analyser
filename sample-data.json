@@ -1,0 +1,1331 @@
+
+{
+  "summaryType": "system_jira_retrospective_v0",
+  "dailySummaries": [
+    {
+      "id": 3286,
+      "teamID": 6,
+      "teamName": "gridsre",
+      "createdAt": "2025-08-11T05:19:00Z",
+      "hashValue": "",
+      "isCurrent": true,
+      "versionId": "6103d5d1-a6f2-4251-81bc-8418d8b8efc2",
+      "contentJSON": {
+        "Items": [
+          {
+            "id": 149918,
+            "tags": [
+              {
+                "id": 22936,
+                "name": "Access_Request",
+                "teamID": 6,
+                "isGroup": false,
+                "description": "Request for access or permissions to internal systems"
+              },
+              {
+                "id": 22937,
+                "name": "Change_Approval_Delay",
+                "teamID": 6,
+                "isGroup": false,
+                "description": "Deployment or hotfix blocked due to missing approvals"
+              }
+            ],
+            "title": "Request to add svc_pr_vsmind to svc_pr_cdmp headless account",
+            "content": {
+              "labels": "[grid_self_service]",
+              "comments": [
+                {
+                  "created": "2025-07-21T14:10:20.698-0700",
+                  "updated": "2025-07-21T14:10:20.698-0700",
+                  "comment_body": "User svc_pr_vsmind has been added to svc_pr_cdmp by @Hao Fu",
+                  "commented_by": ""
+                },
+                {
+                  "created": "2025-07-21T14:03:55.249-0700",
+                  "updated": "2025-07-21T14:03:55.249-0700",
+                  "comment_body": "Added group admin(s) as watchers for approval. This request requires one of the following people to approve it in self service: @Naren Bhosle @Anupchandra Rao @Hao Fu @Chris Trezzo Please log in and visit https://www.grid.linkedin.com/self_service/#/account/svc_pr_cdmp to review this request.",
+                  "commented_by": ""
+                }
+              ],
+              "priority": "Unspecified",
+              "issue_key": "GRID-287263",
+              "created_ts": "2025-07-21T21:03:38.237+05:30",
+              "issue_title": "Request to add svc_pr_vsmind to svc_pr_cdmp headless account",
+              "resolved_ts": "2025-07-21T21:10:22.32Z",
+              "project_name": "GRID",
+              "assignee_name": "Naren Bhosle",
+              "reporter_name": "Gaurav Ahlawat",
+              "assignee_email": "nbhosle@linkedin.com",
+              "reporter_email": "gahlawat@linkedin.com",
+              "assignee_changes": [
+                {
+                  "timestamp": "2025-07-21 21:03:39.914000 UTC",
+                  "to_assignee": "Naren Bhosle",
+                  "from_assignee": ""
+                }
+              ],
+              "issue_description": "  Glean profile  has requested to add the  svc_pr_vsmind          headless account to the  svc_pr_cdmp  headless account. This would allow  svc_pr_vsmind : Access to all files on HDFS owned by  svc_pr_cdmp Permission to create and delete files on HDFS owned by  svc_pr_cdmp",
+              "status_transitions": [
+                {
+                  "to_state": "Closed",
+                  "timestamp": "2025-07-21 21:10:22.357000 UTC",
+                  "from_state": "Open"
+                }
+              ]
+            },
+            "itemType": "JiraActivity",
+            "createdAt": "2025-07-21T15:33:38Z",
+            "productID": 6,
+            "timeSpent": 0,
+            "updatedAt": "2025-08-11T05:18:59Z",
+            "itemStatus": "",
+            "description": "",
+            "additionalContext": ""
+          }
+        ],
+        "Groups": null,
+        "summaryType": "system_daily_v0"
+      },
+      "summaryType": "system_daily_v0",
+      "endTimestamp": 1753147800,
+      "startTimestamp": 1753104600
+    },
+    {
+      "id": 3289,
+      "teamID": 6,
+      "teamName": "gridsre",
+      "createdAt": "2025-08-11T05:19:42Z",
+      "hashValue": "",
+      "isCurrent": true,
+      "versionId": "2ce1e964-e1e1-4b05-bc1b-4ce9e9300c27",
+      "contentJSON": {
+        "Items": [
+          {
+            "id": 149922,
+            "tags": [
+              {
+                "id": 22943,
+                "name": "Infra_Storage_Issue",
+                "teamID": 6,
+                "isGroup": false,
+                "description": "Storage system problems causing data access delays or failures"
+              }
+            ],
+            "title": "Grid - promote the headless acc 'slm' to WAR",
+            "content": {
+              "labels": "[ask_grid_sre, decision-grid, from-supportal, supportal-v1, supportal-v1-problem-type:askgridsre/other-grid-issue, supportal-v1-version:0.0.1401]",
+              "comments": [
+                {
+                  "created": "2025-07-22T04:07:35.345-0700",
+                  "updated": "2025-07-22T04:07:35.345-0700",
+                  "comment_body": "https://linkedin.atlassian.net/browse/GRID-287396",
+                  "commented_by": "Hariharan S"
+                },
+                {
+                  "created": "2025-07-24T01:48:06.369-0700",
+                  "updated": "2025-07-24T01:48:06.369-0700",
+                  "comment_body": "Request completed and the acc promoted to WAR Closing the ticket",
+                  "commented_by": "Hariharan S"
+                }
+              ],
+              "priority": "Unspecified",
+              "issue_key": "APA-131540",
+              "created_ts": "2025-07-22T10:47:19.123+05:30",
+              "issue_title": "Grid - promote the headless acc 'slm' to WAR",
+              "resolved_ts": "2025-07-24T08:48:14.772Z",
+              "project_name": "APA Support Project",
+              "assignee_name": "Hariharan S",
+              "reporter_name": "Anirban Biswas",
+              "assignee_email": "hsivaprakash@linkedin.com",
+              "reporter_email": "anbiswas@linkedin.com",
+              "assignee_changes": [],
+              "issue_description": "Browser: https://www.grid.linkedin.com/self_service/#/account/slm Hadoop Job Link: https://www.grid.linkedin.com/self_service/#/account/slm Cluster name: lva1-war Error Message: The slm headless that got created don't have lva1-war space. Can you please help allocate that? Nested Titles: Grid / Other Grid Issue",
+              "status_transitions": [
+                {
+                  "to_state": "Closed",
+                  "timestamp": "2025-07-24 08:48:14.803000 UTC",
+                  "from_state": "In Progress"
+                },
+                {
+                  "to_state": "In Progress",
+                  "timestamp": "2025-07-22 11:07:40.808000 UTC",
+                  "from_state": "Open"
+                }
+              ]
+            },
+            "itemType": "JiraActivity",
+            "createdAt": "2025-07-22T05:17:19Z",
+            "productID": 6,
+            "timeSpent": 0,
+            "updatedAt": "2025-08-11T05:19:41Z",
+            "itemStatus": "",
+            "description": "",
+            "additionalContext": ""
+          }
+        ],
+        "Groups": null,
+        "summaryType": "system_daily_v0"
+      },
+      "summaryType": "system_daily_v0",
+      "endTimestamp": 1753191000,
+      "startTimestamp": 1753147800
+    },
+    {
+      "id": 3290,
+      "teamID": 6,
+      "teamName": "gridsre",
+      "createdAt": "2025-08-11T05:19:19Z",
+      "hashValue": "",
+      "isCurrent": true,
+      "versionId": "665f0539-185e-4660-9940-1e3f860d5676",
+      "contentJSON": {
+        "Items": [
+          {
+            "id": 149916,
+            "tags": [
+              {
+                "id": 22938,
+                "name": "Config_Error",
+                "teamID": 6,
+                "isGroup": false,
+                "description": "Misconfiguration led to outage or degraded service"
+              },
+              {
+                "id": 22939,
+                "name": "Automation_Missing",
+                "teamID": 6,
+                "isGroup": false,
+                "description": "Manual step that could be scripted or systematized"
+              }
+            ],
+            "title": "grid hosts faling ucm due to corepam module ",
+            "content": {
+              "labels": "",
+              "comments": [
+                {
+                  "created": "2025-07-23T03:01:33.978-0700",
+                  "updated": "2025-07-23T03:01:33.978-0700",
+                  "comment_body": "All hosts associated with this ticket have completed the reimage process. Closing this ticket.",
+                  "commented_by": "Ganesh Bingimalla"
+                },
+                {
+                  "created": "2025-07-21T10:17:09.630-0700",
+                  "updated": "2025-07-21T10:17:09.630-0700",
+                  "comment_body": "After resubmitting the boxes ltx1-hcl29147.grid.linkedin.com\nltx1-hcl25768.grid.linkedin.com\nltx1-hcl29638.grid.linkedin.com\nltx1-hcl31643.grid.linkedin.com\nltx1-hcl31970.grid.linkedin.com\nltx1-hcl29175.grid.linkedin.com\nltx1-hcl46204.grid.linkedin.com\nltx1-hcl26016.grid.linkedin.com\nltx1-hcl29179.grid.linkedin.com\nltx1-hcl25970.grid.linkedin.com\nltx1-hcl29634.grid.linkedin.com\nltx1-hcl44113.grid.linkedin.com\nltx1-hcl30696.grid.linkedin.com\nltx1-hcl29008.grid.linkedin.com\nltx1-hcl31255.grid.linkedin.com\nltx1-hcl29109.grid.linkedin.com\nltx1-hcl31334.grid.linkedin.com\nltx1-hcl32000.grid.linkedin.com\nltx1-hcl31934.grid.linkedin.com\nltx1-hcl31376.grid.linkedin.com\nltx1-hcl29150.grid.linkedin.com\nltx1-hcl29839.grid.linkedin.com\nltx1-hcl29113.grid.linkedin.com\nltx1-hcl44068.grid.linkedin.com\nltx1-hcl44042.grid.linkedin.com\nltx1-hcl29151.grid.linkedin.com\nltx1-hcl28976.grid.linkedin.com\nltx1-hcl31327.grid.linkedin.com\nltx1-hcl30197.grid.linkedin.com\nltx1-hcl28951.grid.linkedin.com\nltx1-hcl44193.grid.linkedin.com\nltx1-hcl30252.grid.linkedin.com\nltx1-hcl29081.grid.linkedin.com\nltx1-hcl28956.grid.linkedin.com\nltx1-hcl44043.grid.linkedin.com\nltx1-hcl29594.grid.linkedin.com\nltx1-hcl31163.grid.linkedin.com\nltx1-hcl29662.grid.linkedin.com\nltx1-hcl44098.grid.linkedin.com\nltx1-hcl44118.grid.linkedin.com\nltx1-hcl29085.grid.linkedin.com\nltx1-hcl28915.grid.linkedin.com\nltx1-hcl29787.grid.linkedin.com\nltx1-hcl28920.grid.linkedin.com\nltx1-hcl44151.grid.linkedin.com\nltx1-hcl25857.grid.linkedin.com\nltx1-hcl28994.grid.linkedin.com\nltx1-hcl29074.grid.linkedin.com\nltx1-hcl31518.grid.linkedin.com\nltx1-hcl29139.grid.linkedin.com\nltx1-hcl29531.grid.linkedin.com\nltx1-hcl29162.grid.linkedin.com\nltx1-hcl29088.grid.linkedin.com\nltx1-hcl30240.grid.linkedin.com\nltx1-hcl44087.grid.linkedin.com\nltx1-hcl31059.grid.linkedin.com\nltx1-hcl29080.grid.linkedin.com\nltx1-hcl28977.grid.linkedin.com\nltx1-hcl29740.grid.linkedin.com\nltx1-hcl31868.grid.linkedin.com\nltx1-hcl29120.grid.linkedin.com\nltx1-hcl29640.grid.linkedin.com\nltx1-hcl28970.grid.linkedin.com\nltx1-hcl31926.grid.linkedin.com\nltx1-hcl31274.grid.linkedin.com\nltx1-hcl14838.grid.linkedin.com\nltx1-hcl28966.grid.linkedin.com\nltx1-hcl44176.grid.linkedin.com\nltx1-hcl41082.grid.linkedin.com\nltx1-hcl28912.grid.linkedin.com\nltx1-hcl28988.grid.linkedin.com\nltx1-hcl30672.grid.linkedin.com\nltx1-hcl44080.grid.linkedin.com\nltx1-hcl25906.grid.linkedin.com\nltx1-hcl44436.grid.linkedin.com\nltx1-hcl29186.grid.linkedin.com\nltx1-hcl29194.grid.linkedin.com\nltx1-hcl29020.grid.linkedin.com\nltx1-hcl23351.grid.linkedin.com\nltx1-hcl29144.grid.linkedin.com\nltx1-hcl31979.grid.linkedin.com\nltx1-hcl29556.grid.linkedin.com\nltx1-hcl29574.grid.linkedin.com\nltx1-hcl44192.grid.linkedin.com\nltx1-hcl29785.grid.linkedin.com\nltx1-hcl29618.grid.linkedin.com\nltx1-hcl31986.grid.linkedin.com\nltx1-hcl41162.grid.linkedin.com\nltx1-hcl29128.grid.linkedin.com\nltx1-hcl29730.grid.linkedin.com\nltx1-hcl31075.grid.linkedin.com\nltx1-hcl29014.grid.linkedin.com\nltx1-hcl44101.grid.linkedin.com\nltx1-hcl44457.grid.linkedin.com\nltx1-hcl31772.grid.linkedin.com\nltx1-hcl29073.grid.linkedin.com\nltx1-hcl29780.grid.linkedin.com\nltx1-hcl44237.grid.linkedin.com\nltx1-hcl26102.grid.linkedin.com\nltx1-hcl31139.grid.linkedin.com\nltx1-hcl29848.grid.linkedin.com\nltx1-hcl31901.grid.linkedin.com\nltx1-hcl31956.grid.linkedin.com\nltx1-hcl14935.grid.linkedin.com\nltx1-hcl28990.grid.linkedin.com\nltx1-hcl46212.grid.linkedin.com\nltx1-hcl29217.grid.linkedin.com\nltx1-hcl29544.grid.linkedin.com\nltx1-hcl29112.grid.linkedin.com\nltx1-hcl29554.grid.linkedin.com\nltx1-hcl28996.grid.linkedin.com\nltx1-hcl29042.grid.linkedin.com\nltx1-hcl29022.grid.linkedin.com\nltx1-hcl31682.grid.linkedin.com\nltx1-hcl29077.grid.linkedin.com\nltx1-hcl28902.grid.linkedin.com\nltx1-hcl29078.grid.linkedin.com\nltx1-hcl29694.grid.linkedin.com\nltx1-hcl46220.grid.linkedin.com\nltx1-hcl14839.grid.linkedin.com\nltx1-hcl44484.grid.linkedin.com\nltx1-hcl29534.grid.linkedin.com\nltx1-hcl14934.grid.linkedin.com\nltx1-hcl25846.grid.linkedin.com\nltx1-hcl29084.grid.linkedin.com\nltx1-hcl31828.grid.linkedin.com\nltx1-hcl28980.grid.linkedin.com\nltx1-hcl29007.grid.linkedin.com\nltx1-hcl29192.grid.linkedin.com\nltx1-hcl28930.grid.linkedin.com\nltx1-hcl29056.grid.linkedin.com\nltx1-hcl29102.grid.linkedin.com\nltx1-hcl31864.grid.linkedin.com\nltx1-hcl29154.grid.linkedin.com\nltx1-hcl29581.grid.linkedin.com\nltx1-hcl29015.grid.linkedin.com\nltx1-hcl41160.grid.linkedin.com\nltx1-hcl41094.grid.linkedin.com\nltx1-hcl46228.grid.linkedin.com\nltx1-hcl46214.grid.linkedin.com\nltx1-hcl44115.grid.linkedin.com\nltx1-hcl31871.grid.linkedin.com\nltx1-hcl41111.grid.linkedin.com\nltx1-hcl31921.grid.linkedin.com\nltx1-hcl29009.grid.linkedin.com\nltx1-hcl29168.grid.linkedin.com\nltx1-hcl28933.grid.linkedin.com\nltx1-hcl31639.grid.linkedin.com\nltx1-hcl44126.grid.linkedin.com\nltx1-hcl31820.grid.linkedin.com\nltx1-hcl46236.grid.linkedin.com\nltx1-hcl29733.grid.linkedin.com\nltx1-hcl30405.grid.linkedin.com\nltx1-hcl31907.grid.linkedin.com\nltx1-hcl30707.grid.linkedin.com\nltx1-hcl31922.grid.linkedin.com\nltx1-hcl29526.grid.linkedin.com\nltx1-hcl31672.grid.linkedin.com\nltx1-hcl25710.grid.linkedin.com\nltx1-hcl29765.grid.linkedin.com\nltx1-hcl29019.grid.linkedin.com\nltx1-hcl25829.grid.linkedin.com\nltx1-hcl44148.grid.linkedin.com\nltx1-hcl29043.grid.linkedin.com\nltx1-hcl30290.grid.linkedin.com\nltx1-hcl44093.grid.linkedin.com\nltx1-hcl29086.grid.linkedin.com\nltx1-hcl31467.grid.linkedin.com\nltx1-hcl29612.grid.linkedin.com\nltx1-hcl31507.grid.linkedin.com\nltx1-hcl44190.grid.linkedin.com\nltx1-hcl29036.grid.linkedin.com\nltx1-hcl29664.grid.linkedin.com\nltx1-hcl31285.grid.linkedin.com\nltx1-hcl30222.grid.linkedin.com\nltx1-hcl31195.grid.linkedin.com\nltx1-hcl31633.grid.linkedin.com",
+                  "commented_by": "Mandaala Vishnu Naidu"
+                },
+                {
+                  "created": "2025-07-21T04:02:59.483-0700",
+                  "updated": "2025-07-21T04:02:59.483-0700",
+                  "comment_body": "slack thread: Main thread: The absence of misc under /export/apps/gridops/ causing failure in corepam module convergence The dir is being created by the gridhadoop module and not in corepam since these hosts were k8s hosts and the gridhadoop module won’t be converged here (Since the gridhadoop is ramped by grid hosts only for hadoop worker fleet) We should revisit the approach creating misc dir under /export/apps/gridops fixes the issue with ownership root:hadooop and perm 755",
+                  "commented_by": "Hariharan S"
+                }
+              ],
+              "priority": "Unspecified",
+              "issue_key": "GRID-287111",
+              "created_ts": "2025-07-21T10:23:05.72+05:30",
+              "issue_title": "grid hosts faling ucm due to corepam module ",
+              "resolved_ts": "2025-07-23T10:01:52.24Z",
+              "project_name": "GRID",
+              "assignee_name": "Hariharan S",
+              "reporter_name": "Ganesh Bingimalla",
+              "assignee_email": "hsivaprakash@linkedin.com",
+              "reporter_email": "gbingimalla@linkedin.com",
+              "assignee_changes": [],
+              "issue_description": "We have received ucm failures on over 150 grid hosts due to the  corepam  module, with the error below.  sample hosts : ltx1-hcl31934.grid.linkedin.com ltx1-hcl29075.grid.linkedin.com puppet apply log for  corepam root@ltx1-hcl31934 [ ~ ]# /opt/puppetlabs/bin/puppet apply -e  'include corepam'\nNotice: Scope(Class[Corepam::Smart_quota]): running corepam smartquota\nError: Could not find resource 'File[/export/apps/gridops]' in parameter 'require' (file: /export/content/ucm/puppet/modules/corepam/manifests/smart_quota.pp, line: 49) on node ltx1-hcl31934.grid.linkedin.com\nroot@ltx1-hcl31934 [ ~ ]#  log: Error: Could not set 'file' on ensure: No such file or directory - A directory component in /export/apps/gridops/misc/smart_quota.profile20250721-908314-139stjo.lock does not exist or is a dangling symbolic link (file: /export/content/ucm/puppet/modules/corepam/manifests/smart_quota.pp, line: 56)\nError: Could not set 'file' on ensure: No such file or directory - A directory component in /export/apps/gridops/misc/smart_quota.profile20250721-908314-139stjo.lock does not exist or is a dangling symbolic link (file: /export/content/ucm/puppet/modules/corepam/manifests/smart_quota.pp, line: 56)\nWrapped exception:\nNo such file or directory - A directory component in /export/apps/gridops/misc/smart_quota.profile20250721-908314-139stjo.lock does not exist or is a dangling symbolic link\nError: /Stage[main]/Corepam::Smart_quota/File[/export/apps/gridops/misc/smart_quota.profile]/ensure: change from 'absent' to 'file' failed: Could not set 'file' on ensure: No such file or directory - A directory component in /export/apps/gridops/misc/smart_quota.profile20250721-908314-139stjo.lock does not exist or is a dangling symbolic link (file: /export/content/ucm/puppet/modules/corepam/manifests/smart_quota.pp, line: 56) ltx1-hcl28915.grid.linkedin.com ltx1-hcl44068.grid.linkedin.com ltx1-hcl28976.grid.linkedin.com ltx1-hcl44043.grid.linkedin.com ltx1-hcl44151.grid.linkedin.com ltx1-hcl29640.grid.linkedin.com ltx1-hcl29162.grid.linkedin.com ltx1-hcl31934.grid.linkedin.com ltx1-hcl14838.grid.linkedin.com ltx1-hcl29531.grid.linkedin.com ltx1-hcl31059.grid.linkedin.com ltx1-hcl30197.grid.linkedin.com ltx1-hcl31868.grid.linkedin.com ltx1-hcl28951.grid.linkedin.com ltx1-hcl41082.grid.linkedin.com ltx1-hcl29594.grid.linkedin.com ltx1-hcl31518.grid.linkedin.com ltx1-hcl31960.grid.linkedin.com ltx1-hcl25857.grid.linkedin.com ltx1-hcl29113.grid.linkedin.com ltx1-hcl28912.grid.linkedin.com ltx1-hcl31274.grid.linkedin.com ltx1-hcl28988.grid.linkedin.com ltx1-hcl29839.grid.linkedin.com ltx1-hcl28956.grid.linkedin.com ltx1-hcl44087.grid.linkedin.com ltx1-hcl44193.grid.linkedin.com ltx1-hcl40096.grid.linkedin.com ltx1-hcl31327.grid.linkedin.com ltx1-hcl31926.grid.linkedin.com ltx1-hcl29139.grid.linkedin.com ltx1-hcl29662.grid.linkedin.com ltx1-hcl29074.grid.linkedin.com ltx1-hcl29186.grid.linkedin.com ltx1-hcl29085.grid.linkedin.com ltx1-hcl28966.grid.linkedin.com ltx1-hcl29075.grid.linkedin.com ltx1-hcl44098.grid.linkedin.com ltx1-hcl30672.grid.linkedin.com ltx1-hcl44176.grid.linkedin.com ltx1-hcl28994.grid.linkedin.com ltx1-hcl44080.grid.linkedin.com ltx1-hcl31376.grid.linkedin.com ltx1-hcl44436.grid.linkedin.com ltx1-hcl29080.grid.linkedin.com ltx1-hcl31979.grid.linkedin.com ltx1-hcl44192.grid.linkedin.com ltx1-hcl29544.grid.linkedin.com ltx1-hcl26102.grid.linkedin.com ltx1-hcl14935.grid.linkedin.com ltx1-hcl31901.grid.linkedin.com ltx1-hcl46212.grid.linkedin.com ltx1-hcl31956.grid.linkedin.com ltx1-hcl29848.grid.linkedin.com ltx1-hcl29217.grid.linkedin.com ltx1-hcl29143.grid.linkedin.com ltx1-hcl31139.grid.linkedin.com ltx1-hcl29554.grid.linkedin.com ltx1-hcl28990.grid.linkedin.com ltx1-hcl28996.grid.linkedin.com ltx1-hcl29112.grid.linkedin.com ltx1-hcl29077.grid.linkedin.com ltx1-hcl29042.grid.linkedin.com ltx1-hcl29022.grid.linkedin.com ltx1-hcl29078.grid.linkedin.com ltx1-hcl31682.grid.linkedin.com ltx1-hcl29154.grid.linkedin.com ltx1-hcl29056.grid.linkedin.com ltx1-hcl28902.grid.linkedin.com ltx1-hcl29581.grid.linkedin.com ltx1-hcl29534.grid.linkedin.com ltx1-hcl25807.grid.linkedin.com ltx1-hcl46220.grid.linkedin.com ltx1-hcl14839.grid.linkedin.com ltx1-hcl14934.grid.linkedin.com ltx1-hcl29694.grid.linkedin.com ltx1-hcl31828.grid.linkedin.com ltx1-hcl29084.grid.linkedin.com ltx1-hcl28930.grid.linkedin.com ltx1-hcl44484.grid.linkedin.com ltx1-hcl28980.grid.linkedin.com ltx1-hcl31633.grid.linkedin.com ltx1-hcl29612.grid.linkedin.com ltx1-hcl39039.grid.linkedin.com ltx1-hcl47435.grid.linkedin.com ltx1-hcl29120.grid.linkedin.com ltx1-hcl29018.grid.linkedin.com ltx1-hcl30252.grid.linkedin.com ltx1-hcl42723.grid.linkedin.com ltx1-hcl29088.grid.linkedin.com ltx1-hcl44042.grid.linkedin.com ltx1-hcl29787.grid.linkedin.com ltx1-hcl29151.grid.linkedin.com ltx1-hcl29194.grid.linkedin.com ltx1-hcl29150.grid.linkedin.com ltx1-hcl29081.grid.linkedin.com ltx1-hcl30240.grid.linkedin.com ltx1-hcl29020.grid.linkedin.com ltx1-hcl31163.grid.linkedin.com ltx1-hcl28977.grid.linkedin.com ltx1-hcl28920.grid.linkedin.com ltx1-hcl23351.grid.linkedin.com ltx1-hcl25906.grid.linkedin.com ltx1-hcl29144.grid.linkedin.com ltx1-hcl29574.grid.linkedin.com ltx1-hcl29556.grid.linkedin.com ltx1-hcl29618.grid.linkedin.com ltx1-hcl29785.grid.linkedin.com ltx1-hcl44494.grid.linkedin.com ltx1-hcl44101.grid.linkedin.com ltx1-hcl31772.grid.linkedin.com ltx1-hcl31075.grid.linkedin.com ltx1-hcl29128.grid.linkedin.com ltx1-hcl31986.grid.linkedin.com ltx1-hcl29730.grid.linkedin.com ltx1-hcl41162.grid.linkedin.com ltx1-hcl31358.grid.linkedin.com ltx1-hcl44457.grid.linkedin.com ltx1-hcl29060.grid.linkedin.com ltx1-hcl44237.grid.linkedin.com ltx1-hcl29073.grid.linkedin.com ltx1-hcl29780.grid.linkedin.com ltx1-hcl29014.grid.linkedin.com ltx1-hcl41160.grid.linkedin.com ltx1-hcl29192.grid.linkedin.com ltx1-hcl29102.grid.linkedin.com ltx1-hcl25846.grid.linkedin.com ltx1-hcl29007.grid.linkedin.com ltx1-hcl31864.grid.linkedin.com ltx1-hcl46214.grid.linkedin.com ltx1-hcl41094.grid.linkedin.com ltx1-hcl29015.grid.linkedin.com ltx1-hcl29009.grid.linkedin.com ltx1-hcl31639.grid.linkedin.com ltx1-hcl44115.grid.linkedin.com ltx1-hcl47378.grid.linkedin.com ltx1-hcl5638.grid.linkedin.com lva1-hcl27119.grid.linkedin.com ltx1-hcl46228.grid.linkedin.com ltx1-hcl31871.grid.linkedin.com ltx1-hcl29168.grid.linkedin.com ltx1-hcl31820.grid.linkedin.com ltx1-hcl31921.grid.linkedin.com ltx1-hcl41111.grid.linkedin.com ltx1-hcl44126.grid.linkedin.com ltx1-hcl29733.grid.linkedin.com ltx1-hcl46236.grid.linkedin.com ltx1-hcl28933.grid.linkedin.com ltx1-hcl30405.grid.linkedin.com ltx1-hcl31922.grid.linkedin.com ltx1-hcl30707.grid.linkedin.com ltx1-hcl29526.grid.linkedin.com ltx1-hcl31672.grid.linkedin.com ltx1-hcl25710.grid.linkedin.com ltx1-hcl29043.grid.linkedin.com ltx1-hcl44093.grid.linkedin.com ltx1-hcl31907.grid.linkedin.com ltx1-hcl29019.grid.linkedin.com ltx1-hcl30290.grid.linkedin.com ltx1-hcl25829.grid.linkedin.com ltx1-hcl30222.grid.linkedin.com ltx1-hcl29627.grid.linkedin.com ltx1-hcl44148.grid.linkedin.com ltx1-hcl29765.grid.linkedin.com ltx1-hcl29036.grid.linkedin.com ltx1-hcl29086.grid.linkedin.com ltx1-hcl31195.grid.linkedin.com ltx1-hcl31507.grid.linkedin.com ltx1-hcl29664.grid.linkedin.com ltx1-hcl44190.grid.linkedin.com ltx1-hcl31467.grid.linkedin.com ltx1-hcl31285.grid.linkedin.com ltx1-hcl11198.grid.linkedin.com ltx1-hcl47471.grid.linkedin.com ltx1-hcl44118.grid.linkedin.com ltx1-hcl28970.grid.linkedin.com ltx1-hcl29740.grid.linkedin.com ltx1-hcl8887.grid.linkedin.com ltx1-hcl57554.grid.linkedin.com",
+              "status_transitions": [
+                {
+                  "to_state": "In Progress",
+                  "timestamp": "2025-07-23 10:01:44.307000 UTC",
+                  "from_state": "Open"
+                },
+                {
+                  "to_state": "Closed",
+                  "timestamp": "2025-07-23 10:01:52.278000 UTC",
+                  "from_state": "In Progress"
+                }
+              ]
+            },
+            "itemType": "JiraActivity",
+            "createdAt": "2025-07-21T04:53:06Z",
+            "productID": 6,
+            "timeSpent": 0,
+            "updatedAt": "2025-08-11T05:19:17Z",
+            "itemStatus": "",
+            "description": "",
+            "additionalContext": ""
+          },
+          {
+            "id": 149919,
+            "tags": [
+              {
+                "id": 22932,
+                "name": "LongResolution",
+                "teamID": 6,
+                "isGroup": false,
+                "description": "Long resolution time "
+              },
+              {
+                "id": 22938,
+                "name": "Config_Error",
+                "teamID": 6,
+                "isGroup": false,
+                "description": "Misconfiguration led to outage or degraded service"
+              },
+              {
+                "id": 22940,
+                "name": "Infra_DNS_Failure",
+                "teamID": 6,
+                "isGroup": false,
+                "description": "DNS resolution errors impacting system access or routing"
+              }
+            ],
+            "title": "Investigate why AAAA record for lva2-hcl7897.grid.linkedin.com was deleted",
+            "content": {
+              "labels": "[SEV4, incident-6215, rootly-incident]",
+              "comments": [
+                {
+                  "created": "2025-08-04T09:03:23.566-0700",
+                  "updated": "2025-08-04T09:03:23.566-0700",
+                  "comment_body": "Confirmed with the dnsdb team. Following are the rules and the above seems to be an accidental manual deletion: The rules are as below If the host has grid in the hostnanme if skip-aaaa-record was specified for a non grid host For all other hosts IPv6  is configured in Linux  and AAAA record + reverse are added We shall have to manually create a AAAA dns record for every grid host. Slack thread here:",
+                  "commented_by": "Sri Harsha Vipparti"
+                },
+                {
+                  "created": "2025-07-30T11:10:17.330-0700",
+                  "updated": "2025-07-30T11:10:17.330-0700",
+                  "comment_body": "Checking the audit log again https://observe.prod.linkedin.com/g/d/logchain-app-dnsdb/dnsdb?orgId=1&var-resource_key=&var-resource_type=Record&var-resource_attribute=All&var-last_modified_actor=All&var-resource_value=2a04:f547:b3:161::5863&from=now%2Fy&to=now",
+                  "commented_by": "Sri Harsha Vipparti"
+                }
+              ],
+              "priority": "Blocker",
+              "issue_key": "ACTIONITEM-8076",
+              "created_ts": "2025-07-21T17:45:54.304+05:30",
+              "issue_title": "Investigate why AAAA record for lva2-hcl7897.grid.linkedin.com was deleted",
+              "resolved_ts": "2025-08-04T16:03:28.806Z",
+              "project_name": "Action Items",
+              "assignee_name": "Sri Harsha Vipparti",
+              "reporter_name": "svc rootly-prod",
+              "assignee_email": "svipparti@linkedin.com",
+              "reporter_email": "svc-rootly-prod@linkedin.com",
+              "assignee_changes": [],
+              "issue_description": "Action Item for  https://rootly.com/account/incidents/6215  : One of the RCs for incident 6215 was the deletion of the AAAA record for lva2-hcl7897.grid.linkedin.com (== lva1-pokemonnn02-ha2.grid.linkedin.com). The record was added when the host was imaged as a replacement for the corresponding NN in lva1. However, sometime afterwards, the AAAA record was deleted. As we're adopting IPv6 for HDFS and other grid services, it's important to understand why the AAAA record was deleted so we can prevent this from happening in the future. Slack thread  discussing this issue during the incident DNSDB logs Screenshot for posterity, in case the logs are deleted:",
+              "status_transitions": [
+                {
+                  "to_state": "Completed",
+                  "timestamp": "2025-08-04 16:03:28.820000 UTC",
+                  "from_state": "In Progress"
+                },
+                {
+                  "to_state": "In Progress",
+                  "timestamp": "2025-07-21 17:45:55.799000 UTC",
+                  "from_state": "Open"
+                }
+              ]
+            },
+            "itemType": "JiraActivity",
+            "createdAt": "2025-07-21T12:15:54Z",
+            "productID": 6,
+            "timeSpent": 0,
+            "updatedAt": "2025-08-11T05:19:17Z",
+            "itemStatus": "",
+            "description": "",
+            "additionalContext": ""
+          },
+          {
+            "id": 149920,
+            "tags": [
+              {
+                "id": 22932,
+                "name": "LongResolution",
+                "teamID": 6,
+                "isGroup": false,
+                "description": "Long resolution time "
+              },
+              {
+                "id": 22938,
+                "name": "Config_Error",
+                "teamID": 6,
+                "isGroup": false,
+                "description": "Misconfiguration led to outage or degraded service"
+              },
+              {
+                "id": 22939,
+                "name": "Automation_Missing",
+                "teamID": 6,
+                "isGroup": false,
+                "description": "Manual step that could be scripted or systematized"
+              }
+            ],
+            "title": "Grid - Change Directory Owner and/or Permissions in HDFS - 2025-07-21",
+            "content": {
+              "labels": "[ask_grid_sre, decision-grid, from-supportal, supportal-v1, supportal-v1-problem-type:askgridsre/change-directory-owner-andor-permissions-in-hdfs, supportal-v1-version:0.0.1400]",
+              "comments": [
+                {
+                  "created": "2025-07-21T12:24:24.701-0700",
+                  "updated": "2025-07-21T12:24:24.701-0700",
+                  "comment_body": "Not sure how you would do it in airflow. You might want to reach out to azkaban/airflow team but it would essentially be the same command you ran on the gateway hadoop fs -setfacl -R -m user:metrics:r-x /jobs/hssotmetrics/u_hssotmetrics.db// but on the path you create or just created. I believe in airflow they have a hadoopJavaOperator which you might be able to leverage. but unsure if it uses java packages or cli",
+                  "commented_by": "Heagan Ahmed"
+                },
+                {
+                  "created": "2025-07-21T12:14:18.555-0700",
+                  "updated": "2025-07-21T12:14:18.555-0700",
+                  "comment_body": "this is the limitation of setfacl TL;DR for every new folder generation your job should set the facl",
+                  "commented_by": "Heagan Ahmed"
+                },
+                {
+                  "created": "2025-07-21T12:19:42.613-0700",
+                  "updated": "2025-07-21T12:19:42.613-0700",
+                  "comment_body": "Thanks @Heagan Ahmed can we have some examples on how to set the facl on our upstream airflow?",
+                  "commented_by": "Hui Xu"
+                }
+              ],
+              "priority": "Unspecified",
+              "issue_key": "APA-131504",
+              "created_ts": "2025-07-21T17:39:22.349+05:30",
+              "issue_title": "Grid - Change Directory Owner and/or Permissions in HDFS - 2025-07-21",
+              "resolved_ts": "0001-01-01T00:00:00Z",
+              "project_name": "APA Support Project",
+              "assignee_name": "Heagan Ahmed",
+              "reporter_name": "Hui Xu",
+              "assignee_email": "heahmed@linkedin.com",
+              "reporter_email": "huixu@linkedin.com",
+              "assignee_changes": [],
+              "issue_description": "HDFS Path: /jobs/hssotmetrics/u_hssotmetrics.db Error Message: Permission denied: user=metrics, access=READ, inode=\"/jobs/hssotmetrics/u_hssotmetrics.db/talent_agent_sourcing_user_operation_base_table/datepartition=2025-07-18-00/20250720_075123_16373_we7ep_d6f6e365-7c7e-419f-b281-88e66183611e\":hssotmetrics:hssotmetrics: rw-r ---- Cluster Name: holdem HDFS User or Headless Account Name that launches the Job: hssotmetrics Nested Titles: Grid / Change Directory Owner and/or Permissions in HDFS Hi team  @heahmed ! We are having permissions issue for ump flow  hp_reporting_usage Permission denied: user=metrics, access=READ, inode=\"/jobs/hssotmetrics/u_hssotmetrics.db/talent_agent_sourcing_user_operation_base_table/datepartition=2025-07-18-00/20250720_075123_16373_we7ep_d6f6e365-7c7e-419f-b281-88e66183611e\":hssotmetrics:hssotmetrics:-rw-r----- However, even tho we set the permissions by running  hadoop fs -setfacl -R -m user:metrics:r-x  and the backfill succeeded ( execution link ) after then, the flow still failed on the second day. Looks like the permission got reset after the  upstream flow  finishes or we need to grant the permission in a different folder. Can we get some help here? Below are the commands I ran to grant permissions ssh -K ltx1-holdemgw01.grid.linkedin.com\nksudo -e hssotmetrics\nhadoop fs -setfacl -R -m user:metrics:r-x /jobs/hssotmetrics/u_hssotmetrics.db/applicants_actions_main_table\nhadoop fs -setfacl -R -m user:metrics:r-x /jobs/hssotmetrics/u_hssotmetrics.db/applicants_evaluation_table\nhadoop fs -setfacl -R -m user:metrics:r-x /jobs/hssotmetrics/u_hssotmetrics.db/talent_agent_sourcing_main_aggregate_info\nhadoop fs -setfacl -R -m user:metrics:r-x /jobs/hssotmetrics/u_hssotmetrics.db/talent_agent_user_usage_base_v2\nhadoop fs -setfacl -R -m user:metrics:r-x /jobs/hssotmetrics/u_hssotmetrics.db/talent_agent_sourcing_user_operation_base_table",
+              "status_transitions": [
+                {
+                  "to_state": "Resolved",
+                  "timestamp": "2025-07-22 18:44:47.176000 UTC",
+                  "from_state": "In Progress"
+                },
+                {
+                  "to_state": "In Progress",
+                  "timestamp": "2025-07-21 19:14:22.957000 UTC",
+                  "from_state": "Open"
+                }
+              ]
+            },
+            "itemType": "JiraActivity",
+            "createdAt": "2025-07-21T12:09:22Z",
+            "productID": 6,
+            "timeSpent": 0,
+            "updatedAt": "2025-08-11T05:19:17Z",
+            "itemStatus": "",
+            "description": "",
+            "additionalContext": ""
+          }
+        ],
+        "Groups": [
+          {
+            "ItemsList": [
+              149916,
+              149919,
+              149920
+            ],
+            "GroupMetaData": {
+              "Actions": "JIRA workflow improvements: [1] Process optimization recommendations: Develop and implement automation to address 'Automation_Missing' gaps, potentially reducing manual intervention times. [2] Workflow configuration changes: Introduce SLA tracking for high-priority issues to ensure timely resolution and avoid extended investigation periods. [3] Team coordination enhancements: Encourage better collaboration and detailed comment history to improve knowledge sharing and root cause discovery. [4] Issue prevention strategies: Conduct a postmortem on extended investigations (e.g., 339-hour resolution) to identify preventable root causes such as 'Infra_DNS_Failure' and implement proactive monitoring or preemptive checks.",
+              "GroupID": 22941,
+              "Insight": "JIRA process intelligence: [1] Issue triage and assignment effectiveness: All issues were categorized and assigned within business hours on the day they were created, highlighting acceptable triage timeliness. [2] Workflow transition patterns and bottlenecks: Resolution times varied significantly, with one issue resolved in 53 hours while another remains open and one took over 339 hours, indicating resolution inefficiencies, particularly for high-priority or complex cases. [3] Team collaboration and handoff quality: Minimal communication was observed per issue (2-3 comments), which may suggest either streamlined processes or insufficient discussion. Assigned owners persisted throughout, implying stable ownership. [4] Recurring issue themes and root causes: Common tags like 'Automation_Missing' hint at recurring gaps in automation and potentially avoidable toil. [5] Resolution time distribution and efficiency patterns: The wide resolution time disparity reflects opportunities to standardize and expedite workflows, especially handling high-severity issues.",
+              "Summary": "JIRA workflow summary: Overall issue management efficiency, team coordination patterns, and workflow bottlenecks for this issue group",
+              "GroupName": "Tag: Config_Error",
+              "GroupDescription": "Issues tagged with 'Config_Error', occurred 3 times"
+            }
+          },
+          {
+            "ItemsList": [
+              149916,
+              149920
+            ],
+            "GroupMetaData": {
+              "Actions": "JIRA workflow improvements: [1] Process optimization recommendations include implementing automated tagging and prioritization for 'Automation_Missing' issues to ensure faster triage. [2] Workflow configuration changes should address inefficiencies in the status transition process by enforcing detailed transition requirements and progress updates. [3] Team coordination enhancements could focus on handoff documentation standards, ensuring smooth transitions during rotation. [4] Issue prevention strategies should involve root cause analysis and remedial training or improvements to configuration processes to reduce recurring Config_Error issues.",
+              "GroupID": 22942,
+              "Insight": "JIRA process intelligence: [1] Issue triage and assignment effectiveness is moderate, with prompt assignment but no clear priority labeling for efficient handling. [2] Workflow transition patterns reveal limited status changes (only 2 transitions per issue) and extended resolution time for GRID-287111. [3] Team collaboration and handoff quality indicate a need for improved documentation, especially for APA-131504 which remains open and may affect handoffs. [4] Recurring issue themes include configuration errors across both issues, indicating systemic challenges with configuration processes. [5] Resolution time distribution highlights inefficiency, especially with GRID-287111 requiring over 53 hours for resolution.",
+              "Summary": "JIRA workflow summary: Overall issue management efficiency is moderate, with minimal communication overhead but some inefficiencies in resolution time and status transitions. Team coordination patterns include clear assignee roles but require improvements in handoff preparedness. Workflow bottlenecks are observed in extended resolution times and minimal status transition activity.",
+              "GroupName": "Tag: Automation_Missing",
+              "GroupDescription": "Issues tagged with 'Automation_Missing', occurred 2 times"
+            }
+          },
+          {
+            "ItemsList": [
+              149919,
+              149920
+            ],
+            "GroupMetaData": {
+              "Actions": "",
+              "GroupID": 22944,
+              "Insight": "",
+              "Summary": "",
+              "GroupName": "Tag: LongResolution",
+              "GroupDescription": "Issues tagged with 'LongResolution', occurred 2 times"
+            }
+          }
+        ],
+        "summaryType": "system_daily_v0"
+      },
+      "summaryType": "system_daily_v0",
+      "endTimestamp": 1753104600,
+      "startTimestamp": 1753061400
+    },
+    {
+      "id": 3291,
+      "teamID": 6,
+      "teamName": "gridsre",
+      "createdAt": "2025-08-11T05:21:19Z",
+      "hashValue": "",
+      "isCurrent": true,
+      "versionId": "741b7e4e-1ec6-4149-8737-da52b3f27a28",
+      "contentJSON": {
+        "Items": [
+          {
+            "id": 149925,
+            "tags": [
+              {
+                "id": 22932,
+                "name": "LongResolution",
+                "teamID": 6,
+                "isGroup": false,
+                "description": "Long resolution time "
+              },
+              {
+                "id": 22936,
+                "name": "Access_Request",
+                "teamID": 6,
+                "isGroup": false,
+                "description": "Request for access or permissions to internal systems"
+              },
+              {
+                "id": 22945,
+                "name": "Quota_Request",
+                "teamID": 6,
+                "isGroup": false,
+                "description": "User hit an internal quota or service limit"
+              }
+            ],
+            "title": "Offline Data Processing - Requests:  Quotas, Accounts, Permissions, etc. - Change Directory Owner and/or Permissions in HDFS - 2025-07-23",
+            "content": {
+              "labels": "[from-supportal, supportal-grid, supportal-grid-change-ownership, supportal-v1, supportal-v1-problem-type:activityflow/change-directory-owner-andor-permissions-in-hdfs, supportal-v1-version:0.0.1401]",
+              "comments": [],
+              "priority": "Unspecified",
+              "issue_key": "APA-131593",
+              "created_ts": "2025-07-23T00:28:20.636+05:30",
+              "issue_title": "Offline Data Processing - Requests:  Quotas, Accounts, Permissions, etc. - Change Directory Owner and/or Permissions in HDFS - 2025-07-23",
+              "resolved_ts": "0001-01-01T00:00:00Z",
+              "project_name": "APA Support Project",
+              "assignee_name": "Bowen Jiao",
+              "reporter_name": "Anisha Bopardikar",
+              "assignee_email": "bjiao@linkedin.com",
+              "reporter_email": "abopardikar@linkedin.com",
+              "assignee_changes": [
+                {
+                  "timestamp": "2025-07-23 00:31:44.194000 UTC",
+                  "to_assignee": "Anisha Bopardikar",
+                  "from_assignee": "Bowen Jiao"
+                },
+                {
+                  "timestamp": "2025-07-23 00:32:01.341000 UTC",
+                  "to_assignee": "",
+                  "from_assignee": "Anisha Bopardikar"
+                },
+                {
+                  "timestamp": "2025-07-23 00:33:03.985000 UTC",
+                  "to_assignee": "Bowen Jiao",
+                  "from_assignee": ""
+                }
+              ],
+              "issue_description": "Hdfs Path: Three paths: / user / abopardi / u_abopardi.db / ne_1day_dataset_cleaned1/   ,     / user / abopardi / u_abopardi.db / ne_1day_dataset_cleaned1_updated /   ,         / user / abopardi / u_abopardi.db / ne_1day_dataset/ Cluster Name: holdem Error Message: Query failed: Access denied: The table u_abopardi.ne_1day_dataset_cleaned1_updated is not readable and may have been locked and marked for deletion. You can unlock your data by following the procedure at go/limited-retention. Query Details can be found at:  https://trino.corp.linkedin.com/ui/query.html?20250723_000116_00151_iqg53  If you are getting 'Query not found' in trino portal due to expiry, please re-execute the query to get new url. user or Headless Account Name That Launches the Job: abopardi Nested Titles: Offline Data Processing / Requests:  Quotas, Accounts, Permissions, etc. / Change Directory Owner and/or Permissions in HDFS",
+              "status_transitions": []
+            },
+            "itemType": "JiraActivity",
+            "createdAt": "2025-07-22T18:58:21Z",
+            "productID": 6,
+            "timeSpent": 0,
+            "updatedAt": "2025-08-11T05:21:18Z",
+            "itemStatus": "",
+            "description": "",
+            "additionalContext": ""
+          },
+          {
+            "id": 149926,
+            "tags": [
+              {
+                "id": 22932,
+                "name": "LongResolution",
+                "teamID": 6,
+                "isGroup": false,
+                "description": "Long resolution time "
+              },
+              {
+                "id": 22936,
+                "name": "Access_Request",
+                "teamID": 6,
+                "isGroup": false,
+                "description": "Request for access or permissions to internal systems"
+              },
+              {
+                "id": 22945,
+                "name": "Quota_Request",
+                "teamID": 6,
+                "isGroup": false,
+                "description": "User hit an internal quota or service limit"
+              }
+            ],
+            "title": "Offline Data Processing - Requests:  Quotas, Accounts, Permissions, etc. - Change Directory Owner and/or Permissions in HDFS - 2025-07-23",
+            "content": {
+              "labels": "[from-supportal, supportal-grid, supportal-grid-change-ownership, supportal-v1, supportal-v1-problem-type:activityflow/change-directory-owner-andor-permissions-in-hdfs, supportal-v1-version:0.0.1401]",
+              "comments": [],
+              "priority": "Unspecified",
+              "issue_key": "APA-131592",
+              "created_ts": "2025-07-23T00:23:45.706+05:30",
+              "issue_title": "Offline Data Processing - Requests:  Quotas, Accounts, Permissions, etc. - Change Directory Owner and/or Permissions in HDFS - 2025-07-23",
+              "resolved_ts": "0001-01-01T00:00:00Z",
+              "project_name": "APA Support Project",
+              "assignee_name": "Bowen Jiao",
+              "reporter_name": "Anisha Bopardikar",
+              "assignee_email": "bjiao@linkedin.com",
+              "reporter_email": "abopardikar@linkedin.com",
+              "assignee_changes": [],
+              "issue_description": "Hdfs Path: / user / abopardi / u_abopardi.db / ne_1day_dataset_cleaned1_updated / Cluster Name: holdem Error Message: Query failed: Access denied: The table u_abopardi.ne_1day_dataset_cleaned1_updated is not readable and may have been locked and marked for deletion. You can unlock your data by following the procedure at go/limited-retention. Query Details can be found at:  https://trino.corp.linkedin.com/ui/query.html?20250723_000116_00151_iqg53  If you are getting 'Query not found' in trino portal due to expiry, please re-execute the query to get new url. user or Headless Account Name That Launches the Job: u_abopardi Nested Titles: Offline Data Processing / Requests:  Quotas, Accounts, Permissions, etc. / Change Directory Owner and/or Permissions in HDFS",
+              "status_transitions": []
+            },
+            "itemType": "JiraActivity",
+            "createdAt": "2025-07-22T18:53:46Z",
+            "productID": 6,
+            "timeSpent": 0,
+            "updatedAt": "2025-08-11T05:21:18Z",
+            "itemStatus": "",
+            "description": "",
+            "additionalContext": ""
+          },
+          {
+            "id": 149927,
+            "tags": [
+              {
+                "id": 22932,
+                "name": "LongResolution",
+                "teamID": 6,
+                "isGroup": false,
+                "description": "Long resolution time "
+              },
+              {
+                "id": 22946,
+                "name": "Infra_Network_Outage",
+                "teamID": 6,
+                "isGroup": false,
+                "description": "Network connectivity or routing failures impacting services"
+              },
+              {
+                "id": 22947,
+                "name": "Region_Specific",
+                "teamID": 6,
+                "isGroup": false,
+                "description": "Outage limited to a particular region or zone"
+              }
+            ],
+            "title": "Grid - General Hadoop - 2025-07-23",
+            "content": {
+              "labels": "[ask_grid_sre, decision-grid, from-supportal, supportal-v1, supportal-v1-problem-type:askgridsre/general-hadoop, supportal-v1-version:0.0.1401]",
+              "comments": [
+                {
+                  "created": "2025-07-22T17:12:16.228-0700",
+                  "updated": "2025-07-22T17:12:16.228-0700",
+                  "comment_body": "Could not ssh to ssh -K ltx1-faroaz03.grid.linkedin.com UNAUTHORIZED ACCESS TO THIS DEVICE IS PROHIBITED. All attempts to access this system are monitored and recorded. All access to this system is monitored and recorded.  Connection closed by UNKNOWN port 65535 mikwang@mikwang-mn1 ~ % ssh using -vvv                         OpenSSH_9.9p2",
+                  "commented_by": "Mike Wang"
+                }
+              ],
+              "priority": "Unspecified",
+              "issue_key": "APA-131591",
+              "created_ts": "2025-07-23T00:11:32.796+05:30",
+              "issue_title": "Grid - General Hadoop - 2025-07-23",
+              "resolved_ts": "0001-01-01T00:00:00Z",
+              "project_name": "APA Support Project",
+              "assignee_name": "Bowen Jiao",
+              "reporter_name": "Mike Wang",
+              "assignee_email": "bjiao@linkedin.com",
+              "reporter_email": "mikwang@linkedin.com",
+              "assignee_changes": [],
+              "issue_description": "Cluster name: ltx1-faroaz03.grid.linkedin.com Nested Titles: Grid / General Hadoop",
+              "status_transitions": []
+            },
+            "itemType": "JiraActivity",
+            "createdAt": "2025-07-22T18:41:33Z",
+            "productID": 6,
+            "timeSpent": 0,
+            "updatedAt": "2025-08-11T05:21:18Z",
+            "itemStatus": "",
+            "description": "",
+            "additionalContext": ""
+          },
+          {
+            "id": 149928,
+            "tags": [
+              {
+                "id": 22932,
+                "name": "LongResolution",
+                "teamID": 6,
+                "isGroup": false,
+                "description": "Long resolution time "
+              },
+              {
+                "id": 22945,
+                "name": "Quota_Request",
+                "teamID": 6,
+                "isGroup": false,
+                "description": "User hit an internal quota or service limit"
+              }
+            ],
+            "title": "Grid - Quota Request - 2025-07-22",
+            "content": {
+              "labels": "[ask_grid_sre, decision-grid, from-supportal, supportal-v1, supportal-v1-problem-type:askgridsre/quota-request, supportal-v1-version:0.0.1401]",
+              "comments": [
+                {
+                  "created": "2025-07-22T15:00:00.541-0700",
+                  "updated": "2025-07-22T15:00:00.541-0700",
+                  "comment_body": "Please use go/selfservice to raise quota expansion request",
+                  "commented_by": "Bowen Jiao"
+                }
+              ],
+              "priority": "Unspecified",
+              "issue_key": "APA-131579",
+              "created_ts": "2025-07-22T21:52:44.846+05:30",
+              "issue_title": "Grid - Quota Request - 2025-07-22",
+              "resolved_ts": "0001-01-01T00:00:00Z",
+              "project_name": "APA Support Project",
+              "assignee_name": "Bowen Jiao",
+              "reporter_name": "Shifu Wang",
+              "assignee_email": "bjiao@linkedin.com",
+              "reporter_email": "shiwang@linkedin.com",
+              "assignee_changes": [],
+              "issue_description": "Retention policy: Bump headless account quota  HDFS Path: https://ltx1-holdemaz03.grid.linkedin.com:8443/hdfs/jobs/imventure Use-case Justification: We have two use cases sharing the same headless account. Insights  and jtbd-loops.  Insights is the original one. jtbd-loops is a venture project. We can potentially move this venture project to a new headless account later if we plan to ramp it up. Cluster Name: holdemaz03 Nested Titles: Grid / Quota Request",
+              "status_transitions": []
+            },
+            "itemType": "JiraActivity",
+            "createdAt": "2025-07-22T16:22:45Z",
+            "productID": 6,
+            "timeSpent": 0,
+            "updatedAt": "2025-08-11T05:21:18Z",
+            "itemStatus": "",
+            "description": "",
+            "additionalContext": ""
+          },
+          {
+            "id": 149929,
+            "tags": [
+              {
+                "id": 22936,
+                "name": "Access_Request",
+                "teamID": 6,
+                "isGroup": false,
+                "description": "Request for access or permissions to internal systems"
+              }
+            ],
+            "title": "Request to add gtmmarketing to svc_pr_cdmp headless account",
+            "content": {
+              "labels": "[grid_self_service]",
+              "comments": [
+                {
+                  "created": "2025-07-22T13:23:30.241-0700",
+                  "updated": "2025-07-22T13:23:30.241-0700",
+                  "comment_body": "Added group admin(s) as watchers for approval. This request requires one of the following people to approve it in self service: @Naren Bhosle @Hao Fu @Anupchandra Rao @Chris Trezzo Please log in and visit https://www.grid.linkedin.com/self_service/#/account/svc_pr_cdmp to review this request.",
+                  "commented_by": ""
+                },
+                {
+                  "created": "2025-07-22T13:26:09.767-0700",
+                  "updated": "2025-07-22T13:26:09.767-0700",
+                  "comment_body": "User gtmmarketing has been added to svc_pr_cdmp by @Hao Fu",
+                  "commented_by": ""
+                }
+              ],
+              "priority": "Unspecified",
+              "issue_key": "GRID-287496",
+              "created_ts": "2025-07-22T20:23:17.08+05:30",
+              "issue_title": "Request to add gtmmarketing to svc_pr_cdmp headless account",
+              "resolved_ts": "2025-07-22T20:26:11.461Z",
+              "project_name": "GRID",
+              "assignee_name": "Naren Bhosle",
+              "reporter_name": "Sachin Rodge",
+              "assignee_email": "nbhosle@linkedin.com",
+              "reporter_email": "sarodge@linkedin.com",
+              "assignee_changes": [
+                {
+                  "timestamp": "2025-07-22 20:23:18.547000 UTC",
+                  "to_assignee": "Naren Bhosle",
+                  "from_assignee": ""
+                }
+              ],
+              "issue_description": "  Glean profile  has requested to add the  gtmmarketing          headless account to the  svc_pr_cdmp  headless account. This would allow  gtmmarketing : Access to all files on HDFS owned by  svc_pr_cdmp Permission to create and delete files on HDFS owned by  svc_pr_cdmp",
+              "status_transitions": [
+                {
+                  "to_state": "Closed",
+                  "timestamp": "2025-07-22 20:26:11.518000 UTC",
+                  "from_state": "Open"
+                }
+              ]
+            },
+            "itemType": "JiraActivity",
+            "createdAt": "2025-07-22T14:53:17Z",
+            "productID": 6,
+            "timeSpent": 0,
+            "updatedAt": "2025-08-11T05:21:18Z",
+            "itemStatus": "",
+            "description": "",
+            "additionalContext": ""
+          },
+          {
+            "id": 149930,
+            "tags": [],
+            "title": "promote headless account `widget to war",
+            "content": {
+              "labels": "[ask_grid_sre, decision-grid, from-supportal, supportal-v1, supportal-v1-problem-type:askgridsre/change-directory-owner-andor-permissions-in-hdfs, supportal-v1-version:0.0.1311]",
+              "comments": [
+                {
+                  "created": "2025-07-22T17:39:39.508-0700",
+                  "updated": "2025-07-22T17:39:39.508-0700",
+                  "comment_body": "Request is automatically processed.",
+                  "commented_by": ""
+                },
+                {
+                  "created": "2025-07-22T12:19:32.684-0700",
+                  "updated": "2025-07-22T12:19:32.684-0700",
+                  "comment_body": "please ping current oncall for this ticket cc @Bowen Jiao",
+                  "commented_by": "Heagan Ahmed"
+                },
+                {
+                  "created": "2025-07-22T16:57:52.211-0700",
+                  "updated": "2025-07-22T16:57:52.211-0700",
+                  "comment_body": "bjiao updated request in the queue. Updated fields: {'status': 'pending'}.                     Comment: Try again",
+                  "commented_by": ""
+                },
+                {
+                  "created": "2025-07-22T13:27:02.603-0700",
+                  "updated": "2025-07-22T13:27:02.603-0700",
+                  "comment_body": "Hi @Heagan Ahmed",
+                  "commented_by": "Xiaotian Zhan"
+                },
+                {
+                  "created": "2025-07-22T14:11:31.543-0700",
+                  "updated": "2025-07-22T14:11:31.543-0700",
+                  "comment_body": "Request has been approved by @Bowen Jiao Comment:",
+                  "commented_by": ""
+                }
+              ],
+              "priority": "Unspecified",
+              "issue_key": "GRID-287510",
+              "created_ts": "2025-07-22T19:03:49.732+05:30",
+              "issue_title": "promote headless account `widget to war",
+              "resolved_ts": "2025-07-23T00:39:40.339Z",
+              "project_name": "GRID",
+              "assignee_name": "Bowen Jiao",
+              "reporter_name": "Xiaotian Zhan",
+              "assignee_email": "bjiao@linkedin.com",
+              "reporter_email": "xizhan@linkedin.com",
+              "assignee_changes": [
+                {
+                  "timestamp": "2025-07-22 19:19:41.012000 UTC",
+                  "to_assignee": "Bowen Jiao",
+                  "from_assignee": "Heagan Ahmed"
+                }
+              ],
+              "issue_description": "promote headless account  widget  to war Successful Holdem Execution:  https://flyte-prod.prod.linkedin.com/projects/widget-data-processing/domains/development/workflows/flows.widget_tracking_process_flow.process_widget_tracking_data_flow Iris plan:   ",
+              "status_transitions": [
+                {
+                  "to_state": "Closed",
+                  "timestamp": "2025-07-23 00:39:40.365000 UTC",
+                  "from_state": "Open"
+                }
+              ]
+            },
+            "itemType": "JiraActivity",
+            "createdAt": "2025-07-22T13:33:50Z",
+            "productID": 6,
+            "timeSpent": 0,
+            "updatedAt": "2025-08-11T05:21:18Z",
+            "itemStatus": "",
+            "description": "",
+            "additionalContext": ""
+          },
+          {
+            "id": 149931,
+            "tags": [
+              {
+                "id": 22945,
+                "name": "Quota_Request",
+                "teamID": 6,
+                "isGroup": false,
+                "description": "User hit an internal quota or service limit"
+              },
+              {
+                "id": 22948,
+                "name": "Monitoring_Gap",
+                "teamID": 6,
+                "isGroup": false,
+                "description": "Alerting was absent, delayed, or misleading"
+              }
+            ],
+            "title": "Grid - Other Grid Issue - 2025-07-22",
+            "content": {
+              "labels": "[ask_grid_sre, decision-grid, from-supportal, supportal-v1, supportal-v1-problem-type:askgridsre/other-grid-issue, supportal-v1-version:0.0.1401]",
+              "comments": [
+                {
+                  "created": "2025-07-22T12:02:41.168-0700",
+                  "updated": "2025-07-22T12:02:41.168-0700",
+                  "comment_body": "Alert on slack that keep happening",
+                  "commented_by": "Abdullah Siddique"
+                },
+                {
+                  "created": "2025-07-22T12:50:22.625-0700",
+                  "updated": "2025-07-22T12:50:22.625-0700",
+                  "comment_body": "The alert is firing for path /user/follrecs",
+                  "commented_by": "Bowen Jiao"
+                },
+                {
+                  "created": "2025-07-22T12:02:02.266-0700",
+                  "updated": "2025-07-22T12:02:02.266-0700",
+                  "comment_body": "Keep getting quota issue eventhoug not near limit",
+                  "commented_by": "Abdullah Siddique"
+                }
+              ],
+              "priority": "Unspecified",
+              "issue_key": "APA-131564",
+              "created_ts": "2025-07-22T19:00:36.654+05:30",
+              "issue_title": "Grid - Other Grid Issue - 2025-07-22",
+              "resolved_ts": "2025-07-23T01:19:15.63Z",
+              "project_name": "APA Support Project",
+              "assignee_name": "Bowen Jiao",
+              "reporter_name": "Abdullah Siddique",
+              "assignee_email": "bjiao@linkedin.com",
+              "reporter_email": "absiddique@linkedin.com",
+              "assignee_changes": [],
+              "issue_description": "Browser: NA Hadoop Job Link: NA Cluster name: HOLDEM Error Message: KEEP GETTING NSQUOTA ALERT Nested Titles: Grid / Other Grid Issue",
+              "status_transitions": [
+                {
+                  "to_state": "Closed",
+                  "timestamp": "2025-07-23 01:19:15.659000 UTC",
+                  "from_state": "Open"
+                }
+              ]
+            },
+            "itemType": "JiraActivity",
+            "createdAt": "2025-07-22T13:30:37Z",
+            "productID": 6,
+            "timeSpent": 0,
+            "updatedAt": "2025-08-11T05:21:18Z",
+            "itemStatus": "",
+            "description": "",
+            "additionalContext": ""
+          }
+        ],
+        "Groups": [
+          {
+            "ItemsList": [
+              149925,
+              149926,
+              149927,
+              149928
+            ],
+            "GroupMetaData": {
+              "Actions": "JIRA workflow improvements: [1] Streamline triage processes with automation [2] Implement deduplication mechanisms for similar tickets [3] Introduce Priority fields to clarify issue urgency [4] Expand team collaboration and documentation standards [5] Address systemic causes of recurring quota and infra-related issues through project enhancements.",
+              "GroupID": 22949,
+              "Insight": "JIRA process intelligence: [1] Issue triage and assignment effectiveness [2] Workflow transition patterns and bottlenecks [3] Team collaboration and handoff quality [4] Recurring issue themes and root causes [5] Resolution time distribution and efficiency patterns",
+              "Summary": "JIRA workflow summary: Overall issue management efficiency, team coordination patterns, and workflow bottlenecks for this issue group",
+              "GroupName": "Tag: LongResolution",
+              "GroupDescription": "Issues tagged with 'LongResolution', occurred 4 times"
+            }
+          },
+          {
+            "ItemsList": [
+              149925,
+              149926,
+              149929
+            ],
+            "GroupMetaData": {
+              "Actions": "JIRA workflow improvements: [1] Process optimization recommendations: Introduce stricter SLAs for resolution and triage, especially for 'Unspecified' priority issues. [2] Workflow configuration changes: Automate tagging and prioritization for recurring tags like 'Quota_Request' to streamline ticket triage. [3] Team coordination enhancements: Provide pre-handoff summary or knowledge transfer for off-hours issues to reduce delays in off-call handling. [4] Issue prevention strategies: Perform root cause analysis for 'Quota_Request' to prevent repetitive access-related issues. Focus on identifying high-frequency queries and automating their resolution.",
+              "GroupID": 22950,
+              "Insight": "JIRA process intelligence: [1] Issue triage and assignment effectiveness: All issues were categorized and assigned within the same day they were created, but there are inefficiencies in prioritization (e.g., 'Unspecified' priorities create ambiguity). [2] Workflow transition patterns and bottlenecks: Open statuses lingering without transitions suggest delays in resolution momentum, especially for Issues 1 and 2. [3] Team collaboration and handoff quality: Medium complexity and off-hours creation for Issues 1 and 2 may indicate poor handoff preparation for oncall teams. [4] Recurring issue themes and root causes: Recurring 'Quota_Request' tags highlight recurring access management challenges. Similar topics across Issues 1 and 2 may represent duplicated efforts. [5] Resolution time distribution and efficiency patterns: While Issue 3 was resolved within 5 hours, extended investigation hints at inefficient escalations or unclear ownership, which may increase toil.",
+              "Summary": "JIRA workflow summary: Overall issue management efficiency, team coordination patterns, and workflow bottlenecks for this issue group",
+              "GroupName": "Tag: Access_Request",
+              "GroupDescription": "Issues tagged with 'Access_Request', occurred 3 times"
+            }
+          },
+          {
+            "ItemsList": [
+              149925,
+              149926,
+              149928,
+              149931
+            ],
+            "GroupMetaData": {
+              "Actions": "",
+              "GroupID": 22951,
+              "Insight": "",
+              "Summary": "",
+              "GroupName": "Tag: Quota_Request",
+              "GroupDescription": "Issues tagged with 'Quota_Request', occurred 4 times"
+            }
+          }
+        ],
+        "summaryType": "system_daily_v0"
+      },
+      "summaryType": "system_daily_v0",
+      "endTimestamp": 1753234200,
+      "startTimestamp": 1753191000
+    },
+    {
+      "id": 3292,
+      "teamID": 6,
+      "teamName": "gridsre",
+      "createdAt": "2025-08-11T05:22:18Z",
+      "hashValue": "",
+      "isCurrent": true,
+      "versionId": "af64e5d7-9129-419a-a8e8-9a2f0ea6af1d",
+      "contentJSON": {
+        "Items": [
+          {
+            "id": 149947,
+            "tags": [
+              {
+                "id": 22932,
+                "name": "LongResolution",
+                "teamID": 6,
+                "isGroup": false,
+                "description": "Long resolution time "
+              },
+              {
+                "id": 22936,
+                "name": "Access_Request",
+                "teamID": 6,
+                "isGroup": false,
+                "description": "Request for access or permissions to internal systems"
+              }
+            ],
+            "title": "Requesting the node for Trino's NSS migration in prod-lva1",
+            "content": {
+              "labels": "",
+              "comments": [
+                {
+                  "created": "2025-07-28T09:07:55.941-0700",
+                  "updated": "2025-07-28T09:07:55.941-0700",
+                  "comment_body": "Machines to be returned ➜  trino-acm git:(jranderi/use-atd) ergo %inops.allocation.pool.lps_k8s_0_trino | grep  'lva'\nlva1-hcl24431.grid.linkedin.com\nlva1-hcl24432.grid.linkedin.com\nlva1-hcl24444.grid.linkedin.com\nlva1-hcl24446.grid.linkedin.com\nlva1-hcl24451.grid.linkedin.com\nlva1-hcl24454.grid.linkedin.com\nlva1-hcl24461.grid.linkedin.com\nlva1-hcl24463.grid.linkedin.com\nlva1-hcl24466.grid.linkedin.com\nlva1-hcl24468.grid.linkedin.com\nlva1-hcl24473.grid.linkedin.com\nlva1-hcl24479.grid.linkedin.com\nlva1-hcl24483.grid.linkedin.com\nlva1-hcl24528.grid.linkedin.com\nlva1-hcl24537.grid.linkedin.com\nlva1-hcl24544.grid.linkedin.com\nlva1-hcl24548.grid.linkedin.com\nlva1-hcl24552.grid.linkedin.com\nlva1-hcl24553.grid.linkedin.com\nlva1-hcl24576.grid.linkedin.com\nlva1-hcl24578.grid.linkedin.com\nlva1-hcl24584.grid.linkedin.com\nlva1-hcl24587.grid.linkedin.com\nlva1-hcl24588.grid.linkedin.com\nlva1-hcl24609.grid.linkedin.com",
+                  "commented_by": "Jalpan Randeri"
+                },
+                {
+                  "created": "2025-07-31T10:17:11.030-0700",
+                  "updated": "2025-07-31T10:17:11.030-0700",
+                  "comment_body": "@Slim Bouguerra / @Jalpan Randeri Here is the hostlist https://inops.corp.linkedin.com/inops/devices/list?device_id=%3D%3D+2663962 The above list has 26 hosts (4 + 22 as per the ask) Just renamed Only pool remains unchanged and that will get changed while migrating to nimbus lva1-app181286.prod.linkedin.com\nlva1-app181288.prod.linkedin.com\nlva1-app181298.prod.linkedin.com\nlva1-app181302.prod.linkedin.com\nlva1-app181283.prod.linkedin.com\nlva1-app181301.prod.linkedin.com\nlva1-app181284.prod.linkedin.com\nlva1-app181296.prod.linkedin.com\nlva1-app181294.prod.linkedin.com\nlva1-app181290.prod.linkedin.com\nlva1-app181300.prod.linkedin.com\nlva1-app181278.prod.linkedin.com\nlva1-app181292.prod.linkedin.com\nlva1-app181287.prod.linkedin.com\nlva1-app181303.prod.linkedin.com\nlva1-app181297.prod.linkedin.com\nlva1-app181295.prod.linkedin.com\nlva1-app181279.prod.linkedin.com\nlva1-app181299.prod.linkedin.com\nlva1-app181285.prod.linkedin.com\nlva1-app181280.prod.linkedin.com\nlva1-app181281.prod.linkedin.com\nlva1-app181282.prod.linkedin.com\nlva1-app181293.prod.linkedin.com\nlva1-app181289.prod.linkedin.com\nlva1-app181291.prod.linkedin.com cc @Somnath Pal",
+                  "commented_by": "Hariharan S"
+                },
+                {
+                  "created": "2025-07-28T09:20:32.466-0700",
+                  "updated": "2025-07-28T09:20:32.466-0700",
+                  "comment_body": "Trino SKU in prod-lva1 ➜  trino-acm git:(jranderi/use-atd) nimbus cb nodeprofile show trino -f prod-lva1\nName:                               trino\nCM Profile:                         nimbus-general\nOS Distribution Version:            MARINER_2\nHardware Profile:                   SKU List: [ServerSku_C4a_64C_512GB_3p2T, ServerSku_C4a_64C_512GB_6p4T, ServerSku_C4a_64C_512GB_12T]\nDisk Profile:                       Disk profile is not set\nRequire Same Subnet:                false\n➜  trino-acm git:(jranderi/use-atd)",
+                  "commented_by": "Jalpan Randeri"
+                }
+              ],
+              "priority": "Unspecified",
+              "issue_key": "GRID-287837",
+              "created_ts": "2025-07-23T23:36:23.571+05:30",
+              "issue_title": "Requesting the node for Trino's NSS migration in prod-lva1",
+              "resolved_ts": "0001-01-01T00:00:00Z",
+              "project_name": "GRID",
+              "assignee_name": "Hariharan S",
+              "reporter_name": "Jalpan Randeri",
+              "assignee_email": "hsivaprakash@linkedin.com",
+              "reporter_email": "jranderi@linkedin.com",
+              "assignee_changes": [],
+              "issue_description": "Hello Grid Team,  Trino team is planning prod-lva1 migration. However, We do not have spare machines to perform this migration thus requesting machines for it.  NSS Details: Trino cluster: war01 product-tag:  war01-coordinator nss-pool:   prod-lva1.k8s-34.trino-4fce9 count:  2 product-tag:  war01-worker nss-pool:  prod-lva1.k8s-35.trino-4fce9 count:  9 Trino cluster: war02 product-tag:  war02-coordinator nss-pool:  prod-lva1.k8s-1.trino-4fce9 count:  2 product-tag:  war02-worker nss-pool:  prod-lva1.k8s-36.trino-4fce9 count:  9 Additional 4 machines for the trino-war-preprod canary.",
+              "status_transitions": [
+                {
+                  "to_state": "In Progress",
+                  "timestamp": "2025-07-31 17:17:32.975000 UTC",
+                  "from_state": "Open"
+                }
+              ]
+            },
+            "itemType": "JiraActivity",
+            "createdAt": "2025-07-23T18:06:24Z",
+            "productID": 6,
+            "timeSpent": 0,
+            "updatedAt": "2025-08-11T05:22:17Z",
+            "itemStatus": "",
+            "description": "",
+            "additionalContext": ""
+          },
+          {
+            "id": 149948,
+            "tags": [
+              {
+                "id": 22952,
+                "name": "Infra_Deployment_Error",
+                "teamID": 6,
+                "isGroup": false,
+                "description": "Deployment failures causing infrastructure instability or downtime"
+              },
+              {
+                "id": 22953,
+                "name": "Integration_Failure",
+                "teamID": 6,
+                "isGroup": false,
+                "description": "Dependency between systems or services failed"
+              }
+            ],
+            "title": "Grid - Other Grid Issue - 2025-07-23",
+            "content": {
+              "labels": "[ask_grid_sre, decision-grid, from-supportal, supportal-v1, supportal-v1-problem-type:askgridsre/other-grid-issue, supportal-v1-version:0.0.1401]",
+              "comments": [
+                {
+                  "created": "2025-07-23T17:37:22.936-0700",
+                  "updated": "2025-07-23T17:37:22.936-0700",
+                  "comment_body": "Does the flow run successfully on Holdem?",
+                  "commented_by": "Bowen Jiao"
+                },
+                {
+                  "created": "2025-07-24T09:18:46.857-0700",
+                  "updated": "2025-07-24T09:18:46.857-0700",
+                  "comment_body": "It’s already promoted in",
+                  "commented_by": "Bowen Jiao"
+                },
+                {
+                  "created": "2025-07-24T09:10:04.670-0700",
+                  "updated": "2025-07-24T09:10:04.670-0700",
+                  "comment_body": "Yes example running .",
+                  "commented_by": "Aaron Xiong"
+                }
+              ],
+              "priority": "Unspecified",
+              "issue_key": "GRID-287956",
+              "created_ts": "2025-07-23T22:59:14.726+05:30",
+              "issue_title": "Grid - Other Grid Issue - 2025-07-23",
+              "resolved_ts": "2025-07-24T16:18:55.102Z",
+              "project_name": "GRID",
+              "assignee_name": "Bowen Jiao",
+              "reporter_name": "Amelia Lane",
+              "assignee_email": "bjiao@linkedin.com",
+              "reporter_email": "amlane@linkedin.com",
+              "assignee_changes": [],
+              "issue_description": "Browser: Onboarding Airflow DAGs to war Hadoop Job Link: Existing Holdem DAG:  https://holdem.oklahoma-airflow.grid.linkedin.com/dags/pacing-forecast_holdem5__tscp-revenue-forecast-offline/grid?root=&dag_run_id=scheduled__2025-07-22T09%3A00%3A00%2B00%3A00 War Dag:  https://war.oklahoma-airflow.grid.linkedin.com/log?dag_id=pacing-forecast_war__tscp-revenue-forecast-offline&task_id=forecast_group_pacing_forecast&execution_date=2025-07-23T22%3A30%3A26%2B00%3A00&map_index=-1 Iris plan : We have email notification enabled for the above DAG on war via IRIS notification callbacks. Cluster name: war Error Message: 'com.linkedin.mufn.common.exception.GridGatewayUserException: Failed to get hadoop tokens! Unable to fetch token from KSudocom.linkedin.ksudo.client.KSudoAuthenticationException: Ksudo authenticate  to service [lva1-mahjong|HCAT, lva1-war|HDFS, lva1-mahjong|JH, lva1-mahjong|RM, lva1-mahjong|HDFS, lva1-mahjong|OPENHOUSE]failed for user: rfcst Nested Titles: Grid / Other Grid Issue",
+              "status_transitions": [
+                {
+                  "to_state": "Closed",
+                  "timestamp": "2025-07-24 16:18:55.142000 UTC",
+                  "from_state": "Open"
+                }
+              ]
+            },
+            "itemType": "JiraActivity",
+            "createdAt": "2025-07-23T17:29:15Z",
+            "productID": 6,
+            "timeSpent": 0,
+            "updatedAt": "2025-08-11T05:22:17Z",
+            "itemStatus": "",
+            "description": "",
+            "additionalContext": ""
+          },
+          {
+            "id": 149949,
+            "tags": [
+              {
+                "id": 22932,
+                "name": "LongResolution",
+                "teamID": 6,
+                "isGroup": false,
+                "description": "Long resolution time "
+              },
+              {
+                "id": 22954,
+                "name": "Data_Quality_Issue",
+                "teamID": 6,
+                "isGroup": false,
+                "description": "Corrupt, missing, or incorrect data in tables, APIs, or schemas"
+              }
+            ],
+            "title": "Grid - Other Grid Issue - 2025-07-23",
+            "content": {
+              "labels": "[ask_grid_sre, decision-grid, from-supportal, supportal-v1, supportal-v1-problem-type:askgridsre/other-grid-issue, supportal-v1-version:0.0.1401]",
+              "comments": [
+                {
+                  "created": "2025-07-25T09:05:34.915-0700",
+                  "updated": "2025-07-25T09:05:34.915-0700",
+                  "comment_body": "Thank you @Bowen Jiao ! Are you able to share this dataset name with me? I’d like to verify that before this change Jobs_Model_Training",
+                  "commented_by": "Patrick Stetz"
+                },
+                {
+                  "created": "2025-07-23T12:59:17.173-0700",
+                  "updated": "2025-07-23T12:59:17.173-0700",
+                  "comment_body": "",
+                  "commented_by": "Patrick Stetz"
+                },
+                {
+                  "created": "2025-07-25T10:26:57.510-0700",
+                  "updated": "2025-07-25T10:26:57.510-0700",
+                  "comment_body": "Thank you! This resolves my ask. Closing the ticket",
+                  "commented_by": "Patrick Stetz"
+                },
+                {
+                  "created": "2025-07-24T17:11:45.260-0700",
+                  "updated": "2025-07-24T17:11:45.260-0700",
+                  "comment_body": "We have a dataset that dumps the account info every day. We found the Purpose was changed recently: 62\t2025-07-21-00\tjss\tJobs_Model_Training\n63\t2025-07-22-00\tjss\tJobs_Model_Training\n64\t2025-07-23-00\tjss\tInternal_Analytics_And_Reporting",
+                  "commented_by": "Bowen Jiao"
+                },
+                {
+                  "created": "2025-07-24T16:11:34.290-0700",
+                  "updated": "2025-07-24T16:11:34.290-0700",
+                  "comment_body": "Hi @Bowen Jiao",
+                  "commented_by": "Patrick Stetz"
+                },
+                {
+                  "created": "2025-07-25T09:57:29.082-0700",
+                  "updated": "2025-07-25T09:57:29.082-0700",
+                  "comment_body": "Should be this one: u_gridldap.headless",
+                  "commented_by": "Bowen Jiao"
+                }
+              ],
+              "priority": "Unspecified",
+              "issue_key": "APA-131654",
+              "created_ts": "2025-07-23T19:57:39.455+05:30",
+              "issue_title": "Grid - Other Grid Issue - 2025-07-23",
+              "resolved_ts": "0001-01-01T00:00:00Z",
+              "project_name": "APA Support Project",
+              "assignee_name": "Bowen Jiao",
+              "reporter_name": "Patrick Stetz",
+              "assignee_email": "bjiao@linkedin.com",
+              "reporter_email": "pstetz@linkedin.com",
+              "assignee_changes": [],
+              "issue_description": "Browser: N/A Hadoop Job Link: N/A Cluster name: N/A Error Message: Our team has a headless account,  jss . How do we see any changes to the \"Account Purpose\" over time? Nested Titles: Grid / Other Grid Issue",
+              "status_transitions": [
+                {
+                  "to_state": "Resolved",
+                  "timestamp": "2025-07-25 17:27:00.357000 UTC",
+                  "from_state": "Open"
+                }
+              ]
+            },
+            "itemType": "JiraActivity",
+            "createdAt": "2025-07-23T14:27:39Z",
+            "productID": 6,
+            "timeSpent": 0,
+            "updatedAt": "2025-08-11T05:22:17Z",
+            "itemStatus": "",
+            "description": "",
+            "additionalContext": ""
+          }
+        ],
+        "Groups": [
+          {
+            "ItemsList": [
+              149947,
+              149949
+            ],
+            "GroupMetaData": {
+              "Actions": "",
+              "GroupID": 22944,
+              "Insight": "",
+              "Summary": "",
+              "GroupName": "Tag: LongResolution",
+              "GroupDescription": "Issues tagged with 'LongResolution', occurred 2 times"
+            }
+          }
+        ],
+        "summaryType": "system_daily_v0"
+      },
+      "summaryType": "system_daily_v0",
+      "endTimestamp": 1753320600,
+      "startTimestamp": 1753277400
+    },
+    {
+      "id": 3293,
+      "teamID": 6,
+      "teamName": "gridsre",
+      "createdAt": "2025-08-11T05:23:04Z",
+      "hashValue": "",
+      "isCurrent": true,
+      "versionId": "b455de34-b4db-4711-b03b-22d5ec40b995",
+      "contentJSON": {
+        "Items": [
+          {
+            "id": 149953,
+            "tags": [
+              {
+                "id": 22938,
+                "name": "Config_Error",
+                "teamID": 6,
+                "isGroup": false,
+                "description": "Misconfiguration led to outage or degraded service"
+              },
+              {
+                "id": 22952,
+                "name": "Infra_Deployment_Error",
+                "teamID": 6,
+                "isGroup": false,
+                "description": "Deployment failures causing infrastructure instability or downtime"
+              }
+            ],
+            "title": "Promote headless account riioffline to war",
+            "content": {
+              "labels": "[ask_grid_sre, decision-grid, from-supportal, supportal-v1, supportal-v1-problem-type:askgridsre/other-grid-issue, supportal-v1-version:0.0.1402]",
+              "comments": [
+                {
+                  "created": "2025-07-24T05:05:26.960-0700",
+                  "updated": "2025-07-24T05:05:26.960-0700",
+                  "comment_body": "Done will be provisioned in sometime: Thanks !!",
+                  "commented_by": "Hariharan S"
+                }
+              ],
+              "priority": "Unspecified",
+              "issue_key": "APA-131695",
+              "created_ts": "2025-07-24T09:52:44.001+05:30",
+              "issue_title": "Promote headless account riioffline to war",
+              "resolved_ts": "2025-07-24T12:05:35.69Z",
+              "project_name": "APA Support Project",
+              "assignee_name": "Hariharan S",
+              "reporter_name": "Ayush Gupta",
+              "assignee_email": "hsivaprakash@linkedin.com",
+              "reporter_email": "aygupta@linkedin.com",
+              "assignee_changes": [],
+              "issue_description": "We started running one of our offline flows in war yesterday and it failed with the reason that ksudo is not able to impersonate as the headless account. Going through the slack threads, it seems like the headless account needs to be promoted to war. Following  this  wiki, below are the relevant required details. Successful holdem job link:  https://holdem.oklahoma-airflow.grid.linkedin.com/dags/OfflineFlowReporting_holdem5__talent-intelligence-hadoop/grid Iris plan link: rii_offline_oklahoma_low_priority War dag code link:  https://jarvis.corp.linkedin.com/codesearch/result/?name=OfflineFlowReporting_war__talent-intelligence-hadoop.py&path=talent-intelligence-hadoop%2Ftalent_intelligence_hadoop_airflow%2Fsrc%2Ftalent_intelligence_hadoop%2Ftalent_intelligence_hadoop_airflow%2Fwar&reponame=linkedin-multiproduct%2Ftalent-intelligence-hadoop Failed War Job Link: https://war.oklahoma-airflow.grid.linkedin.com/dags/OfflineFlowReporting_war__talent-intelligence-hadoop/grid?dag_run_id=scheduled__2025-07-22T23%3A00%3A00%2B00%3A00&task_id=create_offline_flow_report&map_index=-1&tab=logs Cluster name: war Error Message: Caused by: com.linkedin.ksudo.client.KSudoAuthenticationException: Ksudo authenticate  to service [lva2-atlas|HCAT, lva1-war|HCAT, lva2-atlas|JH, lva2-atlas|RM, lva2-atlas|HDFS, lva2-atlas|OPENHOUSE, lva1-war|HDFS]failed for user: riioffline, exception: Client-side error com.linkedin.restli.client.RestLiResponseException: Response status 403, serviceErrorMessage: Failed to fetch credential for located services lva2-atlas|HCAT: java.io.IOException: MetaException(message:org.apache.hadoop.security.authorize.AuthorizationException: User: ksudo@GRID.LINKEDIN.COM is not allowed to impersonate riioffline/mu_grid2_spark_6bff6292-6556-4ad1-af72-5257e0f1181e@GRID.LINKEDIN.COM) encountered Nested Titles: Grid / Other Grid Issue",
+              "status_transitions": [
+                {
+                  "to_state": "Closed",
+                  "timestamp": "2025-07-24 12:05:35.730000 UTC",
+                  "from_state": "Open"
+                }
+              ]
+            },
+            "itemType": "JiraActivity",
+            "createdAt": "2025-07-24T04:22:44Z",
+            "productID": 6,
+            "timeSpent": 0,
+            "updatedAt": "2025-08-11T05:23:03Z",
+            "itemStatus": "",
+            "description": "",
+            "additionalContext": ""
+          }
+        ],
+        "Groups": null,
+        "summaryType": "system_daily_v0"
+      },
+      "summaryType": "system_daily_v0",
+      "endTimestamp": 1753363800,
+      "startTimestamp": 1753320600
+    }
+  ],
+  "insightMetrics": {
+    "ecdf": [
+      5,
+      5,
+      5,
+      5,
+      5,
+      336,
+      665,
+      1369,
+      3188,
+      20387
+    ],
+    "count": 34,
+    "totalTimeSpent": 77464,
+    "timeSpentBucket": {
+      "0": 18,
+      "4": 16
+    },
+    "averageTimeSpent": 2278
+  }
+}
+ 

@@ -40,7 +40,7 @@ export default function TagAnalytics({ data }: TagAnalyticsProps) {
       } else {
         // Handle untagged items
         if (!tagMap.has('Untagged')) {
-          tagMap.set('Untagged', {
+          tagMap.set('Un tagged', {
             count: 0,
             items: [],
             assignees: new Set(),

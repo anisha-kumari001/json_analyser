@@ -1,0 +1,406 @@
+import { useState } from 'react';
+import { 
+  BarChart3, 
+  FileJson, 
+  Search, 
+  Tags, 
+  Target, 
+  Calendar,
+  Filter,
+  Download,
+  Menu,
+  X,
+  ChevronDown,
+  Settings
+} from 'lucide-react';
+
+// Default sample JSON data
+const defaultSampleData = {
+  "summaryType": "system_jira_retrospective_v0",
+  "dailySummaries": [
+    {
+      "id": 3136,
+      "teamID": 6,
+      "teamName": "gridsre",
+      "createdAt": "2025-08-10T03:53:03Z",
+      "contentJSON": {
+        "Items": [
+          {
+            "id": 148817,
+            "tags": [
+              {
+                "id": 22626,
+                "name": "Config_Error",
+                "teamID": 6,
+                "isGroup": false,
+                "description": "Misconfiguration led to outage or degraded service"
+              },
+              {
+                "id": 22628,
+                "name": "Access_Request",
+                "teamID": 6,
+                "isGroup": false,
+                "description": "Request for access or permissions to internal systems"
+              }
+            ],
+            "title": "Promote headless account riioffline to war",
+            "content": {
+              "priority": "Unspecified",
+              "issue_key": "APA-131695",
+              "created_ts": "2025-07-24T09:52:44.001+05:30",
+              "issue_title": "Promote headless account riioffline to war",
+              "resolved_ts": "2025-07-24T12:05:35.69Z",
+              "assignee_name": "Hariharan S",
+              "reporter_name": "Ayush Gupta",
+              "status_transitions": [
+                {
+                  "to_state": "Closed",
+                  "timestamp": "2025-07-24 12:05:35.730000 UTC",
+                  "from_state": "Open"
+                }
+              ]
+            },
+            "itemType": "JiraActivity",
+            "createdAt": "2025-07-24T04:22:44Z"
+          }
+        ]
+      }
+    }
+  ]
+};
+
+function App() {
+  const [activeTab, setActiveTab] = useState('dashboard');
+  const [jsonData, setJsonData] = useState(defaultSampleData);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+
+  const tabs = [
+    { id: 'dashboard', name: 'Dashboard', icon: BarChart3 },
+    { id: 'overview', name: 'Overview', icon: BarChart3 },
+    { id: 'issues', name: 'Issues', icon: Search },
+    { id: 'tags', name: 'Tags', icon: Tags },
+    { id: 'groups', name: 'Groups', icon: Target },
+    { id: 'json', name: 'Raw JSON', icon: Calendar },
+  ];
+
+  // Extract data for processing
+  const processedData = useMemo(() => {
+    let items: any[] = [];
+    
+    if ((jsonData as any)?.Items) {
+      items = (jsonData as any).Items;
+    } else if ((jsonData as any)?.dailySummaries) {
+      (jsonData as any).dailySummaries.forEach((summary: any) => {
+        if (summary.contentJSON?.Items) {
+          items = [...items, ...summary.contentJSON.Items];
+        }
+      });
+    }
+
+    return { items };
+  }, [jsonData]);
+
+  // Sidebar Component
+  const Sidebar = () => (
+    <div className={`fixed inset-y-0 left-0 z-50 w-64 bg-white shadow-lg transform ${
+      sidebarOpen ? 'translate-x-0' : '-translate-x-full'
+    } transition-transform duration-300 ease-in-out lg:translate-x-0 lg:static lg:inset-0`}>
+      <div className="flex items-center justify-between h-16 px-6 border-b border-gray-200">
+        <h2 className="text-lg font-semibold text-gray-900">Filters</h2>
+        <button
+          onClick={() => setSidebarOpen(false)}
+          className="lg:hidden p-2 rounded-md text-gray-400 hover:text-gray-500"
+        >
+          <X className="w-5 h-5" />
+        </button>
+      </div>
+      
+      <div className="p-6 space-y-6">
+        {/* Date Range Filter */}
+        <div>
+          <label className="block text-sm font-medium text-gray-700 mb-2">
+            Date Range
+          </label>
+          <select className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+            <option>Last 7 days</option>
+            <option>Last 30 days</option>
+            <option>Last 90 days</option>
+            <option>Custom range</option>
+          </select>
+        </div>
+
+        {/* Status Filter */}
+        <div>
+          <label className="block text-sm font-medium text-gray-700 mb-2">
+            Status
+          </label>
+          <div className="space-y-2">
+            {['All', 'Open', 'Resolved', 'Closed'].map((status) => (
+              <label key={status} className="flex items-center">
+                <input type="checkbox" className="rounded border-gray-300 text-blue-600 mr-2" />
+                <span className="text-sm text-gray-700">{status}</span>
+              </label>
+            ))}
+          </div>
+        </div>
+
+        {/* Priority Filter */}
+        <div>
+          <label className="block text-sm font-medium text-gray-700 mb-2">
+            Priority
+          </label>
+          <div className="space-y-2">
+            {['High', 'Medium', 'Low', 'Unspecified'].map((priority) => (
+              <label key={priority} className="flex items-center">
+                <input type="checkbox" className="rounded border-gray-300 text-blue-600 mr-2" />
+                <span className="text-sm text-gray-700">{priority}</span>
+              </label>
+            ))}
+          </div>
+        </div>
+
+        {/* Tags Filter */}
+        <div>
+          <label className="block text-sm font-medium text-gray-700 mb-2">
+            Tags
+          </label>
+          <input 
+            type="text" 
+            placeholder="Search tags..."
+            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
+        </div>
+
+        {/* Assignee Filter */}
+        <div>
+          <label className="block text-sm font-medium text-gray-700 mb-2">
+            Assignee
+          </label>
+          <select className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+            <option>All assignees</option>
+            <option>Hariharan S</option>
+            <option>Unassigned</option>
+          </select>
+        </div>
+
+        {/* Apply Filters Button */}
+        <div className="pt-4">
+          <button className="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
+            Apply Filters
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+
+  // Top Bar Component
+  const TopBar = () => (
+    <div className="bg-white shadow-sm border-b border-gray-200">
+      <div className="px-6 py-4">
+        <div className="flex items-center justify-between">
+          <div className="flex items-center">
+            <button
+              onClick={() => setSidebarOpen(true)}
+              className="lg:hidden p-2 rounded-md text-gray-400 hover:text-gray-500 mr-4"
+            >
+              <Menu className="w-5 h-5" />
+            </button>
+            <div>
+              <h1 className="text-2xl font-bold text-gray-900">JSON Analysis Dashboard</h1>
+              <p className="text-sm text-gray-600">JIRA Activity Data Intelligence</p>
+            </div>
+          </div>
+          
+          <div className="flex items-center space-x-3">
+            <button className="inline-flex items-center px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50">
+              <Download className="w-4 h-4 mr-2" />
+              Export
+            </button>
+            <button className="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded-md shadow-sm text-sm font-medium hover:bg-blue-700">
+              <Settings className="w-4 h-4 mr-2" />
+              Settings
+            </button>
+          </div>
+        </div>
+
+        {/* Tab Navigation */}
+        <div className="mt-6">
+          <nav className="flex space-x-8">
+            {tabs.map((tab) => (
+              <button
+                key={tab.id}
+                onClick={() => setActiveTab(tab.id)}
+                className={`flex items-center gap-2 py-2 px-1 border-b-2 font-medium text-sm transition-colors ${
+                  activeTab === tab.id
+                    ? 'border-blue-500 text-blue-600'
+                    : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
+                }`}
+              >
+                <tab.icon className="w-4 h-4" />
+                {tab.name}
+              </button>
+            ))}
+          </nav>
+        </div>
+      </div>
+    </div>
+  );
+
+  // Main Content Area Component
+  const MainContent = () => (
+    <div className="flex-1 p-6">
+      {activeTab === 'dashboard' && (
+        <div className="space-y-6">
+          {/* KPI Cards Row */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[
+              { title: 'Total Items', value: '124', change: '+12%', color: 'blue' },
+              { title: 'Resolved', value: '89', change: '+8%', color: 'green' },
+              { title: 'Open', value: '35', change: '-5%', color: 'yellow' },
+              { title: 'Overdue', value: '7', change: '+2', color: 'red' },
+            ].map((kpi, index) => (
+              <div key={index} className="bg-white rounded-lg shadow p-6">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <p className="text-sm font-medium text-gray-600">{kpi.title}</p>
+                    <p className="text-3xl font-bold text-gray-900">{kpi.value}</p>
+                  </div>
+                  <div className={`p-3 rounded-full bg-${kpi.color}-100`}>
+                    <BarChart3 className={`w-6 h-6 text-${kpi.color}-600`} />
+                  </div>
+                </div>
+                <div className="mt-4">
+                  <span className={`text-sm ${kpi.change.startsWith('+') ? 'text-green-600' : 'text-red-600'}`}>
+                    {kpi.change}
+                  </span>
+                  <span className="text-sm text-gray-500 ml-1">from last month</span>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Charts Row */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            {/* Chart Placeholder 1 */}
+            <div className="bg-white rounded-lg shadow p-6">
+              <h3 className="text-lg font-semibold text-gray-900 mb-4">Weekly Trends</h3>
+              <div className="h-64 flex items-center justify-center bg-gray-50 rounded-lg border-2 border-dashed border-gray-300">
+                <div className="text-center">
+                  <BarChart3 className="w-12 h-12 text-gray-400 mx-auto mb-4" />
+                  <p className="text-gray-500">Chart will be rendered here</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Chart Placeholder 2 */}
+            <div className="bg-white rounded-lg shadow p-6">
+              <h3 className="text-lg font-semibold text-gray-900 mb-4">Priority Distribution</h3>
+              <div className="h-64 flex items-center justify-center bg-gray-50 rounded-lg border-2 border-dashed border-gray-300">
+                <div className="text-center">
+                  <Target className="w-12 h-12 text-gray-400 mx-auto mb-4" />
+                  <p className="text-gray-500">Pie chart will be rendered here</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Table Section */}
+          <div className="bg-white rounded-lg shadow">
+            <div className="px-6 py-4 border-b border-gray-200">
+              <h3 className="text-lg font-semibold text-gray-900">Recent Items</h3>
+            </div>
+            <div className="overflow-x-auto">
+              <table className="min-w-full divide-y divide-gray-200">
+                <thead className="bg-gray-50">
+                  <tr>
+                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      Title
+                    </th>
+                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      Status
+                    </th>
+                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      Assignee
+                    </th>
+                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      Priority
+                    </th>
+                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      Created
+                    </th>
+                  </tr>
+                </thead>
+                <tbody className="bg-white divide-y divide-gray-200">
+                  {/* Table rows placeholder */}
+                  {[1, 2, 3, 4, 5].map((i) => (
+                    <tr key={i} className="hover:bg-gray-50">
+                      <td className="px-6 py-4 whitespace-nowrap">
+                        <div className="text-sm font-medium text-gray-900">
+                          Sample Item {i}
+                        </div>
+                      </td>
+                      <td className="px-6 py-4 whitespace-nowrap">
+                        <span className="inline-flex px-2 py-1 text-xs font-semibold rounded-full bg-green-100 text-green-800">
+                          Resolved
+                        </span>
+                      </td>
+                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                        John Doe
+                      </td>
+                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                        Medium
+                      </td>
+                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                        Aug 10, 2025
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Other tab content placeholders */}
+      {activeTab !== 'dashboard' && (
+        <div className="bg-white rounded-lg shadow p-6">
+          <h3 className="text-xl font-semibold text-gray-900 mb-4">
+            {tabs.find(tab => tab.id === activeTab)?.name}
+          </h3>
+          <div className="h-64 flex items-center justify-center bg-gray-50 rounded-lg border-2 border-dashed border-gray-300">
+            <div className="text-center">
+              <FileJson className="w-12 h-12 text-gray-400 mx-auto mb-4" />
+              <p className="text-gray-500">Content for {activeTab} will be implemented here</p>
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+
+  return (
+    <div className="flex h-screen bg-gray-100">
+      {/* Sidebar */}
+      <Sidebar />
+      
+      {/* Sidebar overlay for mobile */}
+      {sidebarOpen && (
+        <div 
+          className="fixed inset-0 z-40 bg-black bg-opacity-50 lg:hidden"
+          onClick={() => setSidebarOpen(false)}
+        />
+      )}
+
+      {/* Main content */}
+      <div className="flex-1 flex flex-col overflow-hidden">
+        <TopBar />
+        <div className="flex-1 overflow-y-auto">
+          <MainContent />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default App;

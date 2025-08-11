@@ -1,0 +1,1507 @@
+import { useState } from 'react';
+
+// Default sample JSON data
+const defaultSampleData = {
+  "summaryType": "system_jira_retrospective_v0",
+  "dailySummaries": [
+    {
+      "id": 3136,
+      "teamID": 6,
+      "teamName": "gridsre",
+      "createdAt": "2025-08-10T03:53:03Z",
+      "hashValue": "",
+      "isCurrent": true,
+      "versionId": "be79be88-0e76-4086-848d-3beec8c4759c",
+      "contentJSON": {
+        "Items": [
+          {
+            "id": 148817,
+            "tags": [
+              {
+                "id": 22626,
+                "name": "Config_Error",
+                "teamID": 6,
+                "isGroup": false,
+                "description": "Misconfiguration led to outage or degraded service"
+              },
+              {
+                "id": 22628,
+                "name": "Access_Request",
+                "teamID": 6,
+                "isGroup": false,
+                "description": "Request for access or permissions to internal systems"
+              }
+            ],
+            "title": "Promote headless account riioffline to war",
+            "content": {
+              "labels": "[ask_grid_sre, decision-grid, from-supportal, supportal-v1, supportal-v1-problem-type:askgridsre/other-grid-issue, supportal-v1-version:0.0.1402]",
+              "comments": [
+                {
+                  "created": "2025-07-24T05:05:26.960-0700",
+                  "updated": "2025-07-24T05:05:26.960-0700",
+                  "comment_body": "Done will be provisioned in sometime: Thanks !!",
+                  "commented_by": "Hariharan S"
+                }
+              ],
+              "priority": "Unspecified",
+              "issue_key": "APA-131695",
+              "created_ts": "2025-07-24T09:52:44.001+05:30",
+              "issue_title": "Promote headless account riioffline to war",
+              "resolved_ts": "2025-07-24T12:05:35.69Z",
+              "project_name": "APA Support Project",
+              "assignee_name": "Hariharan S",
+              "reporter_name": "Ayush Gupta",
+              "assignee_email": "hsivaprakash@linkedin.com",
+              "reporter_email": "aygupta@linkedin.com",
+              "assignee_changes": [],
+              "issue_description": "We started running one of our offline flows in war yesterday and it failed with the reason that ksudo is not able to impersonate as the headless account. Going through the slack threads, it seems like the headless account needs to be promoted to war. Following  this  wiki, below are the relevant required details. Successful holdem job link:  https://holdem.oklahoma-airflow.grid.linkedin.com/dags/OfflineFlowReporting_holdem5__talent-intelligence-hadoop/grid Iris plan link: rii_offline_oklahoma_low_priority War dag code link:  https://jarvis.corp.linkedin.com/codesearch/result/?name=OfflineFlowReporting_war__talent-intelligence-hadoop.py&path=talent-intelligence-hadoop%2Ftalent_intelligence_hadoop_airflow%2Fsrc%2Ftalent_intelligence_hadoop%2Ftalent_intelligence_hadoop_airflow%2Fwar&reponame=linkedin-multiproduct%2Ftalent-intelligence-hadoop Failed War Job Link: https://war.oklahoma-airflow.grid.linkedin.com/dags/OfflineFlowReporting_war__talent-intelligence-hadoop/grid?dag_run_id=scheduled__2025-07-22T23%3A00%3A00%2B00%3A00&task_id=create_offline_flow_report&map_index=-1&tab=logs Cluster name: war Error Message: Caused by: com.linkedin.ksudo.client.KSudoAuthenticationException: Ksudo authenticate  to service [lva2-atlas|HCAT, lva1-war|HCAT, lva2-atlas|JH, lva2-atlas|RM, lva2-atlas|HDFS, lva2-atlas|OPENHOUSE, lva1-war|HDFS]failed for user: riioffline, exception: Client-side error com.linkedin.restli.client.RestLiResponseException: Response status 403, serviceErrorMessage: Failed to fetch credential for located services lva2-atlas|HCAT: java.io.IOException: MetaException(message:org.apache.hadoop.security.authorize.AuthorizationException: User: ksudo@GRID.LINKEDIN.COM is not allowed to impersonate riioffline/mu_grid2_spark_6bff6292-6556-4ad1-af72-5257e0f1181e@GRID.LINKEDIN.COM) encountered Nested Titles: Grid / Other Grid Issue",
+              "status_transitions": [
+                {
+                  "to_state": "Closed",
+                  "timestamp": "2025-07-24 12:05:35.730000 UTC",
+                  "from_state": "Open"
+                }
+              ]
+            },
+            "itemType": "JiraActivity",
+            "createdAt": "2025-07-24T04:22:44Z",
+            "productID": 6,
+            "timeSpent": 0,
+            "updatedAt": "2025-08-10T03:53:02Z",
+            "itemStatus": "",
+            "description": "",
+            "additionalContext": ""
+          }
+        ],
+        "Groups": null,
+        "summaryType": "system_daily_v0"
+      },
+      "summaryType": "system_daily_v0",
+      "endTimestamp": 1753363800,
+      "startTimestamp": 1753320600
+    },
+    {
+      "id": 3138,
+      "teamID": 6,
+      "teamName": "gridsre",
+      "createdAt": "2025-08-10T03:54:08Z",
+      "hashValue": "",
+      "isCurrent": true,
+      "versionId": "85495d20-44d1-4cc0-9a03-c6137aaa74d1",
+      "contentJSON": {
+        "Items": [
+          {
+            "id": 148829,
+            "tags": [
+              {
+                "id": 22626,
+                "name": "Config_Error",
+                "teamID": 6,
+                "isGroup": false,
+                "description": "Misconfiguration led to outage or degraded service"
+              },
+              {
+                "id": 22628,
+                "name": "Access_Request",
+                "teamID": 6,
+                "isGroup": false,
+                "description": "Request for access or permissions to internal systems"
+              }
+            ],
+            "title": "Grid - Other Grid Issue - 2025-07-24",
+            "content": {
+              "labels": "[ask_grid_sre, decision-grid, from-supportal, supportal-v1, supportal-v1-problem-type:askgridsre/other-grid-issue, supportal-v1-version:0.0.1402]",
+              "comments": [
+                {
+                  "created": "2025-07-24T15:02:06.340-0700",
+                  "updated": "2025-07-24T15:02:06.340-0700",
+                  "comment_body": "I removed the account and it worked! Thanks so much for the help!",
+                  "commented_by": "Letian Qin"
+                },
+                {
+                  "created": "2025-07-24T14:18:03.351-0700",
+                  "updated": "2025-07-24T14:18:35.318-0700",
+                  "comment_body": "Hi @Bowen Jiao Just adding more context here — I’m trying to submit a request to create a headless service account I’ve attached a screenshot of the error message for reference. Let me know if there’s anything I can adjust. Thanks so much!",
+                  "commented_by": "Letian Qin"
+                },
+                {
+                  "created": "2025-07-24T14:45:23.313-0700",
+                  "updated": "2025-07-24T14:45:23.313-0700",
+                  "comment_body": "{u'admins': [u'Account ramiyer does not exist.']} Please either remove this account from admin list",
+                  "commented_by": "Bowen Jiao"
+                }
+              ],
+              "priority": "Unspecified",
+              "issue_key": "APA-131733",
+              "created_ts": "2025-07-24T21:14:24.589+05:30",
+              "issue_title": "Grid - Other Grid Issue - 2025-07-24",
+              "resolved_ts": "2025-07-24T21:45:30.514Z",
+              "project_name": "APA Support Project",
+              "assignee_name": "Bowen Jiao",
+              "reporter_name": "Letian Qin",
+              "assignee_email": "bjiao@linkedin.com",
+              "reporter_email": "leqin@linkedin.com",
+              "assignee_changes": [],
+              "issue_description": "Browser: Chrome Hadoop Job Link: N/A Cluster name: Holdem - relevant to planned Trino use Error Message: Message: ERROR Error: Invalid request body. Nested Titles: Grid / Other Grid Issue",
+              "status_transitions": [
+                {
+                  "to_state": "Closed",
+                  "timestamp": "2025-07-24 21:45:30.569000 UTC",
+                  "from_state": "Open"
+                }
+              ]
+            },
+            "itemType": "JiraActivity",
+            "createdAt": "2025-07-24T15:44:25Z",
+            "productID": 6,
+            "timeSpent": 0,
+            "updatedAt": "2025-08-10T03:54:06Z",
+            "itemStatus": "",
+            "description": "",
+            "additionalContext": ""
+          },
+          {
+            "id": 148830,
+            "tags": [
+              {
+                "id": 22622,
+                "name": "LongResolution",
+                "teamID": 6,
+                "isGroup": false,
+                "description": "Long resolution time "
+              },
+              {
+                "id": 22628,
+                "name": "Access_Request",
+                "teamID": 6,
+                "isGroup": false,
+                "description": "Request for access or permissions to internal systems"
+              }
+            ],
+            "title": "A review needs to be conducted for your MSIT app [grid-temporal-cba-prod] - please action to ensure continued uptime",
+            "content": {
+              "labels": "[msit-sdl-review]",
+              "comments": [
+                {
+                  "created": "2025-08-05T08:28:59.722-0700",
+                  "updated": "2025-08-05T08:28:59.722-0700",
+                  "comment_body": "Please confirm whether the app is still needed and if you are the right owner. If the app is no longer needed please delete it and confirm here when done to close the ticket. If there are any issues processing the MSFT SPACE ticket page for assistance navigating. Any other questions please leave comments in the ticket here. Please note that the LinkedIn side due date for the completion of these activities is August 15th. MSFT will revoke permissions for any apps here that did not complete this process on August 31st.",
+                  "commented_by": "Eric Stoll"
+                },
+                {
+                  "created": "2025-07-31T22:50:16.612-0700",
+                  "updated": "2025-07-31T22:50:16.612-0700",
+                  "comment_body": "@Sri Harsha Vipparti lets delete this app if SSO isnot fixed yet",
+                  "commented_by": "Jabir Ahmed"
+                }
+              ],
+              "priority": "",
+              "issue_key": "SECACTN-1245",
+              "created_ts": "2025-07-24T20:18:40.558+05:30",
+              "issue_title": "A review needs to be conducted for your MSIT app [grid-temporal-cba-prod] - please action to ensure continued uptime",
+              "resolved_ts": "0001-01-01T00:00:00Z",
+              "project_name": "InfoSec Security Actions",
+              "assignee_name": "Sri Harsha Vipparti",
+              "reporter_name": "Shozub Qureshi",
+              "assignee_email": "svipparti@linkedin.com",
+              "reporter_email": "squreshi@linkedin.com",
+              "assignee_changes": [
+                {
+                  "timestamp": "2025-07-25 02:08:47.678000 UTC",
+                  "to_assignee": "Jabir Ahmed",
+                  "from_assignee": "Eric Stoll"
+                },
+                {
+                  "timestamp": "2025-08-01 05:49:29.647000 UTC",
+                  "to_assignee": "Sri Harsha Vipparti",
+                  "from_assignee": "Jabir Ahmed"
+                }
+              ],
+              "issue_description": "Issue: You are assigned this ticket because you are the owner of an Entra app in the Microsoft Corp tenant that requires a MSFT review and approval of assigned consented permissions. If the review is not completed by 8/31, your app risks Microsoft revoking the assigned permissions. Impact: By 8/31/2025 all apps without an approved review will have their permissions revoked and their online access removed which will likley cause servic disruption. Scope: This ticket scope specifically covers App ID (bd0674a4-1a1b-4599-9242-9482efcd5e34) with the display name (grid-temporal-cba-prod). Action Items : To proceed with this review, please: Confirm app status – Comment on this ticket to confirm if the app is still needed and if you're the right contact. If not needed, delete the app to close the ticket. If needed – LinkedIn InfoSec will review the app (see that there is a linked 'INFOSEC' ticket for confirmation this has started). Submit Admin Consent – Create a request in the MSFT SPACE tool (see instructions below).     a. Go to the SPACE tool at  https://spacetool.microsoft.com/     b. Sign in with your  linkedin.biz  credentials      c. Select Submit an Admin Consent Request             Fill out the form with the below required details: Is this assessment request related to MS Federal? (in most cases the answer is No) Entra ID Service Tree Name/ID (All Admin consent requests must be associated with a Service in ServiceTree. Find an existing Service tree or create new service at  https://microsoftservicetree.com/home# Business Justification",
+              "status_transitions": [
+                {
+                  "to_state": "Open",
+                  "timestamp": "2025-08-07 19:23:32.333000 UTC",
+                  "from_state": "Intake"
+                }
+              ]
+            },
+            "itemType": "JiraActivity",
+            "createdAt": "2025-07-24T14:48:41Z",
+            "productID": 6,
+            "timeSpent": 0,
+            "updatedAt": "2025-08-10T03:54:06Z",
+            "itemStatus": "",
+            "description": "",
+            "additionalContext": ""
+          },
+          {
+            "id": 148831,
+            "tags": [
+              {
+                "id": 22622,
+                "name": "LongResolution",
+                "teamID": 6,
+                "isGroup": false,
+                "description": "Long resolution time "
+              },
+              {
+                "id": 22628,
+                "name": "Access_Request",
+                "teamID": 6,
+                "isGroup": false,
+                "description": "Request for access or permissions to internal systems"
+              },
+              {
+                "id": 22630,
+                "name": "Quota_Request",
+                "teamID": 6,
+                "isGroup": false,
+                "description": "User hit an internal quota or service limit"
+              }
+            ],
+            "title": "Create Hadoop headless account - mstratfin",
+            "content": {
+              "labels": "",
+              "comments": [
+                {
+                  "created": "2025-08-04T11:41:32.968-0700",
+                  "updated": "2025-08-04T11:41:32.968-0700",
+                  "comment_body": "Request is automatically processed.",
+                  "commented_by": ""
+                },
+                {
+                  "created": "2025-08-04T11:02:28.629-0700",
+                  "updated": "2025-08-04T11:02:28.629-0700",
+                  "comment_body": "anchandr updated request in the queue. Updated fields: {'status': 'pending'}.                     Comment: Request is approved.",
+                  "commented_by": ""
+                },
+                {
+                  "created": "2025-08-04T11:14:16.611-0700",
+                  "updated": "2025-08-04T11:14:16.611-0700",
+                  "comment_body": "Reduced to default values of 3T + 20000 NS namespace",
+                  "commented_by": "Anupchandra Rao"
+                }
+              ],
+              "priority": "Minor",
+              "issue_key": "GRID-288061",
+              "created_ts": "2025-07-24T19:59:52.215+05:30",
+              "issue_title": "Create Hadoop headless account - mstratfin",
+              "resolved_ts": "2025-08-04T18:41:33.948Z",
+              "project_name": "GRID",
+              "assignee_name": "Anupchandra Rao",
+              "reporter_name": "Reshma Sara Pothen",
+              "assignee_email": "anchandrakanth@linkedin.com",
+              "reporter_email": "rpothen@linkedin.com",
+              "assignee_changes": [
+                {
+                  "timestamp": "2025-08-04 18:13:53.600000 UTC",
+                  "to_assignee": "Anupchandra Rao",
+                  "from_assignee": ""
+                }
+              ],
+              "issue_description": "Please allow up to 48 hours for this request to be processed. Self Service headless account creation request for  mstratfin : Description of Hadoop use case Primarily being used to store Monetization Strategic Finance's Member Monetization Profile (MMP). It is a comprehensive data pipeline that aggregates member-level metrics across LinkedIn's product lines by combining engagement data (inmails, job views, saved leads etc) with revenue attribution calculations to create a unified view of each member's monetization potential and product usage patterns. Initial /jobs Quotas 12TB space / 80000 namespace Options Enable Voldemort Usage? False Copy ACLs from account None Admins: ['rpothen', 'haoh', 'skregnes'] DMA Purpose: Internal_Analytics_And_Reporting Owning Crew ID: 4427",
+              "status_transitions": [
+                {
+                  "to_state": "Closed",
+                  "timestamp": "2025-08-04 18:41:33.996000 UTC",
+                  "from_state": "Open"
+                }
+              ]
+            },
+            "itemType": "JiraActivity",
+            "createdAt": "2025-07-24T14:29:52Z",
+            "productID": 6,
+            "timeSpent": 0,
+            "updatedAt": "2025-08-10T03:54:06Z",
+            "itemStatus": "",
+            "description": "",
+            "additionalContext": ""
+          }
+        ],
+        "Groups": [
+          {
+            "ItemsList": [
+              148830,
+              148831
+            ],
+            "GroupMetaData": {
+              "Actions": "",
+              "GroupID": 22633,
+              "Insight": "",
+              "Summary": "",
+              "GroupName": "Tag: LongResolution",
+              "GroupDescription": "Issues tagged with 'LongResolution', occurred 2 times"
+            }
+          },
+          {
+            "ItemsList": [
+              148829,
+              148830,
+              148831
+            ],
+            "GroupMetaData": {
+              "Actions": "",
+              "GroupID": 22634,
+              "Insight": "",
+              "Summary": "",
+              "GroupName": "Tag: Access_Request",
+              "GroupDescription": "Issues tagged with 'Access_Request', occurred 3 times"
+            }
+          }
+        ],
+        "summaryType": "system_daily_v0"
+      },
+      "summaryType": "system_daily_v0",
+      "endTimestamp": 1753407000,
+      "startTimestamp": 1753363800
+    },
+    {
+      "id": 3139,
+      "teamID": 6,
+      "teamName": "gridsre",
+      "createdAt": "2025-08-10T03:55:25Z",
+      "hashValue": "",
+      "isCurrent": true,
+      "versionId": "04255415-ade9-4e9b-9dfe-8c3e8bb90f03",
+      "contentJSON": {
+        "Items": [
+          {
+            "id": 148834,
+            "tags": [
+              {
+                "id": 22622,
+                "name": "LongResolution",
+                "teamID": 6,
+                "isGroup": false,
+                "description": "Long resolution time "
+              },
+              {
+                "id": 22635,
+                "name": "Feature_Request",
+                "teamID": 6,
+                "isGroup": false,
+                "description": "Request for a new capability or enhancement"
+              },
+              {
+                "id": 22636,
+                "name": "Documentation_Gap",
+                "teamID": 6,
+                "isGroup": false,
+                "description": "Missing or incorrect internal/external docs"
+              }
+            ],
+            "title": "Add Change History Tracking to Grid Queue Management UI",
+            "content": {
+              "labels": "[Grid-Autonomous-Fleet, decision-grid, from-supportal, supportal-onboarding, supportal-v1, supportal-v1-problem-type:askgridsre/gfuel-issues, supportal-v1-version:0.0.1402]",
+              "comments": [
+                {
+                  "created": "2025-07-28T18:28:35.188-0700",
+                  "updated": "2025-08-06T11:13:44.930-0700",
+                  "comment_body": "Evaluating this action item: 1. This feature request is not a site-up issue. 2. The main problem of the incident is the user didn’t follow/or not aware of the suggested ai queue onboarding method: being a member of the headless account ai_x that can generate the mapping for ai_x queue. That caused different admins hardcoded their mapping queues to different AI queues. GFuel team can help update the kk user onboarding wiki: https://supreme-sniffle-j8vqyyr.pages.github.io/docs/how-to-guides/update-user-queue-mapping to provide more context and troubleshooting tips. @Jabir Ahmed and @Nikhil Chauhan will work on it.  ETA TBD 3. Having the changelog for user queue mapping in selfservice operations is a nice-to-have feature @Charles Li is the POC. ETA is TBD. 4. Whether or how the changelog is showed up to UI depends on internal discussions for point 3. cc: @Youmin Han @Frank Gu @Heagan Ahmed @Chen Qiang",
+                  "commented_by": "Simin Wang"
+                },
+                {
+                  "created": "2025-08-06T11:22:19.091-0700",
+                  "updated": "2025-08-06T11:22:19.091-0700",
+                  "comment_body": "Agreed @Youmin Han perhaps we create an AI for UQM to track that item as critical?",
+                  "commented_by": "Frank Gu"
+                }
+              ],
+              "priority": "Critical",
+              "issue_key": "GRID-288325",
+              "created_ts": "2025-07-25T20:42:28.038+05:30",
+              "issue_title": "Add Change History Tracking to Grid Queue Management UI",
+              "resolved_ts": "0001-01-01T00:00:00Z",
+              "project_name": "GRID",
+              "assignee_name": "Nikhil Chauhan",
+              "reporter_name": "Youmin Han",
+              "assignee_email": "nchauhan@linkedin.com",
+              "reporter_email": "yohan@linkedin.com",
+              "assignee_changes": [
+                {
+                  "timestamp": "2025-08-06 18:11:57.882000 UTC",
+                  "to_assignee": "Jabir Ahmed",
+                  "from_assignee": "Simin Wang"
+                },
+                {
+                  "timestamp": "2025-08-07 06:04:31.298000 UTC",
+                  "to_assignee": "Nikhil Chauhan",
+                  "from_assignee": "Jabir Ahmed"
+                }
+              ],
+              "issue_description": "Currently, the Grid Queue Management UI ( https://www.grid.linkedin.com/yarnqueueshuffle#/rmhost/ltx1-holdemrm01.grid.linkedin.com ) does not display a changelog for queue updates. It’s unclear who made changes, when they were made, and what exactly was updated. It would be helpful to add functionality—either in the UI or as part of a logging mechanism—that tracks and displays the history of queue modifications for better visibility. Thanks!  Default Priority Select Form Element: Critical Affected Multiproduct(s): Stack trace or error output: Is this Issue Transient or Consistent?: Consistent Which Gfuel Service is this for?: Grid-Management-Api Curl/Call made: https://1.grid-management-api.prod.atd.disco.linkedin.com:18022/api/v1/rm/user-queue-mapping/ltx1-holdem/ Nested Titles: Grid / G-Fuel Issues",
+              "status_transitions": []
+            },
+            "itemType": "JiraActivity",
+            "createdAt": "2025-07-25T15:12:28Z",
+            "productID": 6,
+            "timeSpent": 0,
+            "updatedAt": "2025-08-10T03:55:23Z",
+            "itemStatus": "",
+            "description": "",
+            "additionalContext": ""
+          }
+        ],
+        "Groups": null,
+        "summaryType": "system_daily_v0"
+      },
+      "summaryType": "system_daily_v0",
+      "endTimestamp": 1753493400,
+      "startTimestamp": 1753450200
+    },
+    {
+      "id": 3140,
+      "teamID": 6,
+      "teamName": "gridsre",
+      "createdAt": "2025-08-10T04:00:46Z",
+      "hashValue": "",
+      "isCurrent": true,
+      "versionId": "99deef31-eedb-464b-bea3-e2995c704b85",
+      "contentJSON": {
+        "Items": [
+          {
+            "id": 148839,
+            "tags": [
+              {
+                "id": 22622,
+                "name": "LongResolution",
+                "teamID": 6,
+                "isGroup": false,
+                "description": "Long resolution time "
+              },
+              {
+                "id": 22628,
+                "name": "Access_Request",
+                "teamID": 6,
+                "isGroup": false,
+                "description": "Request for access or permissions to internal systems"
+              }
+            ],
+            "title": "Grid - Change Directory Owner and/or Permissions in HDFS - 2025-07-28",
+            "content": {
+              "labels": "[ask_grid_sre, decision-grid, from-supportal, supportal-v1, supportal-v1-problem-type:askgridsre/change-directory-owner-andor-permissions-in-hdfs, supportal-v1-version:0.0.1402]",
+              "comments": [
+                {
+                  "created": "2025-08-04T13:58:17.319-0700",
+                  "updated": "2025-08-04T13:58:17.319-0700",
+                  "comment_body": "The accounts already have permission.",
+                  "commented_by": "Bowen Jiao"
+                }
+              ],
+              "priority": "Unspecified",
+              "issue_key": "APA-131840",
+              "created_ts": "2025-07-28T21:23:06.046+05:30",
+              "issue_title": "Grid - Change Directory Owner and/or Permissions in HDFS - 2025-07-28",
+              "resolved_ts": "2025-08-04T20:58:40.464Z",
+              "project_name": "APA Support Project",
+              "assignee_name": "Bowen Jiao",
+              "reporter_name": "Gaurav Mishra",
+              "assignee_email": "bjiao@linkedin.com",
+              "reporter_email": "gmishra@linkedin.com",
+              "assignee_changes": [],
+              "issue_description": "HDFS Path: path1: /jobs/essprod/espresso-snapshotshc path2: /jobs/espprod/espresso-hc Error Message: Cluster Name: snap, loop, lasso HDFS User or Headless Account Name that launches the Job: essprod user needs read and write access for /jobs/essprod/espresso-snapshotshc in all fabrics espprod  user needs read and write access for  /jobs/espprod/espresso-hc  in all fabrics Our application espresso-repartitioner-workflow uses these users to access the above mentioned paths Nested Titles: Grid / Change Directory Owner and/or Permissions in HDFS",
+              "status_transitions": [
+                {
+                  "to_state": "Closed",
+                  "timestamp": "2025-08-04 20:58:40.505000 UTC",
+                  "from_state": "Open"
+                }
+              ]
+            },
+            "itemType": "JiraActivity",
+            "createdAt": "2025-07-28T15:53:06Z",
+            "productID": 6,
+            "timeSpent": 0,
+            "updatedAt": "2025-08-10T04:00:45Z",
+            "itemStatus": "",
+            "description": "",
+            "additionalContext": ""
+          },
+          {
+            "id": 148840,
+            "tags": [
+              {
+                "id": 22622,
+                "name": "LongResolution",
+                "teamID": 6,
+                "isGroup": false,
+                "description": "Long resolution time "
+              },
+              {
+                "id": 22637,
+                "name": "Infra_DNS_Failure",
+                "teamID": 6,
+                "isGroup": false,
+                "description": "DNS resolution errors impacting system access or routing"
+              }
+            ],
+            "title": "Spark Job is failing to connect gRPC endpoint",
+            "content": {
+              "labels": "[decision-grid, from-supportal, spark-job-failure, spark-supportal, supportal-onboarding, supportal-v1, supportal-v1-problem-type:dev-spark/spark-job-failure, supportal-v1-version:0.0.1402]",
+              "comments": [
+                {
+                  "created": "2025-07-28T15:01:00.707-0700",
+                  "updated": "2025-07-28T15:01:00.707-0700",
+                  "comment_body": "I think it is a NACL issue @Bowen Jiao Grid SRE oncall",
+                  "commented_by": "Ye Zhou"
+                }
+              ],
+              "priority": "Minor",
+              "issue_key": "APA-131836",
+              "created_ts": "2025-07-28T20:36:11.708+05:30",
+              "issue_title": "Spark Job is failing to connect gRPC endpoint",
+              "resolved_ts": "0001-01-01T00:00:00Z",
+              "project_name": "APA Support Project",
+              "assignee_name": "Bowen Jiao",
+              "reporter_name": "Deb Seal",
+              "assignee_email": "bjiao@linkedin.com",
+              "reporter_email": "dseal@linkedin.com",
+              "assignee_changes": [
+                {
+                  "timestamp": "2025-07-28 22:00:57.187000 UTC",
+                  "to_assignee": "Bowen Jiao",
+                  "from_assignee": "Ye Zhou"
+                }
+              ],
+              "issue_description": "Default Priority Select Form Element: Minor You MUST follow go/sparkselfserve BEFORE raising a support request.: Yes Problem Summary: Spark Job is failing to connect gRPC endpoint Description of how it's failing: I think it's happening due to some access issues.  Description of methods tried: Reached to multiple teams like grid, api service owner, etc.  Stack trace or error message: 25/07/28 21:05:46 INFO premiumrampreportingsignups.ExperimentApiClient$: blockingStub created successfully: proto.com.linkedin.trex.ExperimentApiGrpc$ExperimentApiBlockingStub@387cb2b4 25/07/28 21:05:46 WARN internal.ManagedChannelImpl: [Channel<1>: ( 1.trex-mt.corp-lva1.atd.disco.linkedin.com:19882 )] Failed to resolve name. status=Status{code=UNAVAILABLE, description=Unable to resolve host  1.trex-mt.corp-lva1.atd.disco.linkedin.com , cause=java.lang.RuntimeException: java.net.UnknownHostException:  1.trex-mt.corp-lva1.atd.disco.linkedin.com : Name or service not known \tat io.grpc.internal.DnsNameResolver.resolveAddresses(DnsNameResolver.java:224) \tat io.grpc.internal.DnsNameResolver.doResolve(DnsNameResolver.java:283) \tat io.grpc.internal.DnsNameResolver$Resolve.run(DnsNameResolver.java:320) \tat java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128) \tat java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628) \tat java.base/java.lang.Thread.run(Thread.java:829) Caused by: java.net.UnknownHostException:  1.trex-mt.corp-lva1.atd.disco.linkedin.com : Name or service not known \tat java.base/java.net.Inet6AddressImpl.lookupAllHostAddr(Native Method) \tat java.base/java.net.InetAddress$PlatformNameService.lookupAllHostAddr(InetAddress.java:929) \tat java.base/java.net.InetAddress.getAddressesFromNameService(InetAddress.java:1519) \tat java.base/java.net.InetAddress$NameServiceAddresses.get(InetAddress.java:848) \tat java.base/java.net.InetAddress.getAllByName0(InetAddress.java:1509) \tat java.base/java.net.InetAddress.getAllByName(InetAddress.java:1368) \tat java.base/java.net.InetAddress.getAllByName(InetAddress.java:1302) \tat io.grpc.internal.DnsNameResolver$JdkAddressResolver.resolveAddress(DnsNameResolver.java:644) \tat io.grpc.internal.DnsNameResolver.resolveAddresses(DnsNameResolver.java:220) \t... 5 more } 25/07/28 21:05:46 ERROR premiumrampreportingsignups.GrpcClientUtils$:  gRPC Status: Status{code=UNAVAILABLE, description=Unable to resolve host  1.trex-mt.corp-lva1.atd.disco.linkedin.com , cause=java.lang.RuntimeException: java.net.UnknownHostException:  1.trex-mt.corp-lva1.atd.disco.linkedin.com : Name or service not known  \tat io.grpc.internal.DnsNameResolver.resolveAddresses(DnsNameResolver.java:224) \tat io.grpc.internal.DnsNameResolver.doResolve(DnsNameResolver.java:283) \tat io.grpc.internal.DnsNameResolver$Resolve.run(DnsNameResolver.java:320) \tat java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128) \tat java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628) \tat java.base/java.lang.Thread.run(Thread.java:829) Caused by: java.net.UnknownHostException:  1.trex-mt.corp-lva1.atd.disco.linkedin.com : Name or service not known \tat java.base/java.net.Inet6AddressImpl.lookupAllHostAddr(Native Method) \tat java.base/java.net.InetAddress$PlatformNameService.lookupAllHostAddr(InetAddress.java:929) \tat java.base/java.net.InetAddress.getAddressesFromNameService(InetAddress.java:1519) \tat java.base/java.net.InetAddress$NameServiceAddresses.get(InetAddress.java:848) \tat java.base/java.net.InetAddress.getAllByName0(InetAddress.java:1509) \tat java.base/java.net.InetAddress.getAllByName(InetAddress.java:1368) \tat java.base/java.net.InetAddress.getAllByName(InetAddress.java:1302) \tat io.grpc.internal.DnsNameResolver$JdkAddressResolver.resolveAddress(DnsNameResolver.java:644) \tat io.grpc.internal.DnsNameResolver.resolveAddresses(DnsNameResolver.java:220) \t... 5 more } - Unable to resolve host  1.trex-mt.corp-lva1.atd.disco.linkedin.com Spark version: 3.1 Link to a sample Azkaban execution: https://ltx1-magicrm01.grid.linkedin.com/cluster/app/application_1753183987686_1066774?proxyapproved=true Link to relevant code in GitHub / Codesearch / PR / Darwin: https://github.com/linkedin-multiproduct/premium-ds-azkaban/pull/234 Nested Titles: Spark / Spark Job Failure",
+              "status_transitions": [
+                {
+                  "to_state": "Open",
+                  "timestamp": "2025-07-28 22:01:07.845000 UTC",
+                  "from_state": "In Progress"
+                },
+                {
+                  "to_state": "In Progress",
+                  "timestamp": "2025-07-28 22:00:02.653000 UTC",
+                  "from_state": "Open"
+                }
+              ]
+            },
+            "itemType": "JiraActivity",
+            "createdAt": "2025-07-28T15:06:12Z",
+            "productID": 6,
+            "timeSpent": 0,
+            "updatedAt": "2025-08-10T04:00:45Z",
+            "itemStatus": "",
+            "description": "",
+            "additionalContext": ""
+          },
+          {
+            "id": 148841,
+            "tags": [
+              {
+                "id": 22626,
+                "name": "Config_Error",
+                "teamID": 6,
+                "isGroup": false,
+                "description": "Misconfiguration led to outage or degraded service"
+              },
+              {
+                "id": 22628,
+                "name": "Access_Request",
+                "teamID": 6,
+                "isGroup": false,
+                "description": "Request for access or permissions to internal systems"
+              }
+            ],
+            "title": "Promote trustedgraph headless account to WAR",
+            "content": {
+              "labels": "[ask_grid_sre, decision-grid, from-supportal, supportal-v1, supportal-v1-problem-type:askgridsre/not-able-to-access-data, supportal-v1-version:0.0.1402]",
+              "comments": [
+                {
+                  "created": "2025-07-28T16:28:22.308-0700",
+                  "updated": "2025-07-28T16:28:22.308-0700",
+                  "comment_body": "bjiao updated request in the queue. Updated fields: {'status': 'pending'}.                     Comment: Try again",
+                  "commented_by": ""
+                },
+                {
+                  "created": "2025-07-28T20:05:00.969-0700",
+                  "updated": "2025-07-28T20:05:00.969-0700",
+                  "comment_body": "Request is automatically processed.",
+                  "commented_by": ""
+                },
+                {
+                  "created": "2025-07-28T14:25:12.830-0700",
+                  "updated": "2025-07-28T14:25:12.830-0700",
+                  "comment_body": "Thanks @Bowen Jiao ! Can trustedgraph also be added to prdhusrs? I tried to submit this request in go/grid but was unable to.",
+                  "commented_by": "Nicole Ekiss"
+                },
+                {
+                  "created": "2025-07-28T13:06:17.545-0700",
+                  "updated": "2025-07-28T13:06:17.545-0700",
+                  "comment_body": "Also sounds like trustedgraph may need to be a member of prdhusrs nekiss@ltx1-hcl6516 [ ~ ]$ groups trustedgraph | grep \"prdhusrs\"\nnekiss@ltx1-hcl6516 [ ~ ]$",
+                  "commented_by": "Nicole Ekiss"
+                },
+                {
+                  "created": "2025-07-28T13:41:07.586-0700",
+                  "updated": "2025-07-28T13:41:07.586-0700",
+                  "comment_body": "Request has been approved by @Bowen Jiao Comment:",
+                  "commented_by": ""
+                },
+                {
+                  "created": "2025-07-28T14:29:45.203-0700",
+                  "updated": "2025-07-28T14:29:45.203-0700",
+                  "comment_body": "Oh I realized maybe this is just “approved” but not complete. Let me know when I am good to re-run! Thanks for your help!",
+                  "commented_by": "Nicole Ekiss"
+                },
+                {
+                  "created": "2025-07-28T20:03:13.727-0700",
+                  "updated": "2025-07-28T20:03:13.727-0700",
+                  "comment_body": "bjiao updated request in the queue. Updated fields: {'status': 'pending'}.                     Comment: Try again",
+                  "commented_by": ""
+                },
+                {
+                  "created": "2025-07-28T14:54:41.084-0700",
+                  "updated": "2025-07-28T14:54:41.084-0700",
+                  "comment_body": "bjiao updated request in the queue. Updated fields: {'status': 'pending'}.                     Comment: Try again",
+                  "commented_by": ""
+                }
+              ],
+              "priority": "Unspecified",
+              "issue_key": "GRID-288530",
+              "created_ts": "2025-07-28T19:17:46.002+05:30",
+              "issue_title": "Promote trustedgraph headless account to WAR",
+              "resolved_ts": "2025-07-29T03:05:01.886Z",
+              "project_name": "GRID",
+              "assignee_name": "Bowen Jiao",
+              "reporter_name": "Nicole Ekiss",
+              "assignee_email": "bjiao@linkedin.com",
+              "reporter_email": "nekiss@linkedin.com",
+              "assignee_changes": [],
+              "issue_description": "Description I recently migrated one of our offline flows to airflow and tried to run it in war today. and it failed with the reason that ksudo is not able to impersonate as the headless account. Going through the slack threads, it seems like the headless account needs to be promoted to war. Following  this  wiki, below are the relevant required details. Successful holdem job link: https://holdem.oklahoma-airflow.grid.linkedin.com/dags/trusted-graph-purge-invalid-notifications-for-verified-members_azkabanHoldem5_holdem5__trusted-graph-offline/graph Iris plan link: n/a - will be a one time run War dag code link: https://war.oklahoma-airflow.grid.linkedin.com/dags/trusted-graph-purge-invalid-notifications-for-verified-members_azkabanWar_war__trusted-graph-offline/code?root= Failed War Job Link: https://war.oklahoma-airflow.grid.linkedin.com/log?dag_id=trusted-graph-purge-invalid-notifications-for-verified-members_azkabanWar_war__trusted-graph-offline&task_id=purgeInvalidNotificationsForVerifiedMembers&execution_date=2025-07-28T17%3A52%3A19.283161%2B00%3A00&map_index=-1 Cluster name: war Error Message: Execution urn:li:mu:grid2:function(spark):execution(2c321849-8161-4bb6-af71-d3f4f5aacde5) did not succeed!  Error code: FAIL_AT_RUNNING  Error message: com.linkedin.mufn.common.exception.GridGatewayUserException: Failed to get hadoop tokens! Unable to fetch token from KSudocom.linkedin.ksudo.client.KSudoAuthenticationException: Ksudo authenticate to service [lva2-atlas|JH, lva1-war|HDFS, lva2-atlas|RM, lva2-atlas|HDFS, lva2-atlas|HCAT, lva2-atlas|OPENHOUSE]failed for user: trustedgraph, exception: Client-side error com.linkedin.restli.client.RestLiResponseException: Response status 403, serviceErrorMessage: Failed to fetch credential for located services lva2-atlas|HCAT: java.io.IOException: MetaException(message:org.apache.hadoop.security.authorize.AuthorizationException: User:  ksudo@GRID.LINKEDIN.COM  is not allowed to impersonate trustedgraph/ mu_grid2_spark_2c321849-8161-4bb6-af71-d3f4f5aacde5@GRID.LINKEDIN.COM ) encountered. Nested Titles: Grid / Other Grid Issue",
+              "status_transitions": [
+                {
+                  "to_state": "Closed",
+                  "timestamp": "2025-07-29 03:05:01.932000 UTC",
+                  "from_state": "Open"
+                }
+              ]
+            },
+            "itemType": "JiraActivity",
+            "createdAt": "2025-07-28T13:47:46Z",
+            "productID": 6,
+            "timeSpent": 0,
+            "updatedAt": "2025-08-10T04:00:45Z",
+            "itemStatus": "",
+            "description": "",
+            "additionalContext": ""
+          }
+        ],
+        "Groups": [
+          {
+            "ItemsList": [
+              148839,
+              148840
+            ],
+            "GroupMetaData": {
+              "Actions": "",
+              "GroupID": 22633,
+              "Insight": "",
+              "Summary": "",
+              "GroupName": "Tag: LongResolution",
+              "GroupDescription": "Issues tagged with 'LongResolution', occurred 2 times"
+            }
+          },
+          {
+            "ItemsList": [
+              148839,
+              148841
+            ],
+            "GroupMetaData": {
+              "Actions": "",
+              "GroupID": 22638,
+              "Insight": "",
+              "Summary": "",
+              "GroupName": "Tag: Access_Request",
+              "GroupDescription": "Issues tagged with 'Access_Request', occurred 2 times"
+            }
+          }
+        ],
+        "summaryType": "system_daily_v0"
+      },
+      "summaryType": "system_daily_v0",
+      "endTimestamp": 1753752600,
+      "startTimestamp": 1753709400
+    },
+    {
+      "id": 3145,
+      "teamID": 6,
+      "teamName": "gridsre",
+      "createdAt": "2025-08-10T04:07:09Z",
+      "hashValue": "",
+      "isCurrent": true,
+      "versionId": "2871966e-cf9b-461a-8110-61df6cd8e8f6",
+      "contentJSON": {
+        "Items": [
+          {
+            "id": 148871,
+            "tags": [
+              {
+                "id": 22628,
+                "name": "Access_Request",
+                "teamID": 6,
+                "isGroup": false,
+                "description": "Request for access or permissions to internal systems"
+              }
+            ],
+            "title": "Request to add svc_pr_vsmind to svc_pr_cdmp headless account",
+            "content": {
+              "labels": "[grid_self_service]",
+              "comments": [
+                {
+                  "created": "2025-07-21T14:10:20.698-0700",
+                  "updated": "2025-07-21T14:10:20.698-0700",
+                  "comment_body": "User svc_pr_vsmind has been added to svc_pr_cdmp by @Hao Fu",
+                  "commented_by": ""
+                },
+                {
+                  "created": "2025-07-21T14:03:55.249-0700",
+                  "updated": "2025-07-21T14:03:55.249-0700",
+                  "comment_body": "Added group admin(s) as watchers for approval. This request requires one of the following people to approve it in self service: @Naren Bhosle @Anupchandra Rao @Hao Fu @Chris Trezzo Please log in and visit https://www.grid.linkedin.com/self_service/#/account/svc_pr_cdmp to review this request.",
+                  "commented_by": ""
+                }
+              ],
+              "priority": "Unspecified",
+              "issue_key": "GRID-287263",
+              "created_ts": "2025-07-21T21:03:38.237+05:30",
+              "issue_title": "Request to add svc_pr_vsmind to svc_pr_cdmp headless account",
+              "resolved_ts": "2025-07-21T21:10:22.32Z",
+              "project_name": "GRID",
+              "assignee_name": "Naren Bhosle",
+              "reporter_name": "Gaurav Ahlawat",
+              "assignee_email": "nbhosle@linkedin.com",
+              "reporter_email": "gahlawat@linkedin.com",
+              "assignee_changes": [
+                {
+                  "timestamp": "2025-07-21 21:03:39.914000 UTC",
+                  "to_assignee": "Naren Bhosle",
+                  "from_assignee": ""
+                }
+              ],
+              "issue_description": "  Glean profile  has requested to add the  svc_pr_vsmind          headless account to the  svc_pr_cdmp  headless account. This would allow  svc_pr_vsmind : Access to all files on HDFS owned by  svc_pr_cdmp Permission to create and delete files on HDFS owned by  svc_pr_cdmp",
+              "status_transitions": [
+                {
+                  "to_state": "Closed",
+                  "timestamp": "2025-07-21 21:10:22.357000 UTC",
+                  "from_state": "Open"
+                }
+              ]
+            },
+            "itemType": "JiraActivity",
+            "createdAt": "2025-07-21T15:33:38Z",
+            "productID": 6,
+            "timeSpent": 0,
+            "updatedAt": "2025-08-10T04:07:08Z",
+            "itemStatus": "",
+            "description": "",
+            "additionalContext": ""
+          }
+        ],
+        "Groups": null,
+        "summaryType": "system_daily_v0"
+      },
+      "summaryType": "system_daily_v0",
+      "endTimestamp": 1753147800,
+      "startTimestamp": 1753104600
+    },
+    {
+      "id": 3147,
+      "teamID": 6,
+      "teamName": "gridsre",
+      "createdAt": "2025-08-10T04:08:11Z",
+      "hashValue": "",
+      "isCurrent": true,
+      "versionId": "c4aed06f-413a-4e31-9f2c-9b35b5a77ab8",
+      "contentJSON": {
+        "Items": [
+          {
+            "id": 148822,
+            "tags": [
+              {
+                "id": 22626,
+                "name": "Config_Error",
+                "teamID": 6,
+                "isGroup": false,
+                "description": "Misconfiguration led to outage or degraded service"
+              },
+              {
+                "id": 22642,
+                "name": "Infra_Deployment_Error",
+                "teamID": 6,
+                "isGroup": false,
+                "description": "Deployment failures causing infrastructure instability or downtime"
+              }
+            ],
+            "title": "Grid - promote the headless acc 'slm' to WAR",
+            "content": {
+              "labels": "[ask_grid_sre, decision-grid, from-supportal, supportal-v1, supportal-v1-problem-type:askgridsre/other-grid-issue, supportal-v1-version:0.0.1401]",
+              "comments": [
+                {
+                  "created": "2025-07-24T01:48:06.369-0700",
+                  "updated": "2025-07-24T01:48:06.369-0700",
+                  "comment_body": "Request completed and the acc promoted to WAR Closing the ticket",
+                  "commented_by": "Hariharan S"
+                },
+                {
+                  "created": "2025-07-22T04:07:35.345-0700",
+                  "updated": "2025-07-22T04:07:35.345-0700",
+                  "comment_body": "https://linkedin.atlassian.net/browse/GRID-287396",
+                  "commented_by": "Hariharan S"
+                }
+              ],
+              "priority": "Unspecified",
+              "issue_key": "APA-131540",
+              "created_ts": "2025-07-22T10:47:19.123+05:30",
+              "issue_title": "Grid - promote the headless acc 'slm' to WAR",
+              "resolved_ts": "2025-07-24T08:48:14.772Z",
+              "project_name": "APA Support Project",
+              "assignee_name": "Hariharan S",
+              "reporter_name": "Anirban Biswas",
+              "assignee_email": "hsivaprakash@linkedin.com",
+              "reporter_email": "anbiswas@linkedin.com",
+              "assignee_changes": [],
+              "issue_description": "Browser: https://www.grid.linkedin.com/self_service/#/account/slm Hadoop Job Link: https://www.grid.linkedin.com/self_service/#/account/slm Cluster name: lva1-war Error Message: The slm headless that got created don't have lva1-war space. Can you please help allocate that? Nested Titles: Grid / Other Grid Issue",
+              "status_transitions": [
+                {
+                  "to_state": "Closed",
+                  "timestamp": "2025-07-24 08:48:14.803000 UTC",
+                  "from_state": "In Progress"
+                },
+                {
+                  "to_state": "In Progress",
+                  "timestamp": "2025-07-22 11:07:40.808000 UTC",
+                  "from_state": "Open"
+                }
+              ]
+            },
+            "itemType": "JiraActivity",
+            "createdAt": "2025-07-22T05:17:19Z",
+            "productID": 6,
+            "timeSpent": 0,
+            "updatedAt": "2025-08-10T04:08:09Z",
+            "itemStatus": "",
+            "description": "",
+            "additionalContext": ""
+          },
+          {
+            "id": 148875,
+            "tags": [
+              {
+                "id": 22626,
+                "name": "Config_Error",
+                "teamID": 6,
+                "isGroup": false,
+                "description": "Misconfiguration led to outage or degraded service"
+              },
+              {
+                "id": 22642,
+                "name": "Infra_Deployment_Error",
+                "teamID": 6,
+                "isGroup": false,
+                "description": "Deployment failures causing infrastructure instability or downtime"
+              }
+            ],
+            "title": "Grid - promote the headless acc 'slm' to WAR",
+            "content": {
+              "labels": "[ask_grid_sre, decision-grid, from-supportal, supportal-v1, supportal-v1-problem-type:askgridsre/other-grid-issue, supportal-v1-version:0.0.1401]",
+              "comments": [
+                {
+                  "created": "2025-07-24T01:48:06.369-0700",
+                  "updated": "2025-07-24T01:48:06.369-0700",
+                  "comment_body": "Request completed and the acc promoted to WAR Closing the ticket",
+                  "commented_by": "Hariharan S"
+                },
+                {
+                  "created": "2025-07-22T04:07:35.345-0700",
+                  "updated": "2025-07-22T04:07:35.345-0700",
+                  "comment_body": "https://linkedin.atlassian.net/browse/GRID-287396",
+                  "commented_by": "Hariharan S"
+                }
+              ],
+              "priority": "Unspecified",
+              "issue_key": "APA-131540",
+              "created_ts": "2025-07-22T10:47:19.123+05:30",
+              "issue_title": "Grid - promote the headless acc 'slm' to WAR",
+              "resolved_ts": "2025-07-24T08:48:14.772Z",
+              "project_name": "APA Support Project",
+              "assignee_name": "Hariharan S",
+              "reporter_name": "Anirban Biswas",
+              "assignee_email": "hsivaprakash@linkedin.com",
+              "reporter_email": "anbiswas@linkedin.com",
+              "assignee_changes": [],
+              "issue_description": "Browser: https://www.grid.linkedin.com/self_service/#/account/slm Hadoop Job Link: https://www.grid.linkedin.com/self_service/#/account/slm Cluster name: lva1-war Error Message: The slm headless that got created don't have lva1-war space. Can you please help allocate that? Nested Titles: Grid / Other Grid Issue",
+              "status_transitions": [
+                {
+                  "to_state": "Closed",
+                  "timestamp": "2025-07-24 08:48:14.803000 UTC",
+                  "from_state": "In Progress"
+                },
+                {
+                  "to_state": "In Progress",
+                  "timestamp": "2025-07-22 11:07:40.808000 UTC",
+                  "from_state": "Open"
+                }
+              ]
+            },
+            "itemType": "JiraActivity",
+            "createdAt": "2025-07-22T05:17:19Z",
+            "productID": 6,
+            "timeSpent": 0,
+            "updatedAt": "2025-08-10T04:08:09Z",
+            "itemStatus": "",
+            "description": "",
+            "additionalContext": ""
+          }
+        ],
+        "Groups": [
+          {
+            "ItemsList": [
+              148822,
+              148875
+            ],
+            "GroupMetaData": {
+              "Actions": "",
+              "GroupID": 22643,
+              "Insight": "",
+              "Summary": "",
+              "GroupName": "Tag: Config_Error",
+              "GroupDescription": "Issues tagged with 'Config_Error', occurred 2 times"
+            }
+          },
+          {
+            "ItemsList": [
+              148822,
+              148875
+            ],
+            "GroupMetaData": {
+              "Actions": "",
+              "GroupID": 22644,
+              "Insight": "",
+              "Summary": "",
+              "GroupName": "Tag: Infra_Deployment_Error",
+              "GroupDescription": "Issues tagged with 'Infra_Deployment_Error', occurred 2 times"
+            }
+          }
+        ],
+        "summaryType": "system_daily_v0"
+      },
+      "summaryType": "system_daily_v0",
+      "endTimestamp": 1753191000,
+      "startTimestamp": 1753147800
+    },
+    {
+      "id": 3148,
+      "teamID": 6,
+      "teamName": "gridsre",
+      "createdAt": "2025-08-10T04:09:51Z",
+      "hashValue": "",
+      "isCurrent": true,
+      "versionId": "cd650393-453d-43be-99b7-79be7d3b4174",
+      "contentJSON": {
+        "Items": [
+          {
+            "id": 148725,
+            "tags": [
+              {
+                "id": 22622,
+                "name": "LongResolution",
+                "teamID": 6,
+                "isGroup": false,
+                "description": "Long resolution time "
+              },
+              {
+                "id": 22627,
+                "name": "Infra_Security_Alert",
+                "teamID": 6,
+                "isGroup": false,
+                "description": "Security incidents or vulnerabilities detected in infrastructure"
+              },
+              {
+                "id": 22642,
+                "name": "Infra_Deployment_Error",
+                "teamID": 6,
+                "isGroup": false,
+                "description": "Deployment failures causing infrastructure instability or downtime"
+              }
+            ],
+            "title": "Grid - Other Grid Issue - 2025-07-23",
+            "content": {
+              "labels": "[ask_grid_sre, decision-grid, from-supportal, supportal-v1, supportal-v1-problem-type:askgridsre/other-grid-issue, supportal-v1-version:0.0.1401]",
+              "comments": [],
+              "priority": "Unspecified",
+              "issue_key": "APA-131631",
+              "created_ts": "2025-07-23T17:14:43.392+05:30",
+              "issue_title": "Grid - Other Grid Issue - 2025-07-23",
+              "resolved_ts": "0001-01-01T00:00:00Z",
+              "project_name": "APA Support Project",
+              "assignee_name": "Bowen Jiao",
+              "reporter_name": "Ramya Ponnuraj",
+              "assignee_email": "bjiao@linkedin.com",
+              "reporter_email": "rponnuraj@linkedin.com",
+              "assignee_changes": [],
+              "issue_description": "Browser: Unable to fetch token from KSudo Hadoop Job Link: https://war.oklahoma-airflow.grid.linkedin.com/log?dag_id=manage-encryption-spaces_war__ads-privacy-offline&task_id=generateTenantContractMapping&execution_date=2025-07-22T07%3A00%3A00%2B00%3A00&map_index=-1 Cluster name: WAR Error Message: Failed to get hadoop tokens! Unable to fetch token from KSudocom.linkedin.ksudo.client.KSudoAuthenticationException: Ksudo authenticate  to service [lva1-war|LINKKEY, lva2-nova|JH, lva2-nova|OPENHOUSE, lva2-nova|HDFS, lva2-nova|RM, lva1-war|HDFS, lva2-nova|HCAT]failed for user: crmsecure, exception: Failed to fetch credential for located services lva1-war|LINKKEY: javax.net.ssl.SSLHandshakeException: PKIX path validation failed: java.security.cert.CertPathValidatorException: validity check failed 18 attempts executed. Nested Titles: Grid / Other Grid Issue",
+              "status_transitions": []
+            },
+            "itemType": "JiraActivity",
+            "createdAt": "2025-07-23T11:44:43Z",
+            "productID": 6,
+            "timeSpent": 0,
+            "updatedAt": "2025-08-10T04:09:49Z",
+            "itemStatus": "",
+            "description": "",
+            "additionalContext": ""
+          },
+          {
+            "id": 148814,
+            "tags": [
+              {
+                "id": 22622,
+                "name": "LongResolution",
+                "teamID": 6,
+                "isGroup": false,
+                "description": "Long resolution time "
+              },
+              {
+                "id": 22626,
+                "name": "Config_Error",
+                "teamID": 6,
+                "isGroup": false,
+                "description": "Misconfiguration led to outage or degraded service"
+              },
+              {
+                "id": 22627,
+                "name": "Infra_Security_Alert",
+                "teamID": 6,
+                "isGroup": false,
+                "description": "Security incidents or vulnerabilities detected in infrastructure"
+              }
+            ],
+            "title": "Grid - Other Grid Issue - 2025-07-23",
+            "content": {
+              "labels": "[ask_grid_sre, decision-grid, from-supportal, supportal-v1, supportal-v1-problem-type:askgridsre/other-grid-issue, supportal-v1-version:0.0.1401]",
+              "comments": [],
+              "priority": "Unspecified",
+              "issue_key": "APA-131631",
+              "created_ts": "2025-07-23T17:14:43.392+05:30",
+              "issue_title": "Grid - Other Grid Issue - 2025-07-23",
+              "resolved_ts": "0001-01-01T00:00:00Z",
+              "project_name": "APA Support Project",
+              "assignee_name": "Bowen Jiao",
+              "reporter_name": "Ramya Ponnuraj",
+              "assignee_email": "bjiao@linkedin.com",
+              "reporter_email": "rponnuraj@linkedin.com",
+              "assignee_changes": [],
+              "issue_description": "Browser: Unable to fetch token from KSudo Hadoop Job Link: https://war.oklahoma-airflow.grid.linkedin.com/log?dag_id=manage-encryption-spaces_war__ads-privacy-offline&task_id=generateTenantContractMapping&execution_date=2025-07-22T07%3A00%3A00%2B00%3A00&map_index=-1 Cluster name: WAR Error Message: Failed to get hadoop tokens! Unable to fetch token from KSudocom.linkedin.ksudo.client.KSudoAuthenticationException: Ksudo authenticate  to service [lva1-war|LINKKEY, lva2-nova|JH, lva2-nova|OPENHOUSE, lva2-nova|HDFS, lva2-nova|RM, lva1-war|HDFS, lva2-nova|HCAT]failed for user: crmsecure, exception: Failed to fetch credential for located services lva1-war|LINKKEY: javax.net.ssl.SSLHandshakeException: PKIX path validation failed: java.security.cert.CertPathValidatorException: validity check failed 18 attempts executed. Nested Titles: Grid / Other Grid Issue",
+              "status_transitions": []
+            },
+            "itemType": "JiraActivity",
+            "createdAt": "2025-07-23T11:44:43Z",
+            "productID": 6,
+            "timeSpent": 0,
+            "updatedAt": "2025-08-10T04:09:49Z",
+            "itemStatus": "",
+            "description": "",
+            "additionalContext": ""
+          }
+        ],
+        "Groups": [
+          {
+            "ItemsList": [
+              148725,
+              148814
+            ],
+            "GroupMetaData": {
+              "Actions": "JIRA workflow improvements: [1] Process optimization recommendations [2] Workflow configuration changes [3] Team coordination enhancements [4] Issue prevention strategies. Focus on JIRA-specific improvements with clear implementation steps.",
+              "GroupID": 22633,
+              "Insight": "JIRA process intelligence: [1] Issue triage and assignment effectiveness [2] Workflow transition patterns and bottlenecks [3] Team collaboration and handoff quality [4] Recurring issue themes and root causes [5] Resolution time distribution and efficiency patterns",
+              "Summary": "JIRA workflow summary: Overall issue management efficiency, team coordination patterns, and workflow bottlenecks for this issue group",
+              "GroupName": "Tag: LongResolution",
+              "GroupDescription": "Issues tagged with 'LongResolution', occurred 2 times"
+            }
+          },
+          {
+            "ItemsList": [
+              148725,
+              148814
+            ],
+            "GroupMetaData": {
+              "GroupID": 22644,
+              "Insight": "",
+              "Summary": "",
+              "GroupName": "Tag: Infra_Deployment_Error",
+              "GroupDescription": "Issues tagged with 'Infra_Deployment_Error', occurred 2 times"
+            }
+          }
+        ],
+        "summaryType": "system_daily_v0"
+      },
+      "summaryType": "system_daily_v0",
+      "endTimestamp": 1753277400,
+      "startTimestamp": 1753234200
+    },
+    {
+      "id": 3151,
+      "teamID": 6,
+      "teamName": "gridsre",
+      "createdAt": "2025-08-10T04:11:34Z",
+      "hashValue": "",
+      "isCurrent": true,
+      "versionId": "f332ebb6-baf6-49bc-88db-501c8bc6bfec",
+      "contentJSON": {
+        "Items": [
+          {
+            "id": 148837,
+            "tags": [
+              {
+                "id": 22622,
+                "name": "LongResolution",
+                "teamID": 6,
+                "isGroup": false,
+                "description": "Long resolution time "
+              },
+              {
+                "id": 22646,
+                "name": "Data_Quality_Issue",
+                "teamID": 6,
+                "isGroup": false,
+                "description": "Corrupt, missing, or incorrect data in tables, APIs, or schemas"
+              },
+              {
+                "id": 22666,
+                "name": "Integration_Failure",
+                "teamID": 6,
+                "isGroup": false,
+                "description": "Dependency between systems or services failed"
+              }
+            ],
+            "title": "Grid - Not Able to Access Data - 2025-07-27",
+            "content": {
+              "labels": "[ask_grid_sre, decision-grid, from-supportal, supportal-v1, supportal-v1-problem-type:askgridsre/not-able-to-access-data, supportal-v1-version:0.0.1402]",
+              "comments": [
+                {
+                  "created": "2025-07-27T09:57:42.115-0700",
+                  "updated": "2025-07-27T09:57:58.824-0700",
+                  "comment_body": "Spark job failing due to not being able to access hive table since #incident-6375 was resolved.",
+                  "commented_by": "Abishek Pichaipillai"
+                }
+              ],
+              "priority": "Unspecified",
+              "issue_key": "APA-131797",
+              "created_ts": "2025-07-27T16:56:24.723+05:30",
+              "issue_title": "Grid - Not Able to Access Data - 2025-07-27",
+              "resolved_ts": "0001-01-01T00:00:00Z",
+              "project_name": "APA Support Project",
+              "assignee_name": "Bowen Jiao",
+              "reporter_name": "Abishek Pichaipillai",
+              "assignee_email": "bjiao@linkedin.com",
+              "reporter_email": "apichaipillai@linkedin.com",
+              "assignee_changes": [],
+              "issue_description": "Cluster Name: holdem Error Message: An error was encountered: java.lang.NullPointerException   at dali2_shaded.org.apache.iceberg.hivelink.core.LegacyHiveTableUtils.serdeToFileFormat(LegacyHiveTableUtils.java:191) User or Headless Account name that launches the job: gtmmarketing HDFS Path: https://ltx1-holdemaz05.grid.linkedin.com/hdfs/jobs/gtmmarketing/gobblin/gobblin-singularExportConsumer/incremental/raw_singular_touchpoint_hourly_stg/hourly Nested Titles: Grid / Not Able to Access Data",
+              "status_transitions": []
+            },
+            "itemType": "JiraActivity",
+            "createdAt": "2025-07-27T11:26:25Z",
+            "productID": 6,
+            "timeSpent": 0,
+            "updatedAt": "2025-08-10T04:16:13Z",
+            "itemStatus": "",
+            "description": "",
+            "additionalContext": ""
+          }
+        ],
+        "Groups": null,
+        "summaryType": "system_daily_v0"
+      },
+      "summaryType": "system_daily_v0",
+      "endTimestamp": 1753623000,
+      "startTimestamp": 1753579800
+    }
+  ],
+  "insightMetrics": {
+    "ecdf": [
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5
+    ],
+    "count": 114,
+    "totalTimeSpent": 570,
+    "timeSpentBucket": {
+      "0": 114
+    },
+    "averageTimeSpent": 5
+  }
+}
+ 
+
+function App() {
+  const [activeTab, setActiveTab] = useState('dashboard');
+  const [jsonData, setJsonData] = useState(defaultSampleData);
+  
+  // Initialize filters with proper default date range
+  const [filters, setFilters] = useState<Filters>(() => {
+    const end = new Date();
+    const start = new Date();
+    start.setDate(start.getDate() - 30); // Use 30 days instead of 7 to include sample data
+    
+    return {
+      dateRange: { start, end, type: 'relative', relativeDays: 30 },
+      dateType: 'created',
+      selectedTags: [],
+      priorities: [],
+      labels: [],
+      assignees: [],
+      reporters: [],
+      slaBreachOnly: false,
+      textSearch: '',
+      compareMode: false
+    };
+  });
+
+  const tabs = [
+    { id: 'input', name: 'Input', icon: FileJson },
+    { id: 'dashboard', name: 'Dashboard', icon: BarChart3 },
+    { id: 'overview', name: 'Overview', icon: BarChart3 },
+    { id: 'issues', name: 'Issues', icon: Search },
+    { id: 'tags', name: 'Tags', icon: Tags },
+    { id: 'groups', name: 'Groups', icon: Target },
+    { id: 'json', name: 'Raw JSON', icon: Calendar },
+  ];
+
+  // Extract data for filter options
+  const extractedData = useMemo(() => {
+    let items: any[] = [];
+    
+    if ((jsonData as any)?.Items) {
+      items = (jsonData as any).Items;
+    } else if ((jsonData as any)?.summaryType && (jsonData as any)?.dailySummaries) {
+      // Extract items from all daily summaries
+      (jsonData as any).dailySummaries.forEach((summary: any) => {
+        if (summary.contentJSON?.Items) {
+          items = [...items, ...summary.contentJSON.Items];
+        }
+      });
+    }
+
+    // Extract filter options from items
+    const tags = new Set<string>();
+    const assignees = new Set<string>();
+    const reporters = new Set<string>();
+    const priorities = new Set<string>();
+    const labels = new Set<string>();
+    let minDate = new Date();
+    let maxDate = new Date('1970-01-01');
+
+    items.forEach((item: any) => {
+      // Extract tags
+      item.tags?.forEach((tag: any) => tags.add(tag.name));
+      
+      // Extract assignees and reporters
+      if (item.content?.assignee_name) assignees.add(item.content.assignee_name);
+      if (item.content?.reporter_name) reporters.add(item.content.reporter_name);
+      
+      // Extract priorities
+      if (item.content?.priority) priorities.add(item.content.priority);
+      
+      // Extract labels
+      if (item.content?.labels) {
+        const labelString = item.content.labels.replace(/[\[\]]/g, '');
+        labelString.split(',').forEach((label: string) => {
+          const trimmed = label.trim();
+          if (trimmed) labels.add(trimmed);
+        });
+      }
+
+      // Extract dates
+      const createdDate = new Date(item.content?.created_ts || item.createdAt);
+      const resolvedDate = item.content?.resolved_ts && item.content.resolved_ts !== "0001-01-01T00:00:00Z" 
+        ? new Date(item.content.resolved_ts) : null;
+      
+      if (createdDate > maxDate) maxDate = createdDate;
+      if (createdDate < minDate) minDate = createdDate;
+      if (resolvedDate && resolvedDate > maxDate) maxDate = resolvedDate;
+    });
+
+    return {
+      items,
+      availableTags: Array.from(tags).map(name => ({
+        name,
+        category: 'General',
+        count: items.filter(item => item.tags?.some((tag: any) => tag.name === name)).length
+      })),
+      availableAssignees: Array.from(assignees),
+      availableReporters: Array.from(reporters),
+      availablePriorities: Array.from(priorities),
+      availableLabels: Array.from(labels),
+      dateRange: { min: minDate, max: maxDate }
+    };
+  }, [jsonData]);
+
+  const handleJsonSubmit = (data: any) => {
+    // Check if data has the summary structure with dailySummaries
+    let processedData = data;
+    
+    if (data.summaryType && data.dailySummaries && Array.isArray(data.dailySummaries)) {
+      // For summary format, we'll keep the full structure for processing
+      // but the components will extract Items as needed
+      processedData = data;
+    } else if (data.Items || data.Groups) {
+      // Direct format
+      processedData = data;
+    }
+    
+    setJsonData(processedData);
+    setActiveTab('dashboard'); // Auto-switch to dashboard after successful input
+  };
+
+  const renderActiveTab = () => {
+    // Handle both data formats safely - pass the raw data to Dashboard and let it handle the extraction
+
+    switch (activeTab) {
+      case 'input':
+        try {
+          return <JsonInput onJsonSubmit={handleJsonSubmit} currentData={jsonData} />;
+        } catch (error) {
+          return (
+            <div className="bg-white p-6 rounded-lg shadow">
+              <h3 className="text-xl font-semibold mb-4">JSON Input (Error)</h3>
+              <p className="text-red-600">Error loading input component. Check console for details.</p>
+              <button 
+                onClick={() => setActiveTab('dashboard')}
+                className="mt-4 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+              >
+                Go to Dashboard
+              </button>
+            </div>
+          );
+        }
+      case 'dashboard':
+        console.log('Rendering Dashboard with data:', jsonData);
+        console.log('Filters being passed:', filters);
+        
+        try {
+          return <Dashboard data={jsonData} filters={filters} />;
+        } catch (error) {
+          console.error('Dashboard component error:', error);
+          
+          // Fallback simple dashboard
+          let totalItems = 0;
+          if ((jsonData as any)?.Items) {
+            totalItems = (jsonData as any).Items.length;
+          } else if ((jsonData as any)?.dailySummaries) {
+            (jsonData as any).dailySummaries.forEach((summary: any) => {
+              if (summary.contentJSON?.Items) {
+                totalItems += summary.contentJSON.Items.length;
+              }
+            });
+          }
+          
+          return (
+            <div className="space-y-6">
+              <div className="bg-red-50 border border-red-200 rounded-lg p-4 mb-6">
+                <h4 className="font-semibold text-red-800">Dashboard Loading Error</h4>
+                <p className="text-red-600 text-sm">Using fallback dashboard. Check console for details.</p>
+              </div>
+              
+              <div className="bg-white p-6 rounded-lg shadow">
+                <h3 className="text-xl font-semibold mb-4">Simple Dashboard</h3>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                  <div className="bg-blue-50 p-4 rounded">
+                    <h4 className="font-medium text-blue-900">Total Items</h4>
+                    <p className="text-2xl font-bold text-blue-600">{totalItems}</p>
+                  </div>
+                  <div className="bg-green-50 p-4 rounded">
+                    <h4 className="font-medium text-green-900">Status</h4>
+                    <p className="text-green-600">Active</p>
+                  </div>
+                  <div className="bg-purple-50 p-4 rounded">
+                    <h4 className="font-medium text-purple-900">Type</h4>
+                    <p className="text-purple-600">{(jsonData as any)?.summaryType || 'N/A'}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          );
+        }
+      case 'overview':
+        // For other components, extract the data appropriately
+        const currentData = (jsonData as any)?.Items ? jsonData : 
+          ((jsonData as any)?.dailySummaries?.[0]?.contentJSON || jsonData);
+        return <DataOverview data={currentData} />;
+      case 'issues':
+        const issueData = (jsonData as any)?.Items ? jsonData : 
+          ((jsonData as any)?.dailySummaries?.[0]?.contentJSON || jsonData);
+        return <IssueAnalysis data={issueData} />;
+      case 'tags':
+        const tagData = (jsonData as any)?.Items ? jsonData : 
+          ((jsonData as any)?.dailySummaries?.[0]?.contentJSON || jsonData);
+        return <TagAnalytics data={tagData} />;
+      case 'groups':
+        const groupData = (jsonData as any)?.Items ? jsonData : 
+          ((jsonData as any)?.dailySummaries?.[0]?.contentJSON || jsonData);
+        return <GroupInsights data={groupData} />;
+      case 'json':
+        return <JsonViewer data={jsonData} title="JSON Data" />;
+      default:
+        return (
+          <div className="bg-white p-6 rounded-lg shadow">
+            <h3 className="text-xl font-semibold mb-4">Coming Soon</h3>
+            <p className="text-gray-600">This section is under construction.</p>
+            <p className="text-sm text-gray-500 mt-2">Current tab: {activeTab}</p>
+          </div>
+        );
+    }
+  };
+
+  return (
+    <div className="min-h-screen bg-gray-100">
+      {/* Header */}
+      <div className="bg-white shadow-sm border-b">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-16">
+            <div>
+              <h1 className="text-2xl font-bold text-gray-900">JSON Analysis Dashboard</h1>
+              <p className="text-sm text-gray-600">JIRA Activity Data Intelligence</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Navigation */}
+      <div className="bg-white shadow-sm">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <nav className="flex space-x-8">
+            {tabs.map((tab) => (
+              <button
+                key={tab.id}
+                onClick={() => setActiveTab(tab.id)}
+                className={`flex items-center gap-2 py-4 px-1 border-b-2 font-medium text-sm transition-colors ${
+                  activeTab === tab.id
+                    ? 'border-blue-500 text-blue-600'
+                    : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
+                }`}
+              >
+                <tab.icon className="w-4 h-4" />
+                {tab.name}
+              </button>
+            ))}
+          </nav>
+        </div>
+      </div>
+
+      {/* Main Content */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        {renderActiveTab()}
+      </div>
+    </div>
+  );
+}
+
+export default App;

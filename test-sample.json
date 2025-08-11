@@ -1,0 +1,85 @@
+{
+  "summaryType": "system_jira_retrospective_v0",
+  "dailySummaries": [
+    {
+      "id": 1,
+      "teamID": 1,
+      "teamName": "Test Team",
+      "createdAt": "2025-08-10T10:00:00Z",
+      "contentJSON": {
+        "Items": [
+          {
+            "id": 123,
+            "tags": [
+              {
+                "id": 1,
+                "name": "Config_Error",
+                "description": "Configuration issue"
+              },
+              {
+                "id": 2,
+                "name": "Access_Request",
+                "description": "Access request"
+              }
+            ],
+            "title": "Fix authentication bug",
+            "content": {
+              "priority": "High",
+              "issue_key": "PROJ-123",
+              "created_ts": "2025-01-01T10:00:00Z",
+              "resolved_ts": "2025-01-02T15:30:00Z",
+              "project_name": "Authentication Service",
+              "assignee_name": "John Doe",
+              "reporter_name": "Jane Smith",
+              "assignee_email": "john@company.com",
+              "reporter_email": "jane@company.com",
+              "issue_description": "Users cannot login due to authentication service failure",
+              "status_transitions": [
+                {
+                  "from_state": "Open",
+                  "to_state": "In Progress",
+                  "timestamp": "2025-01-01T11:00:00Z"
+                },
+                {
+                  "from_state": "In Progress", 
+                  "to_state": "Resolved",
+                  "timestamp": "2025-01-02T15:30:00Z"
+                }
+              ]
+            }
+          },
+          {
+            "id": 124,
+            "tags": [
+              {
+                "id": 3,
+                "name": "Performance",
+                "description": "Performance related issue"
+              }
+            ],
+            "title": "Database optimization",
+            "content": {
+              "priority": "Medium",
+              "issue_key": "PROJ-124",
+              "created_ts": "2025-01-03T09:00:00Z",
+              "resolved_ts": "0001-01-01T00:00:00Z",
+              "project_name": "Backend Services",
+              "assignee_name": "Bob Wilson",
+              "reporter_name": "Alice Brown",
+              "assignee_email": "bob@company.com",
+              "reporter_email": "alice@company.com",
+              "issue_description": "Database queries are running slowly",
+              "status_transitions": [
+                {
+                  "from_state": "Open",
+                  "to_state": "In Progress",
+                  "timestamp": "2025-01-03T10:00:00Z"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

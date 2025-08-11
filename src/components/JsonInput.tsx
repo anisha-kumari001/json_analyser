@@ -174,9 +174,38 @@ export default function JsonInput({ onJsonSubmit, currentData }: JsonInputProps)
           <li>• Copy your JSON data from any source</li>
           <li>• Click "Paste from Clipboard" or manually paste in the textarea</li>
           <li>• <strong>Auto-processing:</strong> Valid JSON will be analyzed automatically!</li>
+          <li>• Supports both direct data format and summary format with dailySummaries</li>
           <li>• Use "Load Sample Data" to see an example of expected format</li>
           <li>• Or click "Analyze JSON Data" to manually process</li>
         </ul>
+      </div>
+
+      {/* Supported Formats */}
+      <div className="mt-4 p-4 bg-green-50 border border-green-200 rounded-lg">
+        <h3 className="text-sm font-semibold text-green-800 mb-2">Supported Formats:</h3>
+        <div className="text-sm text-green-700">
+          <p className="mb-2"><strong>Format 1 - Direct:</strong></p>
+          <pre className="text-xs bg-green-100 p-2 rounded mb-2">
+{`{
+  "Items": [...],
+  "Groups": [...]
+}`}
+          </pre>
+          <p className="mb-2"><strong>Format 2 - Summary:</strong></p>
+          <pre className="text-xs bg-green-100 p-2 rounded">
+{`{
+  "summaryType": "system_jira_retrospective_v0",
+  "dailySummaries": [
+    {
+      "contentJSON": {
+        "Items": [...],
+        "Groups": [...]
+      }
+    }
+  ]
+}`}
+          </pre>
+        </div>
       </div>
     </div>
   );
