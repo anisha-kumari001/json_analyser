@@ -136,7 +136,7 @@ export default function IssueAnalysis({ data }: IssueAnalysisProps) {
           </p>
         </div>
 
-        <div className="divide-y divide-gray-200 max-h-96 overflow-y-auto">
+        <div className="divide-y divide-gray-200 max-h-96 overflow-y-auto scrollbar-hide">
           {filteredItems.map((item: any) => (
             <div key={item.id} className="p-6 hover:bg-gray-50 transition-colors">
               <div className="flex items-start justify-between">

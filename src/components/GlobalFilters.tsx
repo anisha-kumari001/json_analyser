@@ -31,6 +31,7 @@ interface GlobalFiltersProps {
   availablePriorities: string[];
   availableLabels: string[];
   dateRange: { min: Date; max: Date };
+  isSummaryTab?: boolean;
 }
 
 const RELATIVE_RANGES = [
@@ -49,7 +50,8 @@ export default function GlobalFilters({
   availableReporters,
   availablePriorities,
   availableLabels,
-  dateRange
+  dateRange,
+  isSummaryTab = false
 }: GlobalFiltersProps) {
   const [isExpanded, setIsExpanded] = useState(false);
 
@@ -110,15 +112,23 @@ export default function GlobalFilters({
             </h2>
             <div className="flex items-center gap-2">
               <button
-                onClick={() => setIsExpanded(!isExpanded)}
-                className="px-3 py-1 text-sm bg-blue-100 text-blue-700 rounded-md hover:bg-blue-200"
+                onClick={isSummaryTab ? undefined : () => setIsExpanded(!isExpanded)}
+                disabled={isSummaryTab}
+                className={`px-3 py-1 text-sm rounded-md ${
+                  isSummaryTab
+                    ? 'bg-gray-100 text-gray-400 cursor-not-allowed opacity-50'
+                    : 'bg-blue-100 text-blue-700 hover:bg-blue-200'
+                }`}
               >
-                {isExpanded ? 'Less Filters' : 'More Filters'}
+                {isSummaryTab ? 'Advanced Filters' : isExpanded ? 'Less Filters' : 'More Filters'}
               </button>
               <button
-                onClick={toggleCompareMode}
+                onClick={isSummaryTab ? undefined : toggleCompareMode}
+                disabled={isSummaryTab}
                 className={`px-3 py-1 text-sm rounded-md ${
-                  filters.compareMode 
+                  isSummaryTab
+                    ? 'bg-gray-100 text-gray-400 cursor-not-allowed opacity-50'
+                    : filters.compareMode 
                     ? 'bg-green-100 text-green-700' 
                     : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                 }`}
@@ -151,12 +161,15 @@ export default function GlobalFilters({
 
             {/* Date Type Toggle */}
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Date Type</label>
+              <label className={`block text-sm font-medium mb-2 ${isSummaryTab ? 'text-gray-400' : 'text-gray-700'}`}>Date Type</label>
               <div className="flex rounded-md border border-gray-300">
                 <button
-                  onClick={() => updateFilters({ dateType: 'created' })}
+                  onClick={isSummaryTab ? undefined : () => updateFilters({ dateType: 'created' })}
+                  disabled={isSummaryTab}
                   className={`px-3 py-2 text-sm rounded-l-md ${
-                    filters.dateType === 'created'
+                    isSummaryTab
+                      ? 'bg-gray-100 text-gray-400 cursor-not-allowed opacity-50'
+                      : filters.dateType === 'created'
                       ? 'bg-blue-600 text-white'
                       : 'bg-white text-gray-700 hover:bg-gray-50'
                   }`}
@@ -164,9 +177,12 @@ export default function GlobalFilters({
                   Created
                 </button>
                 <button
-                  onClick={() => updateFilters({ dateType: 'resolved' })}
+                  onClick={isSummaryTab ? undefined : () => updateFilters({ dateType: 'resolved' })}
+                  disabled={isSummaryTab}
                   className={`px-3 py-2 text-sm rounded-r-md ${
-                    filters.dateType === 'resolved'
+                    isSummaryTab
+                      ? 'bg-gray-100 text-gray-400 cursor-not-allowed opacity-50'
+                      : filters.dateType === 'resolved'
                       ? 'bg-blue-600 text-white'
                       : 'bg-white text-gray-700 hover:bg-gray-50'
                   }`}
@@ -174,37 +190,54 @@ export default function GlobalFilters({
                   Resolved
                 </button>
               </div>
+              {isSummaryTab && (
+                <p className="text-xs text-gray-400 mt-1 italic">Date type is fixed to 'Created' in summary view</p>
+              )}
             </div>
 
             {/* Text Search */}
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Search</label>
+              <label className={`block text-sm font-medium mb-2 ${isSummaryTab ? 'text-gray-400' : 'text-gray-700'}`}>Search</label>
               <div className="relative">
-                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
+                <Search className={`absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 ${isSummaryTab ? 'text-gray-300' : 'text-gray-400'}`} />
                 <input
                   type="text"
-                  placeholder="Search titles, descriptions..."
-                  value={filters.textSearch}
-                  onChange={(e) => updateFilters({ textSearch: e.target.value })}
-                  className="pl-10 pr-4 py-2 w-full border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  placeholder={isSummaryTab ? "Search disabled in summary view" : "Search titles, descriptions..."}
+                  value={isSummaryTab ? '' : filters.textSearch}
+                  onChange={isSummaryTab ? undefined : (e) => updateFilters({ textSearch: e.target.value })}
+                  disabled={isSummaryTab}
+                  className={`pl-10 pr-4 py-2 w-full border rounded-md ${
+                    isSummaryTab
+                      ? 'bg-gray-100 border-gray-200 text-gray-400 cursor-not-allowed opacity-50'
+                      : 'border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent'
+                  }`}
                 />
               </div>
+              {isSummaryTab && (
+                <p className="text-xs text-gray-400 mt-1 italic">Text search is disabled in summary view</p>
+              )}
             </div>
 
             {/* SLA Breach Toggle */}
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">SLA Breach</label>
+              <label className={`block text-sm font-medium mb-2 ${isSummaryTab ? 'text-gray-400' : 'text-gray-700'}`}>SLA Breach</label>
               <button
-                onClick={() => updateFilters({ slaBreachOnly: !filters.slaBreachOnly })}
+                onClick={isSummaryTab ? undefined : () => updateFilters({ slaBreachOnly: !filters.slaBreachOnly })}
+                disabled={isSummaryTab}
                 className={`flex items-center gap-2 px-3 py-2 rounded-md border ${
-                  filters.slaBreachOnly
+                  isSummaryTab
+                    ? 'bg-gray-100 border-gray-200 text-gray-400 cursor-not-allowed opacity-50'
+                    : filters.slaBreachOnly
                     ? 'bg-red-100 border-red-300 text-red-700'
                     : 'bg-white border-gray-300 text-gray-700 hover:bg-gray-50'
                 }`}
               >
                 <AlertTriangle className="w-4 h-4" />
-                {filters.slaBreachOnly ? 'Show All' : 'Breach Only'}
+                {isSummaryTab ? 'SLA Filter' : filters.slaBreachOnly ? 'Show All' : 'Breach Only'}
               </button>
+              {isSummaryTab && (
+                <p className="text-xs text-gray-400 mt-1 italic">SLA breach filter is disabled in summary view</p>
+              )}
             </div>
           </div>
 
@@ -266,91 +299,129 @@ export default function GlobalFilters({
 
               {/* Tags Multi-Select */}
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className={`block text-sm font-medium mb-2 ${isSummaryTab ? 'text-gray-400' : 'text-gray-700'}`}>
                   Tags ({filters.selectedTags.length} selected)
                 </label>
-                <div className="max-h-40 overflow-y-auto border border-gray-300 rounded-md p-2">
+                <div className={`max-h-40 overflow-y-auto scrollbar-hide border rounded-md p-2 ${
+                  isSummaryTab ? 'border-gray-200 bg-gray-50' : 'border-gray-300'
+                }`}>
                   {Object.entries(groupedTags).map(([category, tags]) => (
                     <div key={category} className="mb-3">
-                      <h4 className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">
+                      <h4 className={`text-xs font-semibold uppercase tracking-wide mb-1 ${
+                        isSummaryTab ? 'text-gray-400' : 'text-gray-500'
+                      }`}>
                         {category}
                       </h4>
                       {tags.map(tag => (
-                        <label key={tag.name} className="flex items-center gap-2 py-1 hover:bg-gray-50">
+                        <label key={tag.name} className={`flex items-center gap-2 py-1 ${
+                          isSummaryTab ? 'cursor-not-allowed' : 'hover:bg-gray-50'
+                        }`}>
                           <input
                             type="checkbox"
                             checked={filters.selectedTags.includes(tag.name)}
-                            onChange={(e) => {
+                            onChange={isSummaryTab ? undefined : (e) => {
                               const newTags = e.target.checked
                                 ? [...filters.selectedTags, tag.name]
                                 : filters.selectedTags.filter(t => t !== tag.name);
                               updateFilters({ selectedTags: newTags });
                             }}
-                            className="rounded border-gray-300 text-blue-600 focus:ring-blue-500"
+                            disabled={isSummaryTab}
+                            className={`rounded border-gray-300 ${
+                              isSummaryTab
+                                ? 'text-gray-400 cursor-not-allowed opacity-50'
+                                : 'text-blue-600 focus:ring-blue-500'
+                            }`}
                           />
-                          <span className="text-sm text-gray-700">{tag.name}</span>
-                          <span className="text-xs text-gray-500">({tag.count})</span>
+                          <span className={`text-sm ${isSummaryTab ? 'text-gray-400' : 'text-gray-700'}`}>{tag.name}</span>
+                          <span className={`text-xs ${isSummaryTab ? 'text-gray-300' : 'text-gray-500'}`}>({tag.count})</span>
                         </label>
                       ))}
                     </div>
                   ))}
                 </div>
+                {isSummaryTab && (
+                  <p className="text-xs text-gray-400 mt-1 italic">Tag filters are disabled in summary view</p>
+                )}
               </div>
 
               {/* Other Filters */}
               <div className="space-y-4">
                 {/* Priorities */}
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Priority</label>
+                  <label className={`block text-sm font-medium mb-2 ${isSummaryTab ? 'text-gray-400' : 'text-gray-700'}`}>Priority</label>
                   <select
                     multiple
                     value={filters.priorities}
-                    onChange={(e) => updateFilters({
+                    onChange={isSummaryTab ? undefined : (e) => updateFilters({
                       priorities: Array.from(e.target.selectedOptions, option => option.value)
                     })}
-                    className="w-full border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500"
+                    disabled={isSummaryTab}
+                    className={`w-full border rounded-md ${
+                      isSummaryTab
+                        ? 'bg-gray-100 border-gray-200 text-gray-400 cursor-not-allowed opacity-50'
+                        : 'border-gray-300 focus:ring-2 focus:ring-blue-500'
+                    }`}
                     size={3}
                   >
                     {availablePriorities.map(priority => (
                       <option key={priority} value={priority}>{priority}</option>
                     ))}
                   </select>
+                  {isSummaryTab && (
+                    <p className="text-xs text-gray-400 mt-1 italic">Priority filters are disabled in summary view</p>
+                  )}
                 </div>
 
                 {/* Assignees */}
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Assignees</label>
+                  <label className={`block text-sm font-medium mb-2 ${isSummaryTab ? 'text-gray-400' : 'text-gray-700'}`}>Assignees</label>
                   <select
                     multiple
                     value={filters.assignees}
-                    onChange={(e) => updateFilters({
+                    onChange={isSummaryTab ? undefined : (e) => updateFilters({
                       assignees: Array.from(e.target.selectedOptions, option => option.value)
                     })}
-                    className="w-full border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500"
+                    disabled={isSummaryTab}
+                    className={`w-full border rounded-md ${
+                      isSummaryTab
+                        ? 'bg-gray-100 border-gray-200 text-gray-400 cursor-not-allowed opacity-50'
+                        : 'border-gray-300 focus:ring-2 focus:ring-blue-500'
+                    }`}
                     size={3}
                   >
                     {availableAssignees.map(assignee => (
                       <option key={assignee} value={assignee}>{assignee}</option>
                     ))}
                   </select>
+                  {isSummaryTab && (
+                    <p className="text-xs text-gray-400 mt-1 italic">Assignee filters are disabled in summary view</p>
+                  )}
                 </div>
 
                 {/* Reporters */}
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Reporters</label>
+                  <label className={`block text-sm font-medium mb-2 ${isSummaryTab ? 'text-gray-400' : 'text-gray-700'}`}>Reporters</label>
                   <select
                     multiple
                     value={filters.reporters}
-                    onChange={(e) => updateFilters({
+                    onChange={isSummaryTab ? undefined : (e) => updateFilters({
                       reporters: Array.from(e.target.selectedOptions, option => option.value)
                     })}
-                    className="w-full border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500"
+                    disabled={isSummaryTab}
+                    className={`w-full border rounded-md ${
+                      isSummaryTab
+                        ? 'bg-gray-100 border-gray-200 text-gray-400 cursor-not-allowed opacity-50'
+                        : 'border-gray-300 focus:ring-2 focus:ring-blue-500'
+                    }`}
                     size={3}
                   >
                     {availableReporters.map(reporter => (
                       <option key={reporter} value={reporter}>{reporter}</option>
                     ))}
                   </select>
+                  {isSummaryTab && (
+                    <p className="text-xs text-gray-400 mt-1 italic">Reporter filters are disabled in summary view</p>
+                  )}
                 </div>
               </div>
             </div>

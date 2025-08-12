@@ -500,7 +500,7 @@ const SAMPLE_DATA =
               ],
               "priority": "Critical",
               "issue_key": "GRID-280816",
-              "created_ts": "2025-06-10T08:17:02.794+05:30",
+              "created_ts": "2025-06-10T08:20:01.319+05:30",
               "issue_title": "Migrate Yarn nodes from DLR to LVAx / QTS",
               "resolved_ts": "0001-01-01T00:00:00Z",
               "project_name": "GRID",
@@ -821,8 +821,12 @@ const SAMPLE_DATA =
         "Groups": [
           {
             "ItemsList": [
+              151079,
               151080,
-              151081
+              151081,
+              151082,
+              151083,
+              151084
             ],
             "GroupMetaData": {
               "Actions": "To optimize workflows, establish clear ownership early by automating assignee selection for off-hour created issues using JIRA automation rules. Incorporate dynamic SLA alerts to track unresolved tasks, ensuring escalations occur at predefined intervals to combat resolution delays. Facilitate more structured team collaboration by defining handoff protocols and providing issue-specific context visibility in JIRA comments. Enhance preventability through better monitoring configurations and pre-migration testing to reduce the recurrence of similar long-resolution scenarios.",
@@ -851,7 +855,6 @@ const SAMPLE_DATA =
               151079,
               151080,
               151081,
-              151082,
               151083,
               151084
             ],
@@ -1292,7 +1295,7 @@ const SAMPLE_DATA =
                   "from_assignee": ""
                 }
               ],
-              "issue_description": "Action Item for  https://rootly.com/account/incidents/5393  :",
+                                                     "issue_description": "Action Item for  https://rootly.com/account/incidents/5393  :",
               "status_transitions": [
                 {
                   "to_state": "In Progress",
@@ -1420,7 +1423,7 @@ const SAMPLE_DATA =
             "GroupMetaData": {
               "Actions": "To prevent similar inefficiencies, prioritize configuring automated alerts for critical failures such as Namenode crashes, ensuring rapid detection and response. Enhance JIRA workflows by introducing mandatory status updates at predefined intervals and fostering greater accountability through frequent team check-ins. Encourage wider collaboration by increasing participant involvement and leveraging retrospective learnings in team training sessions. Lastly, improve triage efficiency by implementing a 24/7 monitoring escalation framework to address off-hour issues with reduced delays.",
               "GroupID": 23109,
-              "Insight": "The triage and assignment process appears to have lacked urgency, potentially due to the issue being created off-hours and having a long resolution time of over 1181 hours. Minimal status transitions suggest infrequent updates or process stagnation, while the low comment activity of only two contributors signifies limited collaborative effort. Recurring themes include inadequate monitoring configurations and the absence of automation for timely alerts, both of which likely extended resolution durations. These patterns collectively indicate a requirement for more robust monitoring practices and clearer assignment protocols.",
+              "Insight": "The triage and assignment process reveals systemic delays due to the absence of robust automation for ticket creation and routing, as identified by the missing LSR email-triggered automation. Status transition patterns suggest limited progress on high-priority tasks, amplified by the absence of explicit prioritization and unclear workflows. Collaboration inefficiencies and handoff difficulties emerge as contributors to the issue lifespan, particularly for off-hours incidents, hinting at gaps in on-call processes and escalation mechanisms. Recurring themes of missing automation and insufficient monitoring stand out as key improvement areas.",
               "Summary": "The JIRA issue highlights inefficiencies related to prolonged resolution times and minimal collaboration dynamics, as evidenced by extended investigation efforts and low communication overhead. The monitoring gap caused by missing automation elements and limited status transitions suggests opportunities for enhanced workflow streamlining and proactive alert mechanisms. Overall, the issue management for this case shows room for improvement in operational processes to prevent recurrence of similar problems.",
               "GroupName": "Tag: Monitoring_Gap",
               "GroupDescription": "Issues tagged with 'Monitoring_Gap', occurred 1 times"
@@ -1565,7 +1568,7 @@ const SAMPLE_DATA =
               "Actions": "Implement automation to ensure failure emails directly generate tickets, reducing manual effort and improving triage speed. Establish a structured workflow with clearly defined priority settings and enforce mandatory status updates to enhance resolution tracking and accountability. Conduct a monitoring system audit to identify and address gaps, ensuring timely detection of critical issues. Create a review mechanism for off-hours incidents to facilitate faster handoffs and ensure no delays in addressing high-priority issues.",
               "GroupID": 23105,
               "Insight": "The primary inefficiency stems from the absence of automation in processing failure emails, leading to manual interventions for ticket creation. This gap in automation has directly impacted resolution velocity and added operational toil. The issue's high-priority classification with unresolved status suggests bottlenecks in escalation and handoff mechanisms. The lack of a proper priority setting and status transition contributes to workflow opacity, hindering the team's ability to track and resolve the issue effectively. Repeated themes such as monitoring gaps and long resolution timelines point toward systemic process weaknesses in incident detection and handling.",
-              "Summary": "The analyzed JIRA issue demonstrates significant inefficiencies in both automated monitoring and manual workflow processes. The issue, marked as high priority, remains open despite its creation during off-hours two months ago, indicating delayed handoffs and potential gaps in triage and resolution processes. Unspecified priority and missing status updates further highlight challenges in workflow clarity and prioritization within the team.",
+              "Summary": "The analyzed JIRA issue demonstrates significant inefficiencies in both automated monitoring and manual workflow processes. The issue, marked as high priority, remains open despite its creation during off-hours, indicating delayed handoffs and potential gaps in triage and resolution processes. Unspecified priority and missing status updates further highlight challenges in workflow clarity and prioritization within the team.",
               "GroupName": "Tag: Automation_Missing",
               "GroupDescription": "Issues tagged with 'Automation_Missing', occurred 1 times"
             }
@@ -1622,8 +1625,28 @@ function App() {
   const [jsonInput, setJsonInput] = useState('');
   const [parseError, setParseError] = useState<string | null>(null);
 
-  // Global filters state
-  const [filters, setFilters] = useState<GlobalFilters>({
+  // Global filters state - applied filters that affect the data
+  const [appliedFilters, setAppliedFilters] = useState<GlobalFilters>({
+    createdDateRange: {
+      startDate: '',
+      endDate: '',
+      relative: 'all'
+    },
+    activeDateRange: {
+      startDate: '',
+      endDate: '',
+      relative: 'all'
+    },
+    selectedTags: [],
+    selectedPriorities: [],
+    selectedProjects: [],
+    selectedAssignees: [],
+    selectedReporters: [],
+    selectedStatuses: []
+  });
+
+  // Local filters state - pending changes in the filter sidebar
+  const [localFilters, setLocalFilters] = useState<GlobalFilters>({
     createdDateRange: {
       startDate: '',
       endDate: '',
@@ -1741,7 +1764,7 @@ function App() {
 
   // Filter items based on current filters
   const filteredItems = useMemo(() => {
-    console.log('Filtering items. All items:', allItems.length, 'Filters:', filters);
+    console.log('Filtering items. All items:', allItems.length, 'Filters:', appliedFilters);
     
     if (!allItems.length) {
       console.log('No items to filter');
@@ -1751,81 +1774,81 @@ function App() {
     try {
       const result = allItems.filter((item: any) => {
         // Created Date Range Filter - Issues created within time range (uses only created_ts)
-        if (filters.selectedTags.length > 0) {
+        if (appliedFilters.selectedTags.length > 0) {
           const itemTags = item.tags || [];
           const itemTagNames = itemTags.map((tag: any) => tag.name || tag).filter(Boolean);
-          if (!filters.selectedTags.some(filterTag => itemTagNames.includes(filterTag))) {
+          if (!appliedFilters.selectedTags.some(filterTag => itemTagNames.includes(filterTag))) {
             return false;
           }
         }
 
         // Priority filter
-        if (filters.selectedPriorities.length > 0) {
+        if (appliedFilters.selectedPriorities.length > 0) {
           const itemPriority = item.content?.priority;
-          if (!itemPriority || !filters.selectedPriorities.includes(itemPriority)) {
+          if (!itemPriority || !appliedFilters.selectedPriorities.includes(itemPriority)) {
             return false;
           }
         }
 
         // Project filter
-        if (filters.selectedProjects.length > 0) {
+        if (appliedFilters.selectedProjects.length > 0) {
           const itemProject = item.content?.project_name;
-          if (!itemProject || !filters.selectedProjects.includes(itemProject)) {
+          if (!itemProject || !appliedFilters.selectedProjects.includes(itemProject)) {
             return false;
           }
         }
 
         // Assignee filter
-        if (filters.selectedAssignees.length > 0) {
+        if (appliedFilters.selectedAssignees.length > 0) {
           const itemAssignee = item.content?.assignee_name;
-          if (!itemAssignee || !filters.selectedAssignees.includes(itemAssignee)) {
+          if (!itemAssignee || !appliedFilters.selectedAssignees.includes(itemAssignee)) {
             return false;
           }
         }
 
         // Reporter filter
-        if (filters.selectedReporters.length > 0) {
+        if (appliedFilters.selectedReporters.length > 0) {
           const itemReporter = item.content?.reporter_name;
-          if (!itemReporter || !filters.selectedReporters.includes(itemReporter)) {
+          if (!itemReporter || !appliedFilters.selectedReporters.includes(itemReporter)) {
             return false;
           }
         }
 
         // Status filter
-        if (filters.selectedStatuses.length > 0) {
+        if (appliedFilters.selectedStatuses.length > 0) {
           const statusTransitions = item.content?.status_transitions || [];
           const currentStatus = statusTransitions.length > 0 
             ? statusTransitions[statusTransitions.length - 1].to_state 
             : 'Open';
-          if (!filters.selectedStatuses.includes(currentStatus)) {
+          if (!appliedFilters.selectedStatuses.includes(currentStatus)) {
             return false;
           }
         }
 
         // Created Date Range Filter - Issues created within time range (uses only created_ts)
-        if (filters.createdDateRange.relative !== 'all' || filters.createdDateRange.startDate || filters.createdDateRange.endDate) {
+        if (appliedFilters.createdDateRange.relative !== 'all' || appliedFilters.createdDateRange.startDate || appliedFilters.createdDateRange.endDate) {
           const itemCreatedDate = new Date(item.content?.created_ts);
           if (isNaN(itemCreatedDate.getTime())) {
-            if (filters.createdDateRange.relative !== 'all') return false;
+            if (appliedFilters.createdDateRange.relative !== 'all') return false;
           } else {
             let startDate: Date | null = null;
             let endDate: Date | null = null;
 
-            if (filters.createdDateRange.relative === 'last7days') {
+            if (appliedFilters.createdDateRange.relative === 'last7days') {
               startDate = new Date();
               startDate.setDate(startDate.getDate() - 7);
-            } else if (filters.createdDateRange.relative === 'last30days') {
+            } else if (appliedFilters.createdDateRange.relative === 'last30days') {
               startDate = new Date();
               startDate.setDate(startDate.getDate() - 30);
-            } else if (filters.createdDateRange.relative === 'last90days') {
+            } else if (appliedFilters.createdDateRange.relative === 'last90days') {
               startDate = new Date();
               startDate.setDate(startDate.getDate() - 90);
-            } else if (filters.createdDateRange.relative === 'custom') {
-              if (filters.createdDateRange.startDate) {
-                startDate = new Date(filters.createdDateRange.startDate);
+            } else if (appliedFilters.createdDateRange.relative === 'custom') {
+              if (appliedFilters.createdDateRange.startDate) {
+                startDate = new Date(appliedFilters.createdDateRange.startDate);
               }
-              if (filters.createdDateRange.endDate) {
-                endDate = new Date(filters.createdDateRange.endDate);
+              if (appliedFilters.createdDateRange.endDate) {
+                endDate = new Date(appliedFilters.createdDateRange.endDate);
               }
             }
 
@@ -1835,33 +1858,34 @@ function App() {
         }
 
         // Active Issues Filter - Issues active during time range (uses both created_ts and resolved_ts)
-        if (filters.activeDateRange.relative !== 'all' || filters.activeDateRange.startDate || filters.activeDateRange.endDate) {
+        if (appliedFilters.activeDateRange.relative !== 'all' || appliedFilters.activeDateRange.startDate || appliedFilters.activeDateRange.endDate) {
           const itemCreatedDate = new Date(item.content?.created_ts);
           const itemResolvedDate = item.content?.resolved_ts && item.content.resolved_ts !== "0001-01-01T00:00:00Z" 
             ? new Date(item.content.resolved_ts) 
             : null; // null means still active
 
           if (isNaN(itemCreatedDate.getTime())) {
-            if (filters.activeDateRange.relative !== 'all') return false;
+            if (appliedFilters.activeDateRange.relative !== 'all') return false;
           } else {
             let startDate: Date | null = null;
             let endDate: Date | null = null;
 
-            if (filters.activeDateRange.relative === 'last7days') {
+            if (appliedFilters.activeDateRange.relative === 'last7days') {
               startDate = new Date();
               startDate.setDate(startDate.getDate() - 7);
-            } else if (filters.activeDateRange.relative === 'last30days') {
+            } else if (appliedFilters.activeDateRange.relative === 'last30days') {
               startDate = new Date();
               startDate.setDate(startDate.getDate() - 30);
-            } else if (filters.activeDateRange.relative === 'last90days') {
+            } else if (appliedFilters.activeDateRange.relative === 'last90days') {
               startDate = new Date();
               startDate.setDate(startDate.getDate() - 90);
-            } else if (filters.activeDateRange.relative === 'custom') {
-              if (filters.activeDateRange.startDate) {
-                startDate = new Date(filters.activeDateRange.startDate);
+            } else if (appliedFilters.activeDateRange.relative === 'custom') {
+              if (appliedFilters.activeDateRange.startDate) {
+                startDate = new Date(appliedFilters.activeDateRange.startDate);
               }
-              if (filters.activeDateRange.endDate) {
-                endDate = new Date(filters.activeDateRange.endDate);
+              if (appliedFilters.activeDateRange.endDate) {
+                endDate = new Date(appliedFilters.activeDateRange.endDate);
+                endDate.setHours(23, 59, 59, 999);
               }
             }
 
@@ -1892,7 +1916,7 @@ function App() {
       console.error('Error in filtering:', error);
       return allItems; // Return all items if filtering fails
     }
-  }, [allItems, filters]);
+  }, [allItems, appliedFilters]);
 
   // Parse and analyze the JSON data using filtered items
   const dataStats = useMemo(() => {
@@ -2230,7 +2254,7 @@ function App() {
       {jsonData && (
         <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
           <h3 className="text-lg font-semibold text-gray-900 mb-4">Data Preview</h3>
-          <div className="bg-gray-50 rounded-md p-4 max-h-96 overflow-auto">
+          <div className="bg-gray-50 rounded-md p-4 max-h-96 overflow-auto scrollbar-hide">
             <pre className="text-xs text-gray-800">
               {JSON.stringify(jsonData, null, 2)}
             </pre>
@@ -2297,21 +2321,40 @@ function App() {
       setExpandedSections(prev => ({ ...prev, [section]: !prev[section] }));
     }, []);
 
-    const updateFilter = React.useCallback((key: keyof GlobalFilters, value: any) => {
-      setFilters(prev => ({ ...prev, [key]: value }));
+    const updateLocalFilter = React.useCallback((key: keyof GlobalFilters, value: any) => {
+      setLocalFilters(prev => ({ ...prev, [key]: value }));
     }, []);
 
+    const applyFilters = React.useCallback(() => {
+      setAppliedFilters(localFilters);
+    }, [localFilters]);
+
     const resetFilters = React.useCallback(() => {
-      setFilters({
+      const resetState: GlobalFilters = activeTab === 'summaries' ? {
+        // For summary tab, only reset the created date range
         createdDateRange: {
           startDate: '',
           endDate: '',
-          relative: 'all'
+          relative: 'all' as const
+        },
+        activeDateRange: localFilters.activeDateRange,
+        selectedTags: localFilters.selectedTags,
+        selectedPriorities: localFilters.selectedPriorities,
+        selectedProjects: localFilters.selectedProjects,
+        selectedAssignees: localFilters.selectedAssignees,
+        selectedReporters: localFilters.selectedReporters,
+        selectedStatuses: localFilters.selectedStatuses
+      } : {
+        // For other tabs, reset all filters
+        createdDateRange: {
+          startDate: '',
+          endDate: '',
+          relative: 'all' as const
         },
         activeDateRange: {
           startDate: '',
           endDate: '',
-          relative: 'all'
+          relative: 'all' as const
         },
         selectedTags: [],
         selectedPriorities: [],
@@ -2319,11 +2362,14 @@ function App() {
         selectedAssignees: [],
         selectedReporters: [],
         selectedStatuses: []
-      });
-    }, []);
+      };
+
+      setLocalFilters(resetState);
+      setAppliedFilters(resetState);
+    }, [activeTab, localFilters]);
 
     const toggleArrayFilter = React.useCallback((filterKey: keyof GlobalFilters, value: string) => {
-      setFilters(prev => {
+      setLocalFilters(prev => {
         const currentArray = prev[filterKey] as string[];
         const newArray = currentArray.includes(value)
           ? currentArray.filter(item => item !== value)
@@ -2415,7 +2461,7 @@ function App() {
     );
 
     return (
-      <div className={`${sidebarOpen ? 'w-[300px]' : 'w-0'} transition-all duration-300 bg-gray-100 border-r border-gray-300 overflow-hidden flex-shrink-0`}>
+      <div className={`${sidebarOpen ? 'w-[300px]' : 'w-0'} transition-all duration-300 bg-gray-100 border-r border-gray-300 overflow-hidden flex-shrink-0 flex flex-col`}>
         {/* Header */}
         <div className="bg-white border-b border-gray-200 p-8">
           <div className="flex items-center justify-between">
@@ -2423,7 +2469,9 @@ function App() {
               <div className="p-2 bg-blue-600 rounded-lg">
                 <Filter className="w-5 h-5 text-white" />
               </div>
-              <h2 className="text-xl font-semibold text-gray-800">Filters</h2>
+              <h2 className="text-xl font-semibold text-gray-800">
+                {activeTab === 'summaries' ? 'Date Filter' : 'Filters'}
+              </h2>
             </div>
             <button
               onClick={() => setSidebarOpen(false)}
@@ -2432,169 +2480,216 @@ function App() {
               <X className="w-5 h-5" />
             </button>
           </div>
+        </div>
+
+        {/* Filter Content */}
+        <div 
+          className="overflow-y-auto p-6 space-y-4 scrollbar-hide flex-1"
+          style={{
+            minHeight: 'fit-content',
+            maxHeight: 'calc(100vh - 200px)'
+          }}
+        >
+
+          {/* For Summary tab, only show Created Date Range filter */}
+          {activeTab === 'summaries' ? (
+            <>
+              {/* Summary Tab Notice */}
+              <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-4">
+                <div className="flex items-center gap-2">
+                  <Calendar className="w-4 h-4 text-blue-600" />
+                  <h3 className="font-medium text-blue-800">Analysis & Insights Mode</h3>
+                </div>
+                <p className="text-sm text-blue-700 mt-1">
+                  Only date range filtering is available for summary analysis. Other filters are disabled to show comprehensive insights.
+                </p>
+              </div>
+
+              {/* Date Range Filter - Created Date Only */}
+              <LinkedInFilterSection
+                title="Date Range"
+                isExpanded={expandedSections.createdDate}
+                onToggle={React.useCallback(() => toggleSection('createdDate'), [toggleSection])}
+              >
+                <div className="space-y-4">
+                  <DateRangeSelector
+                    label="Created Date Range"
+                    value={localFilters.createdDateRange}
+                    onChange={(value) => updateLocalFilter('createdDateRange', value)}
+                  />
+                  <div className="bg-gray-50 border border-gray-200 rounded-lg p-3">
+                    <p className="text-xs text-gray-600">
+                      📊 Summaries will be filtered based on when they were created within this date range.
+                    </p>
+                  </div>
+                </div>
+              </LinkedInFilterSection>
+            </>
+          ) : (
+            <>
+              {/* Date Range Filters for other tabs */}
+              <LinkedInFilterSection
+                title="Date Ranges"
+                isExpanded={expandedSections.createdDate}
+                onToggle={React.useCallback(() => toggleSection('createdDate'), [toggleSection])}
+              >
+                <div className="space-y-6">
+                  <DateRangeSelector
+                    label="Created Date"
+                    value={localFilters.createdDateRange}
+                    onChange={(value) => setLocalFilters(prev => ({
+                      ...prev,
+                      createdDateRange: value
+                    }))}
+                  />
+                </div>
+              </LinkedInFilterSection>
+
+              {/* Status Filter */}
+              {jsonData && availableOptions.statuses.length > 0 && (
+                <LinkedInFilterSection
+                  title="Status"
+                  isExpanded={expandedSections.status}
+                  onToggle={() => toggleSection('status')}
+                  count={localFilters.selectedStatuses.length > 0 ? `${localFilters.selectedStatuses.length}` : undefined}
+                >
+                  <div className="space-y-1 max-h-60 overflow-y-auto scrollbar-hide">
+                    {availableOptions.statuses.map((status) => (
+                      <MultiSelectOption
+                        key={status}
+                        label={status}
+                        isSelected={localFilters.selectedStatuses.includes(status)}
+                        onChange={() => toggleArrayFilter('selectedStatuses', status)}
+                      />
+                    ))}
+                  </div>
+                </LinkedInFilterSection>
+              )}
+
+              {/* Priority Filter */}
+              {jsonData && availableOptions.priorities.length > 0 && (
+                <LinkedInFilterSection
+                  title="Priority"
+                  isExpanded={expandedSections.priority}
+                  onToggle={() => toggleSection('priority')}
+                  count={localFilters.selectedPriorities.length > 0 ? `${localFilters.selectedPriorities.length}` : undefined}
+                >
+                  <div className="space-y-1 max-h-60 overflow-y-auto scrollbar-hide">
+                    {availableOptions.priorities.map((priority) => (
+                      <MultiSelectOption
+                        key={priority}
+                        label={priority}
+                        isSelected={localFilters.selectedPriorities.includes(priority)}
+                        onChange={() => toggleArrayFilter('selectedPriorities', priority)}
+                      />
+                    ))}
+                  </div>
+                </LinkedInFilterSection>
+              )}
+
+              {/* Tags Filter */}
+              {jsonData && availableOptions.tags.length > 0 && (
+                <LinkedInFilterSection
+                  title="Tags"
+                  isExpanded={expandedSections.tags}
+                  onToggle={() => toggleSection('tags')}
+                  count={localFilters.selectedTags.length > 0 ? `${localFilters.selectedTags.length}` : undefined}
+                >
+                  <div className="space-y-1 max-h-60 overflow-y-auto scrollbar-hide">
+                    {availableOptions.tags.map((tag) => (
+                      <MultiSelectOption
+                        key={tag}
+                        label={tag.length > 25 ? `${tag.substring(0, 25)}...` : tag}
+                        isSelected={localFilters.selectedTags.includes(tag)}
+                        onChange={() => toggleArrayFilter('selectedTags', tag)}
+                        tooltip={tag.length > 25 ? tag : undefined}
+                      />
+                    ))}
+                  </div>
+                </LinkedInFilterSection>
+              )}
+
+              {/* Projects Filter */}
+              {jsonData && availableOptions.projects.length > 0 && (
+                <LinkedInFilterSection
+                  title="Projects"
+                  isExpanded={expandedSections.project}
+                  onToggle={() => toggleSection('project')}
+                  count={localFilters.selectedProjects.length > 0 ? `${localFilters.selectedProjects.length}` : undefined}
+                >
+                  <div className="space-y-1 max-h-60 overflow-y-auto scrollbar-hide">
+                    {availableOptions.projects.map((project) => (
+                      <MultiSelectOption
+                        key={project}
+                        label={project}
+                        isSelected={localFilters.selectedProjects.includes(project)}
+                        onChange={() => toggleArrayFilter('selectedProjects', project)}
+                      />
+                    ))}
+                  </div>
+                </LinkedInFilterSection>
+              )}
+
+              {/* Assignees Filter */}
+              {jsonData && availableOptions.assignees.length > 0 && (
+                <LinkedInFilterSection
+                  title="Assignees"
+                  isExpanded={expandedSections.assignee}
+                  onToggle={() => toggleSection('assignee')}
+                  count={localFilters.selectedAssignees.length > 0 ? `${localFilters.selectedAssignees.length}` : undefined}
+                >
+                  <div className="space-y-1 max-h-60 overflow-y-auto scrollbar-hide">
+                    {availableOptions.assignees.map((assignee) => (
+                      <MultiSelectOption
+                        key={assignee}
+                        label={assignee}
+                        isSelected={localFilters.selectedAssignees.includes(assignee)}
+                        onChange={() => toggleArrayFilter('selectedAssignees', assignee)}
+                      />
+                    ))}
+                  </div>
+                </LinkedInFilterSection>
+              )}
+
+              {/* Reporters Filter */}
+              {jsonData && availableOptions.reporters.length > 0 && (
+                <LinkedInFilterSection
+                  title="Reporters"
+                  isExpanded={expandedSections.reporter || false}
+                  onToggle={() => toggleSection('reporter')}
+                  count={localFilters.selectedReporters.length > 0 ? `${localFilters.selectedReporters.length}` : undefined}
+                >
+                  <div className="space-y-1 max-h-60 overflow-y-auto scrollbar-hide">
+                    {availableOptions.reporters.map((reporter) => (
+                      <MultiSelectOption
+                        key={reporter}
+                        label={reporter}
+                        isSelected={localFilters.selectedReporters.includes(reporter)}
+                        onChange={() => toggleArrayFilter('selectedReporters', reporter)}
+                      />
+                    ))}
+                  </div>
+                </LinkedInFilterSection>
+              )}
+            </>
+          )}
           
-          {/* Reset Filters Button */}
-          <div className="mt-4">
+          {/* Reset Filters and Apply Filters Buttons */}
+          <div className="mt-auto pt-4 border-t border-gray-200 space-y-3">
             <button
               onClick={resetFilters}
               className="w-full bg-gray-100 text-gray-700 border border-gray-300 hover:bg-gray-200 px-4 py-2 rounded-md font-medium transition-colors text-sm"
             >
-              Reset all filters
+              {activeTab === 'summaries' ? 'Reset date filter' : 'Reset all filters'}
+            </button>
+            
+            <button
+              onClick={applyFilters}
+              className="w-full bg-blue-600 text-white border border-blue-600 hover:bg-blue-700 px-4 py-2 rounded-md font-medium transition-colors text-sm"
+            >
+              Apply Filters
             </button>
           </div>
-        </div>
-
-        {/* Filter Content */}
-        <div className="overflow-y-auto max-h-[calc(100vh-200px)] p-6 space-y-4 scrollbar-hide">{/* Reduced padding and spacing + hidden scrollbar */}
-
-          {/* Date Range Filters */}
-          <LinkedInFilterSection
-            title="Date Ranges"
-            isExpanded={expandedSections.createdDate}
-            onToggle={React.useCallback(() => toggleSection('createdDate'), [toggleSection])}
-          >
-            <div className="space-y-6">
-              <DateRangeSelector
-                label="Created Date"
-                value={filters.createdDateRange}
-                onChange={(value) => updateFilter('createdDateRange', value)}
-              />
-              <div className="border-t border-gray-200 pt-4">
-                <DateRangeSelector
-                  label="Active Items Period"
-                  value={filters.activeDateRange}
-                  onChange={(value) => updateFilter('activeDateRange', value)}
-                />
-              </div>
-            </div>
-          </LinkedInFilterSection>
-
-          {/* Status Filter */}
-          {jsonData && availableOptions.statuses.length > 0 && (
-            <LinkedInFilterSection
-              title="Status"
-              isExpanded={expandedSections.status}
-              onToggle={() => toggleSection('status')}
-              count={filters.selectedStatuses.length > 0 ? `${filters.selectedStatuses.length}` : undefined}
-            >
-              <div className="space-y-1 max-h-60 overflow-y-auto">
-                {availableOptions.statuses.map((status) => (
-                  <MultiSelectOption
-                    key={status}
-                    label={status}
-                    isSelected={filters.selectedStatuses.includes(status)}
-                    onChange={() => toggleArrayFilter('selectedStatuses', status)}
-                  />
-                ))}
-              </div>
-            </LinkedInFilterSection>
-          )}
-
-          {/* Priority Filter */}
-          {jsonData && availableOptions.priorities.length > 0 && (
-            <LinkedInFilterSection
-              title="Priority"
-              isExpanded={expandedSections.priority}
-              onToggle={() => toggleSection('priority')}
-              count={filters.selectedPriorities.length > 0 ? `${filters.selectedPriorities.length}` : undefined}
-            >
-              <div className="space-y-1 max-h-60 overflow-y-auto">
-                {availableOptions.priorities.map((priority) => (
-                  <MultiSelectOption
-                    key={priority}
-                    label={priority}
-                    isSelected={filters.selectedPriorities.includes(priority)}
-                    onChange={() => toggleArrayFilter('selectedPriorities', priority)}
-                  />
-                ))}
-              </div>
-            </LinkedInFilterSection>
-          )}
-
-          {/* Tags Filter */}
-          {jsonData && availableOptions.tags.length > 0 && (
-            <LinkedInFilterSection
-              title="Tags"
-              isExpanded={expandedSections.tags}
-              onToggle={() => toggleSection('tags')}
-              count={filters.selectedTags.length > 0 ? `${filters.selectedTags.length}` : undefined}
-            >
-              <div className="space-y-1 max-h-60 overflow-y-auto">
-                {availableOptions.tags.map((tag) => (
-                  <MultiSelectOption
-                    key={tag}
-                    label={tag.length > 25 ? `${tag.substring(0, 25)}...` : tag}
-                    isSelected={filters.selectedTags.includes(tag)}
-                    onChange={() => toggleArrayFilter('selectedTags', tag)}
-                    tooltip={tag.length > 25 ? tag : undefined}
-                  />
-                ))}
-              </div>
-            </LinkedInFilterSection>
-          )}
-
-          {/* Projects Filter */}
-          {jsonData && availableOptions.projects.length > 0 && (
-            <LinkedInFilterSection
-              title="Projects"
-              isExpanded={expandedSections.project}
-              onToggle={() => toggleSection('project')}
-              count={filters.selectedProjects.length > 0 ? `${filters.selectedProjects.length}` : undefined}
-            >
-              <div className="space-y-1 max-h-60 overflow-y-auto">
-                {availableOptions.projects.map((project) => (
-                  <MultiSelectOption
-                    key={project}
-                    label={project}
-                    isSelected={filters.selectedProjects.includes(project)}
-                    onChange={() => toggleArrayFilter('selectedProjects', project)}
-                  />
-                ))}
-              </div>
-            </LinkedInFilterSection>
-          )}
-
-          {/* Assignees Filter */}
-          {jsonData && availableOptions.assignees.length > 0 && (
-            <LinkedInFilterSection
-              title="Assignees"
-              isExpanded={expandedSections.assignee}
-              onToggle={() => toggleSection('assignee')}
-              count={filters.selectedAssignees.length > 0 ? `${filters.selectedAssignees.length}` : undefined}
-            >
-              <div className="space-y-1 max-h-60 overflow-y-auto">
-                {availableOptions.assignees.map((assignee) => (
-                  <MultiSelectOption
-                    key={assignee}
-                    label={assignee}
-                    isSelected={filters.selectedAssignees.includes(assignee)}
-                    onChange={() => toggleArrayFilter('selectedAssignees', assignee)}
-                  />
-                ))}
-              </div>
-            </LinkedInFilterSection>
-          )}
-
-          {/* Reporters Filter */}
-          {jsonData && availableOptions.reporters.length > 0 && (
-            <LinkedInFilterSection
-              title="Reporters"
-              isExpanded={expandedSections.reporter || false}
-              onToggle={() => toggleSection('reporter')}
-              count={filters.selectedReporters.length > 0 ? `${filters.selectedReporters.length}` : undefined}
-            >
-              <div className="space-y-1 max-h-60 overflow-y-auto">
-                {availableOptions.reporters.map((reporter) => (
-                  <MultiSelectOption
-                    key={reporter}
-                    label={reporter}
-                    isSelected={filters.selectedReporters.includes(reporter)}
-                    onChange={() => toggleArrayFilter('selectedReporters', reporter)}
-                  />
-                ))}
-              </div>
-            </LinkedInFilterSection>
-          )}
         </div>
       </div>
     );
@@ -2700,7 +2795,7 @@ function App() {
     const [sortColumn, setSortColumn] = useState<string>('created');
     const [sortDirection, setSortDirection] = useState<'asc' | 'desc'>('desc');
     const [currentPage, setCurrentPage] = useState<number>(1);
-    const [itemsPerPage, setItemsPerPage] = useState<number>(25);
+    const [itemsPerPage, setItemsPerPage] = useState<number>(15);
 
     // Sorting function
     const handleSort = (column: string) => {
@@ -2903,7 +2998,7 @@ function App() {
               </p>
             </div>
           </div>
-          <div className="overflow-x-auto">
+          <div className="overflow-x-auto scrollbar-hide">
             <table className="min-w-full divide-y divide-gray-200">
               <thead className="bg-gray-50">
                 <tr>
@@ -3051,7 +3146,7 @@ function App() {
         {/* Detailed Issue Modal */}
         {selectedIssue && (
           <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
-            <div className="bg-white rounded-lg shadow-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+            <div className="bg-white rounded-lg shadow-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto scrollbar-hide">
               <div className="p-6">
                 <div className="flex items-center justify-between mb-6">
                   <h2 className="text-xl font-bold text-gray-900">Issue Details</h2>
@@ -3106,7 +3201,7 @@ function App() {
                     
                     <div>
                       <h3 className="font-semibold text-gray-900 mb-2">Status Transitions</h3>
-                      <div className="space-y-2 text-sm max-h-32 overflow-y-auto">
+                      <div className="space-y-2 text-sm max-h-32 overflow-y-auto scrollbar-hide">
                         {selectedIssue.content?.status_transitions?.map((transition: any, index: number) => (
                           <div key={index} className="flex items-center justify-between py-1 px-2 bg-gray-50 rounded">
                             <span>{transition.from_state} → {transition.to_state}</span>
@@ -3120,7 +3215,7 @@ function App() {
                 
                 <div className="mt-6">
                   <h3 className="font-semibold text-gray-900 mb-2">Description</h3>
-                  <div className="bg-gray-50 rounded-md p-3 text-sm text-gray-700 max-h-32 overflow-y-auto">
+                  <div className="bg-gray-50 rounded-md p-3 text-sm text-gray-700 max-h-32 overflow-y-auto scrollbar-hide">
                     {selectedIssue.content?.issue_description || 'No description available'}
                   </div>
                 </div>
@@ -3130,7 +3225,16 @@ function App() {
                   <div className="flex items-center justify-between mb-4">
                     <h3 className="font-semibold text-gray-900">Comments</h3>
                     <button
-                      onClick={() => setShowComments(!showComments)}
+                      onClick={() => {
+                        setShowComments(!showComments);
+                        if (!showComments) {
+                          // Scroll up by 150px when showing comments
+                          window.scrollBy({
+                            top: -150,
+                            behavior: 'smooth'
+                          });
+                        }
+                      }}
                       className="inline-flex items-center px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-md hover:bg-blue-700 transition-colors"
                     >
                       {showComments ? 'Hide Comments' : 'Show Comments'}
@@ -3277,25 +3381,25 @@ function App() {
         if (isNaN(summaryCreatedDate.getTime())) return true; // Include if no valid date
         
         // Apply Created Date Range Filter (when the summary was created)
-        if (filters.createdDateRange.relative !== 'all' || filters.createdDateRange.startDate || filters.createdDateRange.endDate) {
+        if (appliedFilters.createdDateRange.relative !== 'all' || appliedFilters.createdDateRange.startDate || appliedFilters.createdDateRange.endDate) {
           let startDate: Date | null = null;
           let endDate: Date | null = null;
 
-          if (filters.createdDateRange.relative === 'last7days') {
+          if (appliedFilters.createdDateRange.relative === 'last7days') {
             startDate = new Date();
             startDate.setDate(startDate.getDate() - 7);
-          } else if (filters.createdDateRange.relative === 'last30days') {
+          } else if (appliedFilters.createdDateRange.relative === 'last30days') {
             startDate = new Date();
             startDate.setDate(startDate.getDate() - 30);
-          } else if (filters.createdDateRange.relative === 'last90days') {
+          } else if (appliedFilters.createdDateRange.relative === 'last90days') {
             startDate = new Date();
             startDate.setDate(startDate.getDate() - 90);
-          } else if (filters.createdDateRange.relative === 'custom') {
-            if (filters.createdDateRange.startDate) {
-              startDate = new Date(filters.createdDateRange.startDate);
+          } else if (appliedFilters.createdDateRange.relative === 'custom') {
+            if (appliedFilters.createdDateRange.startDate) {
+              startDate = new Date(appliedFilters.createdDateRange.startDate);
             }
-            if (filters.createdDateRange.endDate) {
-              endDate = new Date(filters.createdDateRange.endDate);
+            if (appliedFilters.createdDateRange.endDate) {
+              endDate = new Date(appliedFilters.createdDateRange.endDate);
               endDate.setHours(23, 59, 59, 999); // Include the entire end date
             }
           }
@@ -3306,28 +3410,28 @@ function App() {
 
         // Apply Active Items Period Filter (summaries should be relevant to the active period)
         // This checks if the summary's time range overlaps with the active items period
-        if (filters.activeDateRange.relative !== 'all' || filters.activeDateRange.startDate || filters.activeDateRange.endDate) {
+        if (appliedFilters.activeDateRange.relative !== 'all' || appliedFilters.activeDateRange.startDate || appliedFilters.activeDateRange.endDate) {
           let activeStartDate: Date | null = null;
           let activeEndDate: Date | null = null;
 
-          if (filters.activeDateRange.relative === 'last7days') {
+          if (appliedFilters.activeDateRange.relative === 'last7days') {
             activeStartDate = new Date();
             activeStartDate.setDate(activeStartDate.getDate() - 7);
             activeEndDate = new Date();
-          } else if (filters.activeDateRange.relative === 'last30days') {
+          } else if (appliedFilters.activeDateRange.relative === 'last30days') {
             activeStartDate = new Date();
             activeStartDate.setDate(activeStartDate.getDate() - 30);
             activeEndDate = new Date();
-          } else if (filters.activeDateRange.relative === 'last90days') {
+          } else if (appliedFilters.activeDateRange.relative === 'last90days') {
             activeStartDate = new Date();
             activeStartDate.setDate(activeStartDate.getDate() - 90);
             activeEndDate = new Date();
-          } else if (filters.activeDateRange.relative === 'custom') {
-            if (filters.activeDateRange.startDate) {
-              activeStartDate = new Date(filters.activeDateRange.startDate);
+          } else if (appliedFilters.activeDateRange.relative === 'custom') {
+            if (appliedFilters.activeDateRange.startDate) {
+              activeStartDate = new Date(appliedFilters.activeDateRange.startDate);
             }
-            if (filters.activeDateRange.endDate) {
-              activeEndDate = new Date(filters.activeDateRange.endDate);
+            if (appliedFilters.activeDateRange.endDate) {
+              activeEndDate = new Date(appliedFilters.activeDateRange.endDate);
               activeEndDate.setHours(23, 59, 59, 999);
             }
           }
@@ -3381,7 +3485,7 @@ function App() {
       
       // Sort by creation date (newest first)
       return processedSummaries.sort((a: any, b: any) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
-    }, [jsonData, filters.createdDateRange, filters.activeDateRange]);
+    }, [jsonData, appliedFilters.createdDateRange, appliedFilters.activeDateRange]);
 
     if (!jsonData || summariesWithGroups.length === 0) {
       return (
@@ -3441,7 +3545,7 @@ function App() {
           </div>
         </div>
         
-        <div className="space-y-6 max-h-[600px] overflow-y-auto pr-2">
+        <div className="space-y-6 max-h-[600px] overflow-y-auto scrollbar-hide pr-2">
           {summariesWithGroups.map((summary: any, summaryIndex: number) => (
             <div key={`summary-${summary.id}-${summaryIndex}`} 
                  className="bg-white rounded-xl shadow-md border border-gray-200 overflow-hidden hover:shadow-lg transition-shadow duration-300">
@@ -3586,10 +3690,10 @@ function App() {
         const activeSummaries = [];
         
         // Created Date Range
-        if (filters.createdDateRange.relative !== 'all') {
-          if (filters.createdDateRange.relative === 'custom') {
-            const start = filters.createdDateRange.startDate ? new Date(filters.createdDateRange.startDate).toLocaleDateString() : '';
-            const end = filters.createdDateRange.endDate ? new Date(filters.createdDateRange.endDate).toLocaleDateString() : '';
+        if (appliedFilters.createdDateRange.relative !== 'all') {
+          if (appliedFilters.createdDateRange.relative === 'custom') {
+            const start = appliedFilters.createdDateRange.startDate ? new Date(appliedFilters.createdDateRange.startDate).toLocaleDateString() : '';
+            const end = appliedFilters.createdDateRange.endDate ? new Date(appliedFilters.createdDateRange.endDate).toLocaleDateString() : '';
             if (start || end) {
               activeSummaries.push(`Created: ${start || 'any'} - ${end || 'any'}`);
             }
@@ -3599,15 +3703,15 @@ function App() {
               'last30days': 'Created: Last 30 days', 
               'last90days': 'Created: Last 90 days'
             };
-            activeSummaries.push(labels[filters.createdDateRange.relative as keyof typeof labels] || 'Created date filter');
+            activeSummaries.push(labels[appliedFilters.createdDateRange.relative as keyof typeof labels] || 'Created date filter');
           }
         }
 
         // Active Issues Range
-        if (filters.activeDateRange.relative !== 'all') {
-          if (filters.activeDateRange.relative === 'custom') {
-            const start = filters.activeDateRange.startDate ? new Date(filters.activeDateRange.startDate).toLocaleDateString() : '';
-            const end = filters.activeDateRange.endDate ? new Date(filters.activeDateRange.endDate).toLocaleDateString() : '';
+        if (appliedFilters.activeDateRange.relative !== 'all') {
+          if (appliedFilters.activeDateRange.relative === 'custom') {
+            const start = appliedFilters.activeDateRange.startDate ? new Date(appliedFilters.activeDateRange.startDate).toLocaleDateString() : '';
+            const end = appliedFilters.activeDateRange.endDate ? new Date(appliedFilters.activeDateRange.endDate).toLocaleDateString() : '';
             if (start || end) {
               activeSummaries.push(`Active: ${start || 'any'} - ${end || 'any'}`);
             }
@@ -3617,25 +3721,25 @@ function App() {
               'last30days': 'Active: Last 30 days', 
               'last90days': 'Active: Last 90 days'
             };
-            activeSummaries.push(labels[filters.activeDateRange.relative as keyof typeof labels] || 'Active date filter');
+            activeSummaries.push(labels[appliedFilters.activeDateRange.relative as keyof typeof labels] || 'Active date filter');
           }
         }
 
         // Other filters
-        if (filters.selectedTags.length > 0) {
-          activeSummaries.push(`${filters.selectedTags.length} tag${filters.selectedTags.length > 1 ? 's' : ''}`);
+        if (appliedFilters.selectedTags.length > 0) {
+          activeSummaries.push(`${appliedFilters.selectedTags.length} tag${appliedFilters.selectedTags.length > 1 ? 's' : ''}`);
         }
-        if (filters.selectedPriorities.length > 0) {
-          activeSummaries.push(`${filters.selectedPriorities.length} priorit${filters.selectedPriorities.length > 1 ? 'ies' : 'y'}`);
+        if (appliedFilters.selectedPriorities.length > 0) {
+          activeSummaries.push(`${appliedFilters.selectedPriorities.length} priorit${appliedFilters.selectedPriorities.length > 1 ? 'ies' : 'y'}`);
         }
-        if (filters.selectedProjects.length > 0) {
-          activeSummaries.push(`${filters.selectedProjects.length} project${filters.selectedProjects.length > 1 ? 's' : ''}`);
+        if (appliedFilters.selectedProjects.length > 0) {
+          activeSummaries.push(`${appliedFilters.selectedProjects.length} project${appliedFilters.selectedProjects.length > 1 ? 's' : ''}`);
         }
-        if (filters.selectedAssignees.length > 0) {
-          activeSummaries.push(`${filters.selectedAssignees.length} assignee${filters.selectedAssignees.length > 1 ? 's' : ''}`);
+        if (appliedFilters.selectedAssignees.length > 0) {
+          activeSummaries.push(`${appliedFilters.selectedAssignees.length} assignee${appliedFilters.selectedAssignees.length > 1 ? 's' : ''}`);
         }
-        if (filters.selectedStatuses.length > 0) {
-          activeSummaries.push(`${filters.selectedStatuses.length} status${filters.selectedStatuses.length > 1 ? 'es' : ''}`);
+        if (appliedFilters.selectedStatuses.length > 0) {
+          activeSummaries.push(`${appliedFilters.selectedStatuses.length} status${appliedFilters.selectedStatuses.length > 1 ? 'es' : ''}`);
         }
 
         return activeSummaries.join(' • ');
