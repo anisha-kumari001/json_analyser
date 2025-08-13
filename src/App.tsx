@@ -48,1357 +48,147 @@ interface GlobalFilters {
 // Sample data for initial display
 const SAMPLE_DATA = 
  
+ 
 {
   "summaryType": "system_jira_retrospective_v0",
   "dailySummaries": [
     {
-      "id": 3510,
+      "id": 3755,
       "teamID": 6,
       "teamName": "gridsre",
-      "createdAt": "2025-08-11T13:31:56Z",
+      "createdAt": "2025-08-13T00:48:50Z",
       "hashValue": "",
       "isCurrent": true,
-      "versionId": "9d42d4bf-972e-4928-a0a4-71cafe8bdba9",
+      "versionId": "95120bd0-43c0-41dc-a71a-a55836ad5a99",
       "contentJSON": {
         "Items": [
           {
-            "id": 151061,
+            "id": 152439,
             "tags": [
               {
-                "id": 23084,
+                "id": 23327,
                 "name": "LongResolution",
                 "teamID": 6,
                 "isGroup": false,
                 "description": "Long resolution time "
               },
               {
-                "id": 23096,
-                "name": "Config_Error",
+                "id": 23368,
+                "name": "Documentation_Gap",
                 "teamID": 6,
                 "isGroup": false,
-                "description": "Misconfiguration led to outage or degraded service"
-              },
-              {
-                "id": 23114,
-                "name": "Infra_Maintenance_Impact",
-                "teamID": 6,
-                "isGroup": false,
-                "description": "Service degradation linked to planned or emergency maintenance"
+                "description": "Missing or incorrect internal/external docs"
               }
             ],
-            "title": "Grid - Other Grid Issue - 2025-06-09",
+            "title": "Grid team should define/document the intended partition for all the grid templates.",
             "content": {
-              "labels": "[ask_grid_sre, decision-grid, from-supportal, supportal-v1, supportal-v1-problem-type:askgridsre/other-grid-issue, supportal-v1-version:0.0.1367]",
-              "comments": [
-                {
-                  "created": "2025-07-23T02:02:03.240-0700",
-                  "updated": "2025-07-23T02:02:27.273-0700",
-                  "comment_body": "Task completed. Issue was occurring due to Jira migration.",
-                  "commented_by": "Anupchandra Rao"
-                }
-              ],
-              "priority": "Unspecified",
-              "issue_key": "APA-129695",
-              "created_ts": "2025-06-09T22:58:04.693+05:30",
-              "issue_title": "Grid - Other Grid Issue - 2025-06-09",
-              "resolved_ts": "2025-07-23T09:02:08.948Z",
-              "project_name": "APA Support Project",
-              "assignee_name": "Anupchandra Rao",
-              "reporter_name": "Amitha Nazeer",
-              "assignee_email": "anchandrakanth@linkedin.com",
-              "reporter_email": "anazeer@linkedin.com",
-              "assignee_changes": [],
-              "issue_description": "Browser: Requesting membership access on headless account is erroring out Hadoop Job Link: NA Cluster name: NA Error Message: Error creating request to add Imshealth to headless account gr013154 Nested Titles: Grid / Other Grid Issue",
-              "status_transitions": [
-                {
-                  "to_state": "In Progress",
-                  "timestamp": "2025-06-10 05:47:56.794000 UTC",
-                  "from_state": "Open"
-                },
-                {
-                  "to_state": "Closed",
-                  "timestamp": "2025-07-23 09:02:08.980000 UTC",
-                  "from_state": "In Progress"
-                }
-              ]
-            },
-            "itemType": "JiraActivity",
-            "createdAt": "2025-06-09T17:28:05Z",
-            "productID": 6,
-            "timeSpent": 0,
-            "updatedAt": "2025-08-11T13:31:54Z",
-            "itemStatus": "",
-            "description": "",
-            "additionalContext": ""
-          },
-          {
-            "id": 151062,
-            "tags": [
-              {
-                "id": 23084,
-                "name": "LongResolution",
-                "teamID": 6,
-                "isGroup": false,
-                "description": "Long resolution time "
-              },
-              {
-                "id": 23120,
-                "name": "Product_Bug",
-                "teamID": 6,
-                "isGroup": false,
-                "description": "Functional issue in shipped product affecting users"
-              }
-            ],
-            "title": "Users request getting redirected to OpenHouse membership",
-            "content": {
-              "labels": "[Grid-Autonomous-Fleet, decision-grid, from-supportal, supportal-onboarding, supportal-v1, supportal-v1-problem-type:askgridsre/gfuel-issues, supportal-v1-version:0.0.1367]",
-              "comments": [
-                {
-                  "created": "2025-07-15T08:03:44.068-0700",
-                  "updated": "2025-07-15T08:03:44.068-0700",
-                  "comment_body": "there was a bug that has been fixed back in June",
-                  "commented_by": "Heagan Ahmed"
-                }
-              ],
-              "priority": "Minor",
-              "issue_key": "GRID-280692",
-              "created_ts": "2025-06-09T21:02:45.285+05:30",
-              "issue_title": "Users request getting redirected to OpenHouse membership",
-              "resolved_ts": "2025-07-15T15:03:51.859Z",
-              "project_name": "GRID",
-              "assignee_name": "Heagan Ahmed",
-              "reporter_name": "Malini Mahalakshmi Venkatachari",
-              "assignee_email": "heahmed@linkedin.com",
-              "reporter_email": "malvenkatachari@linkedin.com",
-              "assignee_changes": [],
-              "issue_description": "Context in  https://linkedin-randd.slack.com/archives/C0421DBV9NE/p1749087430272669?thread_ts=1749082048.863199&cid=C0421DBV9NE .  I see some tickets being created with request to add headless accounts to Openhouse headless. I think there might be some cases where exceptions are not handled and by default it goes to headless membership request instead of dataset groups membership. Can ypu PTAL? Default Priority Select Form Element: Minor Affected Multiproduct(s): Stack trace or error output: Is this Issue Transient or Consistent?: Transient Which Gfuel Service is this for?: User-Manager-Api Curl/Call made: self-service API Nested Titles: Grid / G-Fuel Issues",
-              "status_transitions": [
-                {
-                  "to_state": "Closed",
-                  "timestamp": "2025-07-15 15:03:51.916000 UTC",
-                  "from_state": "Open"
-                }
-              ]
-            },
-            "itemType": "JiraActivity",
-            "createdAt": "2025-06-09T15:32:45Z",
-            "productID": 6,
-            "timeSpent": 0,
-            "updatedAt": "2025-08-11T13:31:54Z",
-            "itemStatus": "",
-            "description": "",
-            "additionalContext": ""
-          },
-          {
-            "id": 151063,
-            "tags": [
-              {
-                "id": 23084,
-                "name": "LongResolution",
-                "teamID": 6,
-                "isGroup": false,
-                "description": "Long resolution time "
-              },
-              {
-                "id": 23108,
-                "name": "Monitoring_Gap",
-                "teamID": 6,
-                "isGroup": false,
-                "description": "Alerting was absent, delayed, or misleading"
-              }
-            ],
-            "title": "Alerting for subsequent NN shutdowns in short periods/individual NN crash",
-            "content": {
-              "labels": "[SEV2, incident-5393, rootly-incident]",
-              "comments": [
-                {
-                  "created": "2025-06-23T11:27:47.995-0700",
-                  "updated": "2025-06-23T11:29:12.828-0700",
-                  "comment_body": "@Sri Harsha Vipparti You’re currently assigned as the incident owner for incident-5393.  This related action item is expected to be completed today but it remains unassigned.  Can you please assist in finding the appropriate owner to see it gets closed soon",
-                  "commented_by": "Justin Kominar"
-                },
-                {
-                  "created": "2025-07-10T18:11:39.865-0700",
-                  "updated": "2025-07-10T18:11:39.865-0700",
-                  "comment_body": "This ticket is a duplicate of . Closing this.",
-                  "commented_by": "Sri Harsha Vipparti"
-                }
-              ],
+              "labels": "[SEV4, incident-6447, rootly-incident]",
+              "comments": [],
               "priority": "Critical",
-              "issue_key": "ACTIONITEM-7270",
-              "created_ts": "2025-06-09T20:05:17.717+05:30",
-              "issue_title": "Alerting for subsequent NN shutdowns in short periods/individual NN crash",
-              "resolved_ts": "2025-07-11T01:11:54.226Z",
+              "issue_key": "ACTIONITEM-8325",
+              "created_ts": "2025-07-31T08:36:33.146+05:30",
+              "issue_title": "Grid team should define/document the intended partition for all the grid templates.",
+              "resolved_ts": "0001-01-01T00:00:00Z",
               "project_name": "Action Items",
-              "assignee_name": "Sri Harsha Vipparti",
+              "assignee_name": "Gurpreet Singh",
               "reporter_name": "svc rootly-prod",
-              "assignee_email": "svipparti@linkedin.com",
+              "assignee_email": "gursingh@linkedin.com",
               "reporter_email": "svc-rootly-prod@linkedin.com",
               "assignee_changes": [
                 {
-                  "timestamp": "2025-06-24 17:47:27.306000 UTC",
-                  "to_assignee": "Sri Harsha Vipparti",
+                  "timestamp": "2025-07-31 08:37:40.521000 UTC",
+                  "to_assignee": "Siddhi Tripathi",
                   "from_assignee": ""
+                },
+                {
+                  "timestamp": "2025-08-04 09:41:40.403000 UTC",
+                  "to_assignee": "Gurpreet Singh",
+                  "from_assignee": "Siddhi Tripathi"
                 }
               ],
-              "issue_description": "Action Item for  https://rootly.com/account/incidents/5393  :",
+              "issue_description": "Action Item for  https://rootly.com/account/incidents/6447  :",
               "status_transitions": [
                 {
-                  "to_state": "Closed",
-                  "timestamp": "2025-07-11 01:11:54.235000 UTC",
-                  "from_state": "In Progress"
-                },
-                {
                   "to_state": "In Progress",
-                  "timestamp": "2025-06-09 20:05:18.617000 UTC",
+                  "timestamp": "2025-07-31 08:36:33.996000 UTC",
                   "from_state": "Open"
                 }
               ]
             },
             "itemType": "JiraActivity",
-            "createdAt": "2025-06-09T14:35:18Z",
+            "createdAt": "2025-07-31T03:06:33Z",
             "productID": 6,
             "timeSpent": 0,
-            "updatedAt": "2025-08-11T13:31:54Z",
+            "updatedAt": "2025-08-13T00:48:48Z",
             "itemStatus": "",
             "description": "",
             "additionalContext": ""
-          }
-        ],
-        "Groups": [
-          {
-            "ItemsList": [
-              151061,
-              151062,
-              151063
-            ],
-            "GroupMetaData": {
-              "Actions": "Process optimization should focus on enhancing triage speed by implementing robust monitoring and alerting systems to improve issue detectability and preventability. Introducing automated workflows for status transitions can streamline issue progression and resolution. Enhancing collaboration through scheduled off-hours support and improved escalation protocols can reduce delays. Additionally, refining JIRA configurations to enforce more detailed assignment priority and status tracking could mitigate recurring inefficiencies.",
-              "GroupID": 23112,
-              "Insight": "Triage and assignment processes reveal inefficiencies, as all issues faced extended investigation periods despite their varying priorities. Status transitions are minimal, suggesting workflow bottlenecks in progressing issues through resolutions, particularly for critical and infrastructure-related problems. The recurring root causes include insufficient monitoring, configuration errors, and product bugs. The limited communication during issue resolution suggests inadequate escalation or collaboration practices, which further amplifies inefficiencies.",
-              "Summary": "The analyzed JIRA issues reflect prolonged resolution times across all cases, pointing to inefficiencies in investigation and resolution workflows. Minimal communication and a low number of status transitions indicate limited collaboration or insufficient escalation processes. Overall, the team's workflow demonstrates gaps in triage effectiveness and issue prioritization, especially during off-hours when these issues were created.",
-              "GroupName": "Tag: LongResolution",
-              "GroupDescription": "Issues tagged with 'LongResolution', occurred 3 times"
-            }
           },
           {
-            "ItemsList": [
-              151061
-            ],
-            "GroupMetaData": {
-              "Actions": "To improve workflow efficiency and reduce resolution times, implement automated monitoring systems to preemptively detect and address issues tagged under 'Infra_Maintenance_Impact'. Revise status transitions to enforce more granular tracking of progress and better define resolution criteria. Strengthen team collaboration by requiring more detailed initial issue descriptions and encouraging stakeholder participation to foster ownership, reduce miscommunication, and ensure thorough problem resolution.",
-              "GroupID": 23101,
-              "Insight": "The issue highlights inefficiencies in triage and prioritization, as reflected in the significant delay in resolution and absence of explicit prioritization status. Minimal communication and participant involvement suggest potential gaps in collaboration or unclear ownership. Recurring tags such as 'LongResolution' and 'Infra_Maintenance_Impact' point toward broader systemic challenges, emphasizing the need for proactive monitoring and better system-wide practices to prevent similar occurrences.",
-              "Summary": "The analysis of the JIRA issue in this group reveals prolonged resolution times due to extensive investigations. Team coordination appears minimal, with low communication overhead and limited activity during the issue's life cycle. Workflow friction is evident with only two status transitions, indicating potential bottlenecks or unclear progress paths during resolution.",
-              "GroupName": "Tag: Config_Error",
-              "GroupDescription": "Issues tagged with 'Config_Error', occurred 1 times"
-            }
-          },
-          {
-            "ItemsList": [
-              151061
-            ],
-            "GroupMetaData": {
-              "Actions": "To mitigate delays, introduce stricter SLA-driven prioritization and automated assignment processes to expedite triage. Enhance the workflow configuration by adding more granular and iterative states that encourage periodic assessments and checkpoints. Facilitate better collaboration by enabling automatic notifications for team input during critical resolution phases and by instituting regular knowledge-sharing sessions to address root causes like configuration errors and improve system monitoring practices.",
-              "GroupID": 23115,
-              "Insight": "The triage process lacked clear prioritization, as evidenced by its unspecified priority and delayed resolution. Hand-offs were minimal, with a single assignee managing the issue throughout, reducing opportunities for fresh perspectives. The extended resolution time and tags like 'Config_Error' suggest recurring system misconfigurations as a root cause. Bottlenecks emerged from insufficient transitions, which likely reflect rigid or underutilized workflow states, and minimal collaborative input, highlighting potential gaps in team engagement or expertise sharing.",
-              "Summary": "The issue under analysis exhibits significant inefficiencies in resolution time, marked by an excessively prolonged investigation phase of over 1047 hours. Minimal communication, reflected by a single comment from one participant, suggests limited cross-collaboration. The workflow, characterized by only two status transitions, appears linear and lacks iterative problem-solving checkpoints, resulting in process stagnation and resolution delays.",
-              "GroupName": "Tag: Infra_Maintenance_Impact",
-              "GroupDescription": "Issues tagged with 'Infra_Maintenance_Impact', occurred 1 times"
-            }
-          },
-          {
-            "ItemsList": [
-              151062
-            ],
-            "GroupMetaData": {
-              "Actions": "To optimize the JIRA workflow, implement automated tagging and prioritization for off-hours issue creation, ensuring proper triage initiation within defined SLAs. Introduce mandatory periodic updates for long-resolution tasks to increase visibility and engagement among the team. Configure workflow rules to require multiple status transitions, such as a handoff for validation and resolution review, to break down investigative silos. Finally, emphasize collaboration through comment requirements and automated reminders for better tracking and coordination.",
-              "GroupID": 23121,
-              "Insight": "The triage process for this issue appears to be ineffective as it was created during non-working hours and did not benefit from immediate prioritization or follow-up action steps. With only one recorded status transition, the workflow lacked iteration and refinement, suggesting bottlenecks in the resolution process. The low communication volume indicates underused collaboration, which contributed to the delayed resolution. The recurring theme highlighted here is an extended investigation period attributed to gaps in efficient troubleshooting and streamlined workflows.",
-              "Summary": "The issue 'Users request getting redirected to OpenHouse membership' was handled with minimal coordination but experienced significant delays in resolution, totaling 863 hours. The workflow exhibited a lack of status transitions indicating potential assignment or prioritization gaps, with minimal communication recorded on the ticket. The overall efficiency was hindered by extended resolution timelines and the absence of collaborative engagement or proactive resolutions.",
-              "GroupName": "Tag: Product_Bug",
-              "GroupDescription": "Issues tagged with 'Product_Bug', occurred 1 times"
-            }
-          },
-          {
-            "ItemsList": [
-              151063
-            ],
-            "GroupMetaData": {
-              "Actions": "To enhance JIRA workflows, consider automating monitoring alerts for critical issues to ensure immediate triage regardless of working hours. Implement automatic status reminders and updates to ensure consistent tracking throughout the issue lifecycle. Increase team collaboration by mandating follow-up comments or a communication protocol for high-priority issues. Proactively address monitoring gaps by deploying more robust alerting systems and documentation, enabling preventative resolutions for similar problems.",
-              "GroupID": 23109,
-              "Insight": "The triage process appears delayed, likely due to the creation of the issue outside typical working hours, potentially impacting its initial prioritization. Workflow transitions, with only two status changes, point to bottlenecks or inadequate issue follow-up, contributing to the excessive resolution time. Minimal communication indicates insufficient cross-collaboration or knowledge sharing, while the recurring 'LongResolution' tag highlights systemic challenges in addressing similar high-priority issues effectively. Furthermore, the issue's root cause, linked to monitoring gaps, signifies a preventability factor that should be addressed for future operational stability.",
-              "Summary": "The analyzed issue demonstrates significant inefficiencies in resolution workflow, marked by an extended resolution time of over 754 hours despite being a critical priority. The minimal communication involvement (only two comments from two participants) indicates a lack of collaboration that could have expedited resolution. Workflow transitions were sparse, suggesting limited status tracking updates during the issue lifecycle, which further exacerbated delays in resolution efficiency and oversight.",
-              "GroupName": "Tag: Monitoring_Gap",
-              "GroupDescription": "Issues tagged with 'Monitoring_Gap', occurred 1 times"
-            }
-          }
-        ],
-        "summaryType": "system_daily_v0"
-      },
-      "summaryType": "system_daily_v0",
-      "endTimestamp": 1749519000,
-      "startTimestamp": 1749475800
-    },
-    {
-      "id": 3513,
-      "teamID": 6,
-      "teamName": "gridsre",
-      "createdAt": "2025-08-11T13:33:05Z",
-      "hashValue": "",
-      "isCurrent": true,
-      "versionId": "58f466d9-5b30-452f-a040-3d83093d1a3d",
-      "contentJSON": {
-        "Items": [
-          {
-            "id": 151079,
+            "id": 152440,
             "tags": [
               {
-                "id": 23084,
+                "id": 23327,
                 "name": "LongResolution",
                 "teamID": 6,
                 "isGroup": false,
                 "description": "Long resolution time "
               },
               {
-                "id": 23114,
-                "name": "Infra_Maintenance_Impact",
-                "teamID": 6,
-                "isGroup": false,
-                "description": "Service degradation linked to planned or emergency maintenance"
-              }
-            ],
-            "title": "Migrate Admin nodes from DLR to LVAx / QTS",
-            "content": {
-              "labels": "[LVAx]",
-              "comments": [
-                {
-                  "created": "2025-07-23T02:06:10.897-0700",
-                  "updated": "2025-07-23T02:06:10.897-0700",
-                  "comment_body": "Effort tracked under GRID-273241",
-                  "commented_by": "Anupchandra Rao"
-                }
-              ],
-              "priority": "Critical",
-              "issue_key": "GRID-280818",
-              "created_ts": "2025-06-10T08:20:50.296+05:30",
-              "issue_title": "Migrate Admin nodes from DLR to LVAx / QTS",
-              "resolved_ts": "2025-07-23T09:06:18.415Z",
-              "project_name": "GRID",
-              "assignee_name": "Anupchandra Rao",
-              "reporter_name": "Sheela Gonji",
-              "assignee_email": "anchandrakanth@linkedin.com",
-              "reporter_email": "sgonji@linkedin.com",
-              "assignee_changes": [],
-              "issue_description": "",
-              "status_transitions": [
-                {
-                  "to_state": "Closed",
-                  "timestamp": "2025-07-23 09:06:18.461000 UTC",
-                  "from_state": "In Progress"
-                },
-                {
-                  "to_state": "In Progress",
-                  "timestamp": "2025-06-10 20:51:22.619000 UTC",
-                  "from_state": "Open"
-                }
-              ]
-            },
-            "itemType": "JiraActivity",
-            "createdAt": "2025-06-10T02:50:50Z",
-            "productID": 6,
-            "timeSpent": 0,
-            "updatedAt": "2025-08-11T13:33:04Z",
-            "itemStatus": "",
-            "description": "",
-            "additionalContext": ""
-          },
-          {
-            "id": 151080,
-            "tags": [
-              {
-                "id": 23084,
-                "name": "LongResolution",
-                "teamID": 6,
-                "isGroup": false,
-                "description": "Long resolution time "
-              },
-              {
-                "id": 23114,
-                "name": "Infra_Maintenance_Impact",
-                "teamID": 6,
-                "isGroup": false,
-                "description": "Service degradation linked to planned or emergency maintenance"
-              },
-              {
-                "id": 23122,
-                "name": "Region_Specific",
-                "teamID": 6,
-                "isGroup": false,
-                "description": "Outage limited to a particular region or zone"
-              }
-            ],
-            "title": "Migrate K8s nodes from DLR to LVAx / QTS",
-            "content": {
-              "labels": "[LVAx]",
-              "comments": [],
-              "priority": "Critical",
-              "issue_key": "GRID-280817",
-              "created_ts": "2025-06-10T08:20:01.319+05:30",
-              "issue_title": "Migrate K8s nodes from DLR to LVAx / QTS",
-              "resolved_ts": "0001-01-01T00:00:00Z",
-              "project_name": "GRID",
-              "assignee_name": "Simin Wang",
-              "reporter_name": "Sheela Gonji",
-              "assignee_email": "simwang@linkedin.com",
-              "reporter_email": "sgonji@linkedin.com",
-              "assignee_changes": [],
-              "issue_description": "",
-              "status_transitions": []
-            },
-            "itemType": "JiraActivity",
-            "createdAt": "2025-06-10T02:50:01Z",
-            "productID": 6,
-            "timeSpent": 0,
-            "updatedAt": "2025-08-11T13:33:04Z",
-            "itemStatus": "",
-            "description": "",
-            "additionalContext": ""
-          },
-          {
-            "id": 151081,
-            "tags": [
-              {
-                "id": 23084,
-                "name": "LongResolution",
-                "teamID": 6,
-                "isGroup": false,
-                "description": "Long resolution time "
-              },
-              {
-                "id": 23114,
-                "name": "Infra_Maintenance_Impact",
-                "teamID": 6,
-                "isGroup": false,
-                "description": "Service degradation linked to planned or emergency maintenance"
-              },
-              {
-                "id": 23122,
-                "name": "Region_Specific",
-                "teamID": 6,
-                "isGroup": false,
-                "description": "Outage limited to a particular region or zone"
-              }
-            ],
-            "title": "Migrate Yarn nodes from DLR to LVAx / QTS",
-            "content": {
-              "labels": "[LVAx]",
-              "comments": [
-                {
-                  "created": "2025-07-02T00:30:34.684-0700",
-                  "updated": "2025-07-02T00:30:34.684-0700",
-                  "comment_body": "DLR eviction for HDFS will be starting post october FY26 Q2 YARN will follow similar schedule since if we are decomm’ing the YARN nodes To have fair utilisation Once HDFS starts evicting So changing the due data accordingly to mid of november @Sheela Gonji FYI cc @Somnath Pal",
-                  "commented_by": "Hariharan S"
-                }
-              ],
-              "priority": "Critical",
-              "issue_key": "GRID-280816",
-              "created_ts": "2025-06-10T08:20:01.319+05:30",
-              "issue_title": "Migrate Yarn nodes from DLR to LVAx / QTS",
-              "resolved_ts": "0001-01-01T00:00:00Z",
-              "project_name": "GRID",
-              "assignee_name": "Hariharan S",
-              "reporter_name": "Sheela Gonji",
-              "assignee_email": "hsivaprakash@linkedin.com",
-              "reporter_email": "sgonji@linkedin.com",
-              "assignee_changes": [],
-              "issue_description": "",
-              "status_transitions": [
-                {
-                  "to_state": "In Progress",
-                  "timestamp": "2025-06-10 20:51:25.326000 UTC",
-                  "from_state": "Open"
-                },
-                {
-                  "to_state": "Open",
-                  "timestamp": "2025-07-02 07:30:40.522000 UTC",
-                  "from_state": "In Progress"
-                }
-              ]
-            },
-            "itemType": "JiraActivity",
-            "createdAt": "2025-06-10T02:47:03Z",
-            "productID": 6,
-            "timeSpent": 0,
-            "updatedAt": "2025-08-11T13:33:04Z",
-            "itemStatus": "",
-            "description": "",
-            "additionalContext": ""
-          },
-          {
-            "id": 151082,
-            "tags": [
-              {
-                "id": 23084,
-                "name": "LongResolution",
-                "teamID": 6,
-                "isGroup": false,
-                "description": "Long resolution time "
-              },
-              {
-                "id": 23102,
-                "name": "Infra_Deployment_Error",
-                "teamID": 6,
-                "isGroup": false,
-                "description": "Deployment failures causing infrastructure instability or downtime"
-              }
-            ],
-            "title": "Migrate Admin nodes from STACK to LVAx",
-            "content": {
-              "labels": "[LVAx]",
-              "comments": [
-                {
-                  "created": "2025-07-23T02:05:06.099-0700",
-                  "updated": "2025-07-23T02:05:30.791-0700",
-                  "comment_body": "Effort tracked under GRID-273241",
-                  "commented_by": "Anupchandra Rao"
-                }
-              ],
-              "priority": "Critical",
-              "issue_key": "GRID-280814",
-              "created_ts": "2025-06-10T08:14:48.873+05:30",
-              "issue_title": "Migrate Admin nodes from STACK to LVAx",
-              "resolved_ts": "2025-07-23T09:05:42.727Z",
-              "project_name": "GRID",
-              "assignee_name": "Anupchandra Rao",
-              "reporter_name": "Sheela Gonji",
-              "assignee_email": "anchandrakanth@linkedin.com",
-              "reporter_email": "sgonji@linkedin.com",
-              "assignee_changes": [],
-              "issue_description": "",
-              "status_transitions": [
-                {
-                  "to_state": "In Progress",
-                  "timestamp": "2025-06-10 20:51:25.309000 UTC",
-                  "from_state": "Open"
-                },
-                {
-                  "to_state": "Closed",
-                  "timestamp": "2025-07-23 09:05:42.776000 UTC",
-                  "from_state": "In Progress"
-                }
-              ]
-            },
-            "itemType": "JiraActivity",
-            "createdAt": "2025-06-10T02:44:49Z",
-            "productID": 6,
-            "timeSpent": 0,
-            "updatedAt": "2025-08-11T13:33:04Z",
-            "itemStatus": "",
-            "description": "",
-            "additionalContext": ""
-          },
-          {
-            "id": 151083,
-            "tags": [
-              {
-                "id": 23084,
-                "name": "LongResolution",
-                "teamID": 6,
-                "isGroup": false,
-                "description": "Long resolution time "
-              },
-              {
-                "id": 23114,
-                "name": "Infra_Maintenance_Impact",
-                "teamID": 6,
-                "isGroup": false,
-                "description": "Service degradation linked to planned or emergency maintenance"
-              }
-            ],
-            "title": "Migrate K8 nodes from STACK to LVAx",
-            "content": {
-              "labels": "[LVAx]",
-              "comments": [],
-              "priority": "Critical",
-              "issue_key": "GRID-280813",
-              "created_ts": "2025-06-10T08:13:14.363+05:30",
-              "issue_title": "Migrate K8 nodes from STACK to LVAx",
-              "resolved_ts": "0001-01-01T00:00:00Z",
-              "project_name": "GRID",
-              "assignee_name": "Simin Wang",
-              "reporter_name": "Sheela Gonji",
-              "assignee_email": "simwang@linkedin.com",
-              "reporter_email": "sgonji@linkedin.com",
-              "assignee_changes": [],
-              "issue_description": "",
-              "status_transitions": [
-                {
-                  "to_state": "In Progress",
-                  "timestamp": "2025-06-10 20:51:25.309000 UTC",
-                  "from_state": "Open"
-                }
-              ]
-            },
-            "itemType": "JiraActivity",
-            "createdAt": "2025-06-10T02:43:14Z",
-            "productID": 6,
-            "timeSpent": 0,
-            "updatedAt": "2025-08-11T13:33:04Z",
-            "itemStatus": "",
-            "description": "",
-            "additionalContext": ""
-          },
-          {
-            "id": 151084,
-            "tags": [
-              {
-                "id": 23084,
-                "name": "LongResolution",
-                "teamID": 6,
-                "isGroup": false,
-                "description": "Long resolution time "
-              },
-              {
-                "id": 23114,
-                "name": "Infra_Maintenance_Impact",
-                "teamID": 6,
-                "isGroup": false,
-                "description": "Service degradation linked to planned or emergency maintenance"
-              }
-            ],
-            "title": "Migrate Yarn nodes from STACK to LVAx",
-            "content": {
-              "labels": "[LVAx]",
-              "comments": [
-                {
-                  "created": "2025-07-02T00:28:31.978-0700",
-                  "updated": "2025-07-02T00:28:31.978-0700",
-                  "comment_body": "All pods [except PODS being retained in STACK PC39,PC48,PC49] have been evicted successfully",
-                  "commented_by": "Hariharan S"
-                },
-                {
-                  "created": "2025-06-10T01:20:09.821-0700",
-                  "updated": "2025-06-10T01:20:09.821-0700",
-                  "comment_body": "Hi @Sheela Gonji Is this ticket about the eviction ? We already provisioned required amount of capacity in the LVAx clusters and only eviction pending from the suites",
-                  "commented_by": "Hariharan S"
-                },
-                {
-                  "created": "2025-06-10T01:22:30.454-0700",
-                  "updated": "2025-06-10T01:22:30.454-0700",
-                  "comment_body": "Yes @Hariharan S",
-                  "commented_by": "Sheela Gonji"
-                }
-              ],
-              "priority": "Critical",
-              "issue_key": "GRID-280810",
-              "created_ts": "2025-06-10T08:07:51.441+05:30",
-              "issue_title": "Migrate Yarn nodes from STACK to LVAx",
-              "resolved_ts": "2025-07-02T07:28:41.751Z",
-              "project_name": "GRID",
-              "assignee_name": "Hariharan S",
-              "reporter_name": "Sheela Gonji",
-              "assignee_email": "hsivaprakash@linkedin.com",
-              "reporter_email": "sgonji@linkedin.com",
-              "assignee_changes": [],
-              "issue_description": "",
-              "status_transitions": [
-                {
-                  "to_state": "Closed",
-                  "timestamp": "2025-07-02 07:28:41.778000 UTC",
-                  "from_state": "In Progress"
-                },
-                {
-                  "to_state": "In Progress",
-                  "timestamp": "2025-06-10 20:51:24.482000 UTC",
-                  "from_state": "Open"
-                }
-              ]
-            },
-            "itemType": "JiraActivity",
-            "createdAt": "2025-06-10T02:37:51Z",
-            "productID": 6,
-            "timeSpent": 0,
-            "updatedAt": "2025-08-11T13:33:04Z",
-            "itemStatus": "",
-            "description": "",
-            "additionalContext": ""
-          },
-          {
-            "id": 151097,
-            "tags": [],
-            "title": "Offline Data Processing - Requests:  Quotas, Accounts, Permissions, etc. - Change Directory Owner and/or Permissions in HDFS - 2025-06-10",
-            "content": {
-              "labels": "[from-supportal, supportal-grid, supportal-grid-change-ownership, supportal-v1, supportal-v1-problem-type:activityflow/change-directory-owner-andor-permissions-in-hdfs, supportal-v1-version:0.0.1370]",
-              "comments": [],
-              "priority": "Unspecified",
-              "issue_key": "APA-129755",
-              "created_ts": "2025-06-10T18:56:51.337+05:30",
-              "issue_title": "Offline Data Processing - Requests:  Quotas, Accounts, Permissions, etc. - Change Directory Owner and/or Permissions in HDFS - 2025-06-10",
-              "resolved_ts": "0001-01-01T00:00:00Z",
-              "project_name": "APA Support Project",
-              "assignee_name": "Adeoluwa Akinwa",
-              "reporter_name": "Abhinav Patil",
-              "assignee_email": "aakinwa@linkedin.com",
-              "reporter_email": "apatil@linkedin.com",
-              "assignee_changes": [],
-              "issue_description": "hi team, I see below table is locked when it was just created just yesterday. I see the compliance policy is  Auto Limited Retention With Locking  . Below table was created just yesterday, unsure why it's getting locked? I can't edit to compliance setting either. Would like to know why it’s getting locked? Also, I see discrepancy around table: `u_offtrack.crm_unattributed_ad_conversion` having  ALR w/o locking  and  /jobs/crmsecure/sponsoredAccount=502998747/tableName=u_offtrack.crm_unattributed_ad_conversion  having  ALR w/ locking , shouldn’t only one policy be applied to both?  We would like to understand the root cause for this and also if this is a holdem specific issue or could happen on war as well? What steps we need to take to avoid these.  Error message: com.linkedin.mufn.common.exception.GridGatewayUserException: Application application_1747633880250_2950337 finished with failed status. Reason: User class threw exception: java.io.UncheckedIOException: Error listing files for directory: hdfs://ltx1-holdemnn01.grid.linkedin.com:9000/jobs/crmsecure/sponsoredAccount=506317003/tableName=u_offtrack.crm_unattributed_ad_conversion Hdfs Path: /jobs/crmsecure/sponsoredAccount= /tableName=u_offtrack. Cluster Name: holdem Error Message: Error message: com.linkedin.mufn.common.exception.GridGatewayUserException: Application application_1747633880250_2950337 finished with failed status. Reason: User class threw exception: java.io.UncheckedIOException: Error listing files for directory: hdfs://ltx1-holdemnn01.grid.linkedin.com:9000/jobs/crmsecure/sponsoredAccount=506317003/tableName=u_offtrack.crm_unattributed_ad_conversion user or Headless Account Name That Launches the Job: offtrack Nested Titles: Offline Data Processing / Requests:  Quotas, Accounts, Permissions, etc. / Change Directory Owner and/or Permissions in HDFS",
-              "status_transitions": []
-            },
-            "itemType": "JiraActivity",
-            "createdAt": "2025-06-10T13:26:51Z",
-            "productID": 6,
-            "timeSpent": 0,
-            "updatedAt": "2025-06-10T13:26:51Z",
-            "itemStatus": "",
-            "description": "",
-            "additionalContext": ""
-          },
-          {
-            "id": 151098,
-            "tags": [],
-            "title": "Migrate K8s nodes from DLR to LVAx / QTS",
-            "content": {
-              "labels": "[LVAx]",
-              "comments": [],
-              "priority": "Critical",
-              "issue_key": "GRID-280817",
-              "created_ts": "2025-06-10T08:20:01.319+05:30",
-              "issue_title": "Migrate K8s nodes from DLR to LVAx / QTS",
-              "resolved_ts": "0001-01-01T00:00:00Z",
-              "project_name": "GRID",
-              "assignee_name": "Simin Wang",
-              "reporter_name": "Sheela Gonji",
-              "assignee_email": "simwang@linkedin.com",
-              "reporter_email": "sgonji@linkedin.com",
-              "assignee_changes": [],
-              "issue_description": "",
-              "status_transitions": []
-            },
-            "itemType": "JiraActivity",
-            "createdAt": "2025-06-10T02:50:01Z",
-            "productID": 6,
-            "timeSpent": 0,
-            "updatedAt": "2025-06-10T02:50:01Z",
-            "itemStatus": "",
-            "description": "",
-            "additionalContext": ""
-          },
-          {
-            "id": 151099,
-            "tags": [],
-            "title": "Migrate K8 nodes from STACK to LVAx",
-            "content": {
-              "labels": "[LVAx]",
-              "comments": [],
-              "priority": "Critical",
-              "issue_key": "GRID-280813",
-              "created_ts": "2025-06-10T08:13:14.363+05:30",
-              "issue_title": "Migrate K8 nodes from STACK to LVAx",
-              "resolved_ts": "0001-01-01T00:00:00Z",
-              "project_name": "GRID",
-              "assignee_name": "Simin Wang",
-              "reporter_name": "Sheela Gonji",
-              "assignee_email": "simwang@linkedin.com",
-              "reporter_email": "sgonji@linkedin.com",
-              "assignee_changes": [],
-              "issue_description": "",
-              "status_transitions": [
-                {
-                  "to_state": "In Progress",
-                  "timestamp": "2025-06-10 20:51:25.309000 UTC",
-                  "from_state": "Open"
-                }
-              ]
-            },
-            "itemType": "JiraActivity",
-            "createdAt": "2025-06-10T02:43:14Z",
-            "productID": 6,
-            "timeSpent": 0,
-            "updatedAt": "2025-06-10T02:43:14Z",
-            "itemStatus": "",
-            "description": "",
-            "additionalContext": ""
-          }
-        ],
-        "Groups": [
-          {
-            "ItemsList": [
-              151079,
-              151080,
-              151081,
-              151082,
-              151083,
-              151084
-            ],
-            "GroupMetaData": {
-              "Actions": "To optimize workflows, establish clear ownership early by automating assignee selection for off-hour created issues using JIRA automation rules. Incorporate dynamic SLA alerts to track unresolved tasks, ensuring escalations occur at predefined intervals to combat resolution delays. Facilitate more structured team collaboration by defining handoff protocols and providing issue-specific context visibility in JIRA comments. Enhance preventability through better monitoring configurations and pre-migration testing to reduce the recurrence of similar long-resolution scenarios.",
-              "GroupID": 23123,
-              "Insight": "The triage process for these issues appears suboptimal, as evidenced by their prolonged open status and undefined assignment outcomes. Minimal communication and limited status transitions constrain progress, hinting at bottlenecks in workflow continuity and team engagement. Recurring tags like 'LongResolution' and 'Infra_Maintenance_Impact' reflect systemic challenges in timely infrastructure management, exacerbated by inefficient handoffs and lack of automation. These inefficiencies could delay critical operations and impact overall system reliability.",
-              "Summary": "The analyzed JIRA issues highlight critical infrastructure migrations with long resolution times, marked by minimal communication and limited status transitions. Both issues remain open with unresolved handoff considerations, indicating inefficiencies in prioritization and early-stage task delegation. The team's workflow shows a lack of streamlined coordination patterns and potential opportunities to enhance process efficiency in handling high-priority tasks.",
-              "GroupName": "Tag: Region_Specific",
-              "GroupDescription": "Issues tagged with 'Region_Specific', occurred 2 times"
-            }
-          },
-          {
-            "ItemsList": [
-              151082
-            ],
-            "GroupMetaData": {
-              "Actions": "To streamline future workflows, it is recommended to implement stricter SLAs for high-priority issues to ensure faster triage and resolution. Increase collaborative visibility by requiring more frequent updates and progress logging via comments or workflows. Introduce automated reminders or escalation mechanisms for stagnant issues to promptly address delays. Enhance overall workflow efficiency by refining status transition designs and providing detailed documentation to support clear assignment and ownership practices.",
-              "GroupID": 23103,
-              "Insight": "The extended resolution time of over 1038 hours indicates potential delays in investigation or resource allocation inefficiencies. Minimal communication (only one comment from one participant) points to either inadequate cross-team collaboration or limited visibility into the issue's progress. The low number of status transitions reflects a linear or stagnant workflow, possibly due to insufficient task breakdown or dependency resolution. The root cause appears to involve a lack of workflow refinement and unclear ownership responsibilities, exacerbated by the criticality of the issue.",
-              "Summary": "The handling of the JIRA issue 'Migrate Admin nodes from STACK to LVAx' reveals areas for improvement in efficiency and process clarity. Despite the high priority of the issue, resolution time was significantly prolonged with minimal communication overhead, indicating possible gaps in coordination and documentation. The issue's workflow experienced limited transitions, suggesting either a lack of active progress tracking or infrequent updates to its status within the system.",
-              "GroupName": "Tag: Infra_Deployment_Error",
-              "GroupDescription": "Issues tagged with 'Infra_Deployment_Error', occurred 1 times"
-            }
-          },
-          {
-            "ItemsList": [
-              151079,
-              151080,
-              151081,
-              151083,
-              151084
-            ],
-            "GroupMetaData": {
-              "Actions": "Implement workflow automation for off-hour issue assignments to improve triage speed and resolution cycles. Enhance JIRA configurations to enforce stricter handoff accountability, requiring assignees to actively confirm transitions. Introduce better monitoring tools and automated alerts for migration and deployment issues to detect and address delays effectively. Strengthen team collaboration by mandating periodic status updates and fostering multi-stakeholder discussions on complex tasks to reduce operational silos and increase resolution efficiency.",
-              "GroupID": 23125,
-              "Insight": "Triage speed across the issues is delayed, with critical issues failing to reach full resolution promptly. Workflow transitions are inefficient, as evident from minimal status changes, indicating stagnation in workflows and potential mismanaged handoffs. Team collaboration is limited, with low participant involvement and commentary, highlighting insufficient collective problem-solving efforts and isolated task management. Recurrent themes of infra migration and deployment errors dominate, with overlapping tag patterns and unclear prioritization, alongside root causes tied to systemic monitoring and coordination inefficiencies.",
-              "Summary": "The analyzed JIRA issues exhibit slow resolution times with extended investigations, minimal coordination reflected by low communication activity, and bottlenecks in status transitions with only one or two changes for most issues. The group predominantly shares critical priority, infra maintenance, and migration tasks, but open issues suggest suboptimal handoff processes, holding up progress in several cases. Workflow bugs appear in managing issue delegation and monitoring efficiency during off hours, impacting resolution velocity and operational load balance.",
-              "GroupName": "Tag: LongResolution",
-              "GroupDescription": "Issues tagged with 'LongResolution', occurred 6 times"
-            }
-          },
-          {
-            "ItemsList": [
-              151079,
-              151080,
-              151081,
-              151083,
-              151084
-            ],
-            "GroupMetaData": {
-              "Actions": "Implement automated triage and assignment workflows that prioritize critical and region-specific issues based on predefined parameters to reduce triage delays. Enhance JIRA status configuration by incorporating granular status options to better track and mitigate workflow friction points. Introduce collaborative review checkpoints for long-running issues to identify blockers and expedite resolutions. Develop documentation or knowledge repositories for region-specific migration tasks to prevent recurring resolution delays and reduce investigative toil for similar future issues.",
-              "GroupID": 23126,
-              "Insight": "Triage effectiveness is hampered by delayed assignments, as evident in multiple issues requiring off-hours prioritization with handoff considerations. Status transitions are minimal, highlighting bottlenecks in workflow progression, particularly for critical tasks. Team coordination is consistent, though limited communication in most cases suggests either streamlined collaboration or underdocumented discussions. Recurring themes include region-specific migration challenges and protracted investigative timelines, with two issues exceeding 500-1000 hours of resolution time, indicating significant resource strain.",
-              "Summary": "The analyzed JIRA issues for the 'gridsre' team primarily revolve around critical node migrations involving extended resolution times and minimal communication efforts. Issues indicate efficient team participation but reveal workflow bottlenecks, especially in assignment speed and status transitions. There is a recurring pattern of delayed handoffs and prolonged investigations, suggesting opportunities to streamline issue resolution processes for enhanced efficiency.",
-              "GroupName": "Tag: Infra_Maintenance_Impact",
-              "GroupDescription": "Issues tagged with 'Infra_Maintenance_Impact', occurred 5 times"
-            }
-          }
-        ],
-        "summaryType": "system_daily_v0"
-      },
-      "summaryType": "system_daily_v0",
-      "endTimestamp": 1749562200,
-      "startTimestamp": 1749519000
-    },
-    {
-      "id": 3514,
-      "teamID": 6,
-      "teamName": "gridsre",
-      "createdAt": "2025-08-11T13:33:18Z",
-      "hashValue": "",
-      "isCurrent": true,
-      "versionId": "d431b355-8398-4b49-86c5-9317f387b3f8",
-      "contentJSON": {
-        "Items": [
-          {
-            "id": 151094,
-            "tags": [
-              {
-                "id": 23084,
-                "name": "LongResolution",
-                "teamID": 6,
-                "isGroup": false,
-                "description": "Long resolution time "
-              },
-              {
-                "id": 23093,
-                "name": "Access_Request",
-                "teamID": 6,
-                "isGroup": false,
-                "description": "Request for access or permissions to internal systems"
-              }
-            ],
-            "title": "Grid - General Hadoop - 2025-06-10",
-            "content": {
-              "labels": "[ask_grid_sre, decision-grid, from-supportal, supportal-v1, supportal-v1-problem-type:askgridsre/general-hadoop, supportal-v1-version:0.0.1370]",
-              "comments": [
-                {
-                  "created": "2025-06-11T09:34:25.320-0700",
-                  "updated": "2025-06-11T09:34:25.320-0700",
-                  "comment_body": "Started a ticket with them. Will keep this thread updated on progress",
-                  "commented_by": "Anush Baskaran"
-                },
-                {
-                  "created": "2025-06-11T09:02:06.214-0700",
-                  "updated": "2025-06-11T09:02:06.214-0700",
-                  "comment_body": "@Anush Baskaran Can you kindly help with more details. I do not really understand your ask here. It seems you have the paths to the models but you cannot read them - which would be expected because your headless account does not own them So my understanding of your ask is If that is the case Can you join our office hours (go/hoh) tomorrow to help us better understand",
-                  "commented_by": "Adeoluwa Akinwa"
-                },
-                {
-                  "created": "2025-06-11T09:24:51.054-0700",
-                  "updated": "2025-06-11T09:24:51.054-0700",
-                  "comment_body": "Yeah You will need to start a conversation with infosec on this. Also still join the office hours tomorrow",
-                  "commented_by": "Adeoluwa Akinwa"
-                },
-                {
-                  "created": "2025-06-20T11:53:10.250-0700",
-                  "updated": "2025-06-20T11:53:10.250-0700",
-                  "comment_body": "Chatted with @Raymond Lam and we aligned on using ksudo to solve for this. Next steps: Ksudo will add our headless account at https://jarvis.corp.linkedin.com/codesearch/result/?name=constants.py&path=mlops-io-offline%2Fmlops_io_offline_dags%2Fsrc%2Fmlops_io_offline%2Fmlops_io_offline_dags&reponame=linkedin-multiproduct%2Fmlops-io-offline#53 to allow impersonation for N headless accounts We will make changes to access and get tokens via ksudo client",
-                  "commented_by": "Anush Baskaran"
-                },
-                {
-                  "created": "2025-06-11T09:16:06.330-0700",
-                  "updated": "2025-06-11T09:16:06.330-0700",
-                  "comment_body": "ill join the office hours You got the ask right on the ticket though. We need to access varied paths across HDFS to be able to access the model bundles uploaded.Is there a way we can get this process started out earlier if there is one?",
-                  "commented_by": "Anush Baskaran"
-                }
-              ],
-              "priority": "Major",
-              "issue_key": "APA-129782",
-              "created_ts": "2025-06-10T22:08:43.175+05:30",
-              "issue_title": "Grid - General Hadoop - 2025-06-10",
-              "resolved_ts": "0001-01-01T00:00:00Z",
-              "project_name": "APA Support Project",
-              "assignee_name": "Adeoluwa Akinwa",
-              "reporter_name": "Anush Baskaran",
-              "assignee_email": "aakinwa@linkedin.com",
-              "reporter_email": "abaskaran@linkedin.com",
-              "assignee_changes": [],
-              "issue_description": "Issue: I am from the MLOps team and we are trying to reduce MTTD and MTTR for AI model-related incidents, it’s essential to monitor input feature drift. This requires maintaining a catalog of all models and their associated features. To achieve this, we need access to the model bundles, which currently reside in HDFS. While we have the HDFS paths available in the metadata, we’re unable to access them due to ACL restrictions. Could you advise on how we can programmatically access these paths from our automated job that parses the model bundles? This job would run twice a day. Nested Titles: Grid / General Hadoop",
-              "status_transitions": [
-                {
-                  "to_state": "In Progress",
-                  "timestamp": "2025-06-11 16:04:20.934000 UTC",
-                  "from_state": "Open"
-                }
-              ]
-            },
-            "itemType": "JiraActivity",
-            "createdAt": "2025-06-10T16:38:43Z",
-            "productID": 6,
-            "timeSpent": 0,
-            "updatedAt": "2025-08-11T13:33:17Z",
-            "itemStatus": "",
-            "description": "",
-            "additionalContext": ""
-          },
-          {
-            "id": 151095,
-            "tags": [
-              {
-                "id": 23084,
-                "name": "LongResolution",
-                "teamID": 6,
-                "isGroup": false,
-                "description": "Long resolution time "
-              },
-              {
-                "id": 23093,
-                "name": "Access_Request",
-                "teamID": 6,
-                "isGroup": false,
-                "description": "Request for access or permissions to internal systems"
-              },
-              {
-                "id": 23096,
-                "name": "Config_Error",
-                "teamID": 6,
-                "isGroup": false,
-                "description": "Misconfiguration led to outage or degraded service"
-              }
-            ],
-            "title": "Grid - Change Directory Owner and/or Permissions in HDFS - 2025-06-10",
-            "content": {
-              "labels": "[ask_grid_sre, decision-grid, from-supportal, supportal-v1, supportal-v1-problem-type:askgridsre/change-directory-owner-andor-permissions-in-hdfs, supportal-v1-version:0.0.1370]",
-              "comments": [],
-              "priority": "Unspecified",
-              "issue_key": "APA-129773",
-              "created_ts": "2025-06-10T21:44:49.994+05:30",
-              "issue_title": "Grid - Change Directory Owner and/or Permissions in HDFS - 2025-06-10",
-              "resolved_ts": "0001-01-01T00:00:00Z",
-              "project_name": "APA Support Project",
-              "assignee_name": "Adeoluwa Akinwa",
-              "reporter_name": "Rajeev Verma",
-              "assignee_email": "aakinwa@linkedin.com",
-              "reporter_email": "raverma@linkedin.com",
-              "assignee_changes": [],
-              "issue_description": "HDFS Path: Unable to ask membership for loopazaccess Error Message: Error Message: Error creating request to add raverma to headless account loopazaccess Cluster Name: loopazaccess HDFS User or Headless Account Name that launches the Job: raverma Nested Titles: Grid / Change Directory Owner and/or Permissions in HDFS",
-              "status_transitions": []
-            },
-            "itemType": "JiraActivity",
-            "createdAt": "2025-06-10T16:14:50Z",
-            "productID": 6,
-            "timeSpent": 0,
-            "updatedAt": "2025-08-11T13:33:17Z",
-            "itemStatus": "",
-            "description": "",
-            "additionalContext": ""
-          },
-          {
-            "id": 151096,
-            "tags": [
-              {
-                "id": 23084,
-                "name": "LongResolution",
-                "teamID": 6,
-                "isGroup": false,
-                "description": "Long resolution time "
-              },
-              {
-                "id": 23124,
-                "name": "Infra_DB_Performance",
-                "teamID": 6,
-                "isGroup": false,
-                "description": "Database slowdowns or connection failures affecting applications"
-              }
-            ],
-            "title": "Grid - Job Running Slow - 2025-06-10",
-            "content": {
-              "labels": "[ask_grid_sre, decision-grid, from-supportal, supportal-v1, supportal-v1-problem-type:askgridsre/job-running-slow, supportal-v1-version:0.0.1370]",
-              "comments": [
-                {
-                  "created": "2025-06-10T14:10:19.591-0700",
-                  "updated": "2025-06-10T14:10:19.591-0700",
-                  "comment_body": "The flow failed but it should not take that long to fail. Here is the updated link: https://flyte-prod.prod.linkedin.com/console/projects/nba-models/domains/development/executions/fa2a6c51f80564fb8b99",
-                  "commented_by": "Liyang Zhao"
-                }
-              ],
-              "priority": "Unspecified",
-              "issue_key": "APA-129762",
-              "created_ts": "2025-06-10T20:14:35.563+05:30",
-              "issue_title": "Grid - Job Running Slow - 2025-06-10",
-              "resolved_ts": "0001-01-01T00:00:00Z",
-              "project_name": "APA Support Project",
-              "assignee_name": "Adeoluwa Akinwa",
-              "reporter_name": "Liyang Zhao",
-              "assignee_email": "aakinwa@linkedin.com",
-              "reporter_email": "liyzhao@linkedin.com",
-              "assignee_changes": [],
-              "issue_description": "User or Headless Account name that launches the job: gtmaimd Hadoop Job Link: https://flyte-prod.prod.linkedin.com/console/projects/nba-models/domains/development/executions/fu3gxd4pk2klog Cluster Name: prod-ltx1-k8s-2 Azkaban Job Link if it's a Scheduled Job: https://flyte-prod.prod.linkedin.com/console/projects/nba-models/domains/development/executions/fu3gxd4pk2klog Nested Titles: Grid / Job Running Slow",
-              "status_transitions": []
-            },
-            "itemType": "JiraActivity",
-            "createdAt": "2025-06-10T14:44:36Z",
-            "productID": 6,
-            "timeSpent": 0,
-            "updatedAt": "2025-08-11T13:33:17Z",
-            "itemStatus": "",
-            "description": "",
-            "additionalContext": ""
-          }
-        ],
-        "Groups": [
-          {
-            "ItemsList": [
-              151094,
-              151095,
-              151096
-            ],
-            "GroupMetaData": {
-              "Actions": "To enhance workflow efficiency, reconfigure JIRA to introduce automated rule-based triage for off-hours issue routing and prioritization. Implement more granular status transitions to track issue progress more effectively and highlight blockers. Encourage broader team participation to distribute workload and improve collaboration, and establish targeted documentation or monitoring to address access, configuration, and performance-related recurring issues. These optimizations can reduce resolution time and operational toil while ensuring better knowledge distribution.",
-              "GroupID": 23112,
-              "Insight": "The triage and assignment process is delayed, as all issues were created during off-hours and remain unresolved without significant status updates. Workflow transitions are minimal, with only one recorded per issue, signaling potential bottlenecks in prioritization or resource allocation. Recurring themes include access and configuration errors, along with performance degradation that could indicate monitoring or infrastructure capability gaps. Resolution activity is siloed to a single assignee, which may hurt knowledge sharing and issue escalation efficiency.",
-              "Summary": "The group of JIRA issues displays a pattern of operational inefficiencies, primarily characterized by prolonged 'OPEN' statuses with minimal status transitions. Team coordination appears centralized, with one assignee handling all issues, potentially causing workload imbalances. Communication overhead is generally low, suggesting either streamlined discussions or insufficient collaborative engagement on issue resolution steps.",
-              "GroupName": "Tag: LongResolution",
-              "GroupDescription": "Issues tagged with 'LongResolution', occurred 3 times"
-            }
-          },
-          {
-            "ItemsList": [
-              151094,
-              151095
-            ],
-            "GroupMetaData": {
-              "Actions": "Implement automation for off-hours issue triage and prioritization to ensure timely assignment and reduce resolution delays. Enhance JIRA workflow visibility by configuring additional status stages or metrics to track intermediate progress. Deploy a more distributed resource allocation model or on-call rotation to avoid over-reliance on a single assignee for critical tasks. Focus on process improvements or automation scripts to address recurring configuration errors, and establish comprehensive monitoring to reduce the frequency of such issues in the future.",
-              "GroupID": 23098,
-              "Insight": "Triage and assignment for both issues appear delayed, with no evidence of prompt prioritization despite being created during off-hours, when quicker intervention could mitigate delays. Workflow transitions are minimal, pointing to lack of progress or timely updates, potentially impacting resolution velocity. Communication is limited, hinting at low collaboration overhead but possibly insufficient engagement for issue resolution. Recurring themes of long resolution and configuration errors suggest systemic inefficiencies in process management and monitoring gaps. Resolution times are likely elongated due to unclear or unstreamlined escalation pathways.",
-              "Summary": "The provided JIRA issues highlight a workflow characterized by delayed resolution and minimal coordination complexity. Both issues are in an open status with minimal status transitions, suggesting inefficiencies in issue progression and lack of proactive triage. Team coordination appears efficient based on low communication overhead, but the delayed resolution and reliance on a single assignee indicate potential bottlenecks in resource allocation and prioritization of tasks reported during off-hours.",
-              "GroupName": "Tag: Access_Request",
-              "GroupDescription": "Issues tagged with 'Access_Request', occurred 2 times"
-            }
-          },
-          {
-            "ItemsList": [
-              151095
-            ],
-            "GroupMetaData": {
-              "Actions": "Implementing automated triage rules to assign priority and responsible parties immediately upon issue creation will reduce initialization delays. Creating standard workflows for access-related requests, including pre-approved templates and automated permission changes, can streamline resolution. Enhancing off-hours support through rotation schedules or real-time notifications may mitigate delays originating from after-hours issue reporting.",
-              "GroupID": 23101,
-              "Insight": "The absence of a defined priority and a lack of immediate triage suggest gaps in the workflow that hinder the team's ability to address issues promptly. The open status of the issue, initially raised during off-hours, indicates potential delays in handoff and resolution. Additionally, the issue's association with 'LongResolution' and 'Access_Request' suggests recurring patterns related to access control that might benefit from better automation or predefined workflows for common issues.",
-              "Summary": "The analyzed issue reveals inefficiencies in assignment and resolution processes, particularly due to the absence of prioritization and triage details. Created during off-hours and remaining open, the issue highlights potential delays and coordination challenges between the assignee and other team members, suggesting room for workflow optimization to reduce cycle time and operational effort.",
-              "GroupName": "Tag: Config_Error",
-              "GroupDescription": "Issues tagged with 'Config_Error', occurred 1 times"
-            }
-          },
-          {
-            "ItemsList": [
-              151096
-            ],
-            "GroupMetaData": {
-              "Actions": "To improve workflows, implementing stricter triage timelines and auto-prioritization rules in JIRA is recommended to expedite issue assignment. Developing clear handoff protocols and enhancing round-the-clock monitoring support would better facilitate off-hour escalations. Automating workflow transitions with better status definitions and promoting real-time team collaboration through integrated tools can accelerate resolution times and reduce operational friction.",
-              "GroupID": 23127,
-              "Insight": "The absence of a priority designation and clear workflow transition highlights inefficiencies in triage and assignment processes. The issue's creation during off-hours suggests a need for better handoff mechanisms to support timely resolution. Minimal communication and a single comment indicate reduced collaboration, risking delayed troubleshooting. The 'LongResolution' tag points to a recurring pattern that should be addressed through systemic process improvements.",
-              "Summary": "The JIRA issue under analysis reveals slow resolution times with inadequate prioritization and coordination efforts. Assigned during off-hours with an open status and minimal communication, the issue lacks clear triage direction, resulting in a prolonged unresolved state and an operational bottleneck for the gridsre team.",
-              "GroupName": "Tag: Infra_DB_Performance",
-              "GroupDescription": "Issues tagged with 'Infra_DB_Performance', occurred 1 times"
-            }
-          }
-        ],
-        "summaryType": "system_daily_v0"
-      },
-      "summaryType": "system_daily_v0",
-      "endTimestamp": 1749605400,
-      "startTimestamp": 1749562200
-    },
-    {
-      "id": 3515,
-      "teamID": 6,
-      "teamName": "gridsre",
-      "createdAt": "2025-08-11T13:34:07Z",
-      "hashValue": "",
-      "isCurrent": true,
-      "versionId": "400f6123-83bb-4145-9d48-b25b9afc8483",
-      "contentJSON": {
-        "Items": [
-          {
-            "id": 150966,
-            "tags": [
-              {
-                "id": 23084,
-                "name": "LongResolution",
-                "teamID": 6,
-                "isGroup": false,
-                "description": "Long resolution time "
-              },
-              {
-                "id": 23104,
+                "id": 23336,
                 "name": "Automation_Missing",
                 "teamID": 6,
                 "isGroup": false,
                 "description": "Manual step that could be scripted or systematized"
               },
               {
-                "id": 23108,
-                "name": "Monitoring_Gap",
-                "teamID": 6,
-                "isGroup": false,
-                "description": "Alerting was absent, delayed, or misleading"
-              }
-            ],
-            "title": "Review and update the alert configuration to ensure timely alerts for active Namenode crashes and other critical failures. Example: mechanisms to trigger alerts for multiple NN crashes in a short time period.",
-            "content": {
-              "labels": "[SEV2, incident-5393, rootly-incident]",
-              "comments": [
-                {
-                  "created": "2025-07-30T11:34:28.157-0700",
-                  "updated": "2025-07-30T11:34:28.157-0700",
-                  "comment_body": "The IRIS alert for a namenode from the active-standby setup going down is already an URGENT priority alert that warrants immediate attention from the oncall engineers. As the oncall engineer at the time of this incident",
-                  "commented_by": "Sri Harsha Vipparti"
-                },
-                {
-                  "created": "2025-06-23T11:28:43.516-0700",
-                  "updated": "2025-06-23T11:28:43.516-0700",
-                  "comment_body": "@Sri Harsha Vipparti You’re currently assigned as the incident owner for incident-5393.  This related action item is expected to be completed this week but it remains unassigned.  Can you please assist in finding the appropriate owner to see it gets closed soon",
-                  "commented_by": "Justin Kominar"
-                }
-              ],
-              "priority": "Critical",
-              "issue_key": "ACTIONITEM-7338",
-              "created_ts": "2025-06-11T18:52:11.684+05:30",
-              "issue_title": "Review and update the alert configuration to ensure timely alerts for active Namenode crashes and other critical failures. Example: mechanisms to trigger alerts for multiple NN crashes in a short time period.",
-              "resolved_ts": "2025-07-30T18:35:25.921Z",
-              "project_name": "Action Items",
-              "assignee_name": "Sri Harsha Vipparti",
-              "reporter_name": "svc rootly-prod",
-              "assignee_email": "svipparti@linkedin.com",
-              "reporter_email": "svc-rootly-prod@linkedin.com",
-              "assignee_changes": [
-                {
-                  "timestamp": "2025-06-24 17:48:48.398000 UTC",
-                  "to_assignee": "Sri Harsha Vipparti",
-                  "from_assignee": ""
-                }
-              ],
-              "issue_description": "Action Item for  https://rootly.com/account/incidents/5393  :",
-              "status_transitions": [
-                {
-                  "to_state": "In Progress",
-                  "timestamp": "2025-06-11 18:52:13.236000 UTC",
-                  "from_state": "Open"
-                },
-                {
-                  "to_state": "Closed",
-                  "timestamp": "2025-07-30 18:35:25.932000 UTC",
-                  "from_state": "In Progress"
-                }
-              ]
-            },
-            "itemType": "JiraActivity",
-            "createdAt": "2025-06-11T13:22:12Z",
-            "productID": 6,
-            "timeSpent": 0,
-            "updatedAt": "2025-08-11T13:34:06Z",
-            "itemStatus": "",
-            "description": "",
-            "additionalContext": ""
-          },
-          {
-            "id": 150979,
-            "tags": [
-              {
-                "id": 23084,
-                "name": "LongResolution",
-                "teamID": 6,
-                "isGroup": false,
-                "description": "Long resolution time "
-              },
-              {
-                "id": 23088,
-                "name": "Feature_Request",
-                "teamID": 6,
-                "isGroup": false,
-                "description": "Request for a new capability or enhancement"
-              }
-            ],
-            "title": "Long Term Followup: Look into making NN startup time faster",
-            "content": {
-              "labels": "[SEV2, incident-5393, rootly-incident]",
-              "comments": [
-                {
-                  "created": "2025-07-31T18:03:24.956-0700",
-                  "updated": "2025-07-31T18:03:24.956-0700",
-                  "comment_body": "I shall create a separate long term ticket to track this AI since this requires significant investigation and discussion in a larger forum. Following is the ticket:",
-                  "commented_by": "Sri Harsha Vipparti"
-                },
-                {
-                  "created": "2025-06-23T11:29:59.224-0700",
-                  "updated": "2025-06-23T11:29:59.224-0700",
-                  "comment_body": "@Sri Harsha Vipparti You’re currently assigned as the incident owner for incident-5393.  This related action item is expected to be completed today but it remains unassigned.  Can you please assist in finding the appropriate owner to see it gets closed soon",
-                  "commented_by": "Justin Kominar"
-                }
-              ],
-              "priority": "Critical",
-              "issue_key": "ACTIONITEM-7337",
-              "created_ts": "2025-06-11T18:51:19.62+05:30",
-              "issue_title": "Long Term Followup: Look into making NN startup time faster",
-              "resolved_ts": "2025-08-01T01:03:33.55Z",
-              "project_name": "Action Items",
-              "assignee_name": "Sri Harsha Vipparti",
-              "reporter_name": "svc rootly-prod",
-              "assignee_email": "svipparti@linkedin.com",
-              "reporter_email": "svc-rootly-prod@linkedin.com",
-              "assignee_changes": [
-                {
-                  "timestamp": "2025-06-24 17:56:40.244000 UTC",
-                  "to_assignee": "Sri Harsha Vipparti",
-                  "from_assignee": ""
-                }
-              ],
-                                                     "issue_description": "Action Item for  https://rootly.com/account/incidents/5393  :",
-              "status_transitions": [
-                {
-                  "to_state": "In Progress",
-                  "timestamp": "2025-06-11 18:51:21.550000 UTC",
-                  "from_state": "Open"
-                },
-                {
-                  "to_state": "Closed",
-                  "timestamp": "2025-08-01 01:03:33.561000 UTC",
-                  "from_state": "In Progress"
-                }
-              ]
-            },
-            "itemType": "JiraActivity",
-            "createdAt": "2025-06-11T13:21:20Z",
-            "productID": 6,
-            "timeSpent": 0,
-            "updatedAt": "2025-08-11T13:34:06Z",
-            "itemStatus": "",
-            "description": "",
-            "additionalContext": ""
-          },
-          {
-            "id": 151034,
-            "tags": [
-              {
-                "id": 23084,
-                "name": "LongResolution",
-                "teamID": 6,
-                "isGroup": false,
-                "description": "Long resolution time "
-              },
-              {
-                "id": 23104,
-                "name": "Automation_Missing",
-                "teamID": 6,
-                "isGroup": false,
-                "description": "Manual step that could be scripted or systematized"
-              },
-              {
-                "id": 23128,
+                "id": 23369,
                 "name": "Runbook_Outdated",
                 "teamID": 6,
                 "isGroup": false,
                 "description": "Incident response or operational docs not up to date"
               }
             ],
-            "title": "Add sample DN/NN Kusto queries to runbooks to help facilitate faster debugging, avoiding logging into nodes themselves.",
+            "title": "Create a standard process for bulk recovery for Machines failing during Reimage .",
             "content": {
-              "labels": "[SEV2, incident-5393, rootly-incident]",
-              "comments": [
-                {
-                  "created": "2025-08-06T09:22:06.830-0700",
-                  "updated": "2025-08-06T09:22:06.830-0700",
-                  "comment_body": "Sample NN/DN kusto queries and examples can be found here:",
-                  "commented_by": "Sri Harsha Vipparti"
-                },
-                {
-                  "created": "2025-06-23T11:30:50.555-0700",
-                  "updated": "2025-06-23T11:30:50.555-0700",
-                  "comment_body": "@Sri Harsha Vipparti You’re currently assigned as the incident owner for incident-5393.  This related action item is expected to be completed this week but it remains unassigned.  Can you please assist in finding the appropriate owner to see it gets closed soon",
-                  "commented_by": "Justin Kominar"
-                }
-              ],
+              "labels": "[SEV4, incident-6447, rootly-incident]",
+              "comments": [],
               "priority": "Critical",
-              "issue_key": "ACTIONITEM-7334",
-              "created_ts": "2025-06-11T18:43:06.652+05:30",
-              "issue_title": "Add sample DN/NN Kusto queries to runbooks to help facilitate faster debugging, avoiding logging into nodes themselves.",
-              "resolved_ts": "2025-08-06T16:28:18.821Z",
+              "issue_key": "ACTIONITEM-8323",
+              "created_ts": "2025-07-31T07:29:05.789+05:30",
+              "issue_title": "Create a standard process for bulk recovery for Machines failing during Reimage .",
+              "resolved_ts": "0001-01-01T00:00:00Z",
               "project_name": "Action Items",
-              "assignee_name": "Sri Harsha Vipparti",
+              "assignee_name": "Sandeep Venugopalan",
               "reporter_name": "svc rootly-prod",
-              "assignee_email": "svipparti@linkedin.com",
+              "assignee_email": "svenugopalan@linkedin.com",
               "reporter_email": "svc-rootly-prod@linkedin.com",
               "assignee_changes": [
                 {
-                  "timestamp": "2025-06-24 17:51:11.927000 UTC",
-                  "to_assignee": "Sri Harsha Vipparti",
+                  "timestamp": "2025-07-31 07:30:10.634000 UTC",
+                  "to_assignee": "Siddhi Tripathi",
                   "from_assignee": ""
-                }
-              ],
-              "issue_description": "Action Item for  https://rootly.com/account/incidents/5393  :",
-              "status_transitions": [
-                {
-                  "to_state": "Closed",
-                  "timestamp": "2025-08-06 16:28:18.830000 UTC",
-                  "from_state": "In Progress"
                 },
                 {
+                  "timestamp": "2025-08-07 15:39:13.970000 UTC",
+                  "to_assignee": "Sandeep Venugopalan",
+                  "from_assignee": "Siddhi Tripathi"
+                }
+              ],
+              "issue_description": "Action Item for  https://rootly.com/account/incidents/6447  :",
+              "status_transitions": [
+                {
                   "to_state": "In Progress",
-                  "timestamp": "2025-06-11 18:43:08.220000 UTC",
+                  "timestamp": "2025-07-31 07:29:06.852000 UTC",
                   "from_state": "Open"
                 }
               ]
             },
             "itemType": "JiraActivity",
-            "createdAt": "2025-06-11T13:13:07Z",
+            "createdAt": "2025-07-31T01:59:06Z",
             "productID": 6,
             "timeSpent": 0,
-            "updatedAt": "2025-08-11T13:34:06Z",
+            "updatedAt": "2025-08-13T00:48:48Z",
             "itemStatus": "",
             "description": "",
             "additionalContext": ""
@@ -1407,194 +197,1111 @@ const SAMPLE_DATA =
         "Groups": [
           {
             "ItemsList": [
-              150966,
-              151034
+              152439
             ],
             "GroupMetaData": {
-              "Actions": "Improve monitoring configurations and implement automated alerting mechanisms to reduce detection gaps and enable faster prioritization. Update runbooks and associated documentation with detailed debugging procedures, including sample queries, to promote efficient issue resolution. Optimize JIRA workflows by defining clearer status transitions and implementing automation rules for assigning, prioritizing, and escalating critical issues. Enhance team collaboration by introducing structured handoff processes and periodic retrospectives.",
-              "GroupID": 23129,
-              "Insight": "The extended resolution times across both issues emphasize systemic challenges in triage and resolution workflows. Minimal communication and low participation indicate limited cross-functional collaboration, which may hinder the sharing of knowledge and issue resolution acceleration. Recurring themes include outdated documentation and gaps in monitoring, leading to preventable operational struggles. The status transitions show minimal progress tracking, suggesting a need for better-defined workflows and escalation triggers.",
-              "Summary": "The group of issues under 'Automation_Missing' reflects critical gaps in workflow efficiency and monitoring processes. Both issues exhibit extended resolution times, minimal communication overhead, and low status transition activity, pointing to prolonged investigations with limited collaboration. These patterns highlight inefficiencies in automation, documentation, and team coordination, creating bottlenecks for swift resolution.",
-              "GroupName": "Tag: Automation_Missing",
-              "GroupDescription": "Issues tagged with 'Automation_Missing', occurred 2 times"
+              "Actions": "Define grid partitions, update documentation collaboratively, and establish periodic reviews to ensure clarity and accuracy.",
+              "GroupID": 23370,
+              "Insight": "Documentation gaps stem from undefined intended partitions and absence of regular updates or reviews.",
+              "Summary": "Grid partitioning lacks clear documentation, risking misinterpretation and inefficiencies in grid template usage.",
+              "GroupName": "Tag: Documentation_Gap",
+              "GroupDescription": "Issues tagged with 'Documentation_Gap', occurred 1 times"
             }
           },
           {
             "ItemsList": [
-              150966
+              152440
             ],
             "GroupMetaData": {
-              "Actions": "To prevent similar inefficiencies, prioritize configuring automated alerts for critical failures such as Namenode crashes, ensuring rapid detection and response. Enhance JIRA workflows by introducing mandatory status updates at predefined intervals and fostering greater accountability through frequent team check-ins. Encourage wider collaboration by increasing participant involvement and leveraging retrospective learnings in team training sessions. Lastly, improve triage efficiency by implementing a 24/7 monitoring escalation framework to address off-hour issues with reduced delays.",
-              "GroupID": 23109,
-              "Insight": "The triage and assignment process reveals systemic delays due to the absence of robust automation for ticket creation and routing, as identified by the missing LSR email-triggered automation. Status transition patterns suggest limited progress on high-priority tasks, amplified by the absence of explicit prioritization and unclear workflows. Collaboration inefficiencies and handoff difficulties emerge as contributors to the issue lifespan, particularly for off-hours incidents, hinting at gaps in on-call processes and escalation mechanisms. Recurring themes of missing automation and insufficient monitoring stand out as key improvement areas.",
-              "Summary": "The JIRA issue highlights inefficiencies related to prolonged resolution times and minimal collaboration dynamics, as evidenced by extended investigation efforts and low communication overhead. The monitoring gap caused by missing automation elements and limited status transitions suggests opportunities for enhanced workflow streamlining and proactive alert mechanisms. Overall, the issue management for this case shows room for improvement in operational processes to prevent recurrence of similar problems.",
-              "GroupName": "Tag: Monitoring_Gap",
-              "GroupDescription": "Issues tagged with 'Monitoring_Gap', occurred 1 times"
-            }
-          },
-          {
-            "ItemsList": [
-              150979
-            ],
-            "GroupMetaData": {
-              "Actions": "Optimizing resolution processes for critical issues could include setting automated alerts for off-hour creation to ensure immediate follow-up and clearly defining intermediate workflow checkpoints to minimize delays. Collaboration can be improved by enforcing mandatory check-ins or updates for long-running tasks. Establishing SLA-based resolution timelines with periodic performance audits can help in identifying delays early and adjusting resources accordingly to prevent prolonged investigation periods for similar tasks in the future.",
-              "GroupID": 23091,
-              "Insight": "The triage and assignment processes show room for improvement, particularly in handling high-priority issues created during off-hours, which can contribute to delays in action. The workflow exhibited minimal status transitions, reflecting either a lack of well-defined stages or efforts bypassing intermediate checkpoints. Collaboration dynamics could benefit from more coordinated discussions or knowledge sharing, as minimal communication was recorded, and the lone assignee bore complete responsibility. The recurring theme reflects the need for systematic measures to expedite critical tasks with lengthy resolutions.",
-              "Summary": "The issue under analysis experienced a prolonged resolution time of over 1200 hours, indicating significant delays in resolving a critical priority task. Collaboration and communication effort were minimal, as evidenced by only two comments from two participants, which might suggest either low interactivity or highly siloed efforts. The workflow saw only two status transitions, hinting at potential stagnation or process blockage during resolution stages.",
-              "GroupName": "Tag: Feature_Request",
-              "GroupDescription": "Issues tagged with 'Feature_Request', occurred 1 times"
-            }
-          },
-          {
-            "ItemsList": [
-              151034
-            ],
-            "GroupMetaData": {
-              "Actions": "To address these inefficiencies, prioritize updating runbooks with sample DN/NN Kusto queries to streamline debugging activities. Implement automation for query generation and node monitoring to reduce manual involvement. Enhance resolution workflows by configuring JIRA to include automated status transitions and predefined triage checkpoints to improve tracking and oversight. Additionally, foster skills-sharing sessions within the team to mitigate reliance on single-point ownership and to distribute expertise while addressing similar future issues during off-hours.",
-              "GroupID": 23130,
-              "Insight": "The issue faced delayed resolution, with a notably long investigation period likely due to a lack of predefined automation and insufficient runbook documentation. Status transitions indicate limited process checkpoints, which may hinder robust tracking and proactive issue resolution. Collaboration appears low, with only two commenters, indicating either high individual ownership or limited expertise sharing. The recurring themes point to preventable inefficiencies centered around outdated processes and insufficient automation for debugging workflows.",
-              "Summary": "The JIRA issue reflects moderate workflow coordination but significant inefficiency due to extended resolution time. With minimal communication overhead and only two status transitions, the assignee managed the task independently without excessive team involvement. The critical priority of the issue, combined with tags indicating outdated runbook content and missing automation, suggests systemic gaps in runbook quality and reliance on manual effort for debugging workflows.",
-              "GroupName": "Tag: Runbook_Outdated",
-              "GroupDescription": "Issues tagged with 'Runbook_Outdated', occurred 1 times"
-            }
-          },
-          {
-            "ItemsList": [
-              150966,
-              150979,
-              151034
-            ],
-            "GroupMetaData": {
-              "Actions": "To optimize workflows, implement automation for critical alerts and enhance runbooks with updated, actionable content to expedite debugging. Reconfigure JIRA workflows to allow for earlier triage and more nuanced status transitions, reducing investigation delays. Introduce workload balancing by distributing tasks among multiple team members and encouraging collaborative problem-solving to dismantle silos. Lastly, prioritize feature requests and monitoring improvements to proactively address preventable issues.",
-              "GroupID": 23112,
-              "Insight": "Triage effectiveness seems limited, with delayed prioritization and minimal transitions restricting workflow fluidity. The resolution process is marked by extended investigation times, with issues such as missing automation and outdated runbooks suggesting deficiencies in tooling and procedural documentation. The recurring root causes include insufficient alert mechanisms, slow system startup, and debugging inefficiencies, exacerbated by an over-reliance on manual processes. Collaboration is restricted, as evidenced by few comments and participants in discussions, pointing to potential knowledge silos.",
-              "Summary": "The gridsre team's JIRA issues display a pattern of extended resolution times, minimal status transitions, and low communication overhead. All three critical issues indicate workflow inefficiencies in both problem triage and resolution, with work initiated during off-hours and prolonged investigative phases. The centralized assignment of tasks to a single assignee raises concerns about workload distribution and scalability in handling high-priority tasks.",
-              "GroupName": "Tag: LongResolution",
-              "GroupDescription": "Issues tagged with 'LongResolution', occurred 3 times"
-            }
-          }
-        ],
-        "summaryType": "system_daily_v0"
-      },
-      "summaryType": "system_daily_v0",
-      "endTimestamp": 1749648600,
-      "startTimestamp": 1749605400
-    },
-    {
-      "id": 3516,
-      "teamID": 6,
-      "teamName": "gridsre",
-      "createdAt": "2025-08-11T13:34:43Z",
-      "hashValue": "",
-      "isCurrent": true,
-      "versionId": "79276aa5-920a-4454-bc70-2a0c1b1487b9",
-      "contentJSON": {
-        "Items": [
-          {
-            "id": 151125,
-            "tags": [
-              {
-                "id": 23084,
-                "name": "LongResolution",
-                "teamID": 6,
-                "isGroup": false,
-                "description": "Long resolution time "
-              },
-              {
-                "id": 23104,
-                "name": "Automation_Missing",
-                "teamID": 6,
-                "isGroup": false,
-                "description": "Manual step that could be scripted or systematized"
-              },
-              {
-                "id": 23108,
-                "name": "Monitoring_Gap",
-                "teamID": 6,
-                "isGroup": false,
-                "description": "Alerting was absent, delayed, or misleading"
-              }
-            ],
-            "title": "LSR failure emails don't create ticket for hdfs core oncall dashboard.",
-            "content": {
-              "labels": "[ask_grid_sre, decision-grid, from-supportal, supportal-v1, supportal-v1-problem-type:askgridsre/other-grid-issue, supportal-v1-version:0.0.1370]",
-              "comments": [],
-              "priority": "Unspecified",
-              "issue_key": "APA-129887",
-              "created_ts": "2025-06-11T23:56:57.912+05:30",
-              "issue_title": "LSR failure emails don't create ticket for hdfs core oncall dashboard.",
-              "resolved_ts": "0001-01-01T00:00:00Z",
-              "project_name": "APA Support Project",
-              "assignee_name": "Sri Harsha Vipparti",
-              "reporter_name": "Ali Budak",
-              "assignee_email": "svipparti@linkedin.com",
-              "reporter_email": "abudak@linkedin.com",
-              "assignee_changes": [
-                {
-                  "timestamp": "2025-06-12 00:00:01.104000 UTC",
-                  "to_assignee": "Sri Harsha Vipparti",
-                  "from_assignee": "Adeoluwa Akinwa"
-                }
-              ],
-              "issue_description": "Problem: Hey team, currently for LSR failures, we don't get oncall tickets created automatically (hdfs core team). We expect that would work since LSR cron jobs are configured such that upon failure ask_grid_data is a recipient of email sent using Postfix. So when there's a failure, we rely on someone from our team noticing the failure email in their inbox and fwd'ing that to ask_grid_data@ so that our oncall can have a ticket on the oncall dashboard and fix the issues. Since it's critical for compliance, cdmp etc, I think this is something we need to fix. relevant thread:    When we are fixing this, it would be great to ensure the fix is applied to  all 3 LSR jobs  per NN (oiv, sync, parser). thanks! Browser: n/a Hadoop Job Link: n/a Cluster name: n/a Error Message: Nested Titles: Grid / Other Grid Issue",
-              "status_transitions": []
-            },
-            "itemType": "JiraActivity",
-            "createdAt": "2025-06-11T18:26:58Z",
-            "productID": 6,
-            "timeSpent": 0,
-            "updatedAt": "2025-08-11T13:34:41Z",
-            "itemStatus": "",
-            "description": "",
-            "additionalContext": ""
-          }
-        ],
-        "Groups": [
-          {
-            "ItemsList": [
-              151125
-            ],
-            "GroupMetaData": {
-              "Actions": "To optimize the workflow, configure JIRA automation rules to ensure immediate ticket creation for similar failures and automatic prioritization of high-priority tasks during off-hours. Improve team coordination by implementing mandatory assignee updates and structured handoff procedures. Address root causes by enhancing monitoring systems to prevent ticket escalation delays and documenting standard operating procedures for similar failure scenarios, thereby reducing reliance on manual intervention and improving resolution timelines.",
-              "GroupID": 23090,
-              "Insight": "Analysis indicates delays in issue triage and assignment effectiveness as the issue was created off-hours without immediate follow-up or updates. Status transitions are unclear, contributing to workflow friction and inefficiencies. The high-priority classification reveals gaps in the monitoring system and suggests recurring issues with automation implementation. Ineffective collaboration and potential knowledge gaps further exacerbate the delays, as no proactive handoff or resolution actions have been documented to date. These patterns suggest a need to refine resolution velocity while addressing process gaps contributing to monitoring and automation failures.",
-              "Summary": "The JIRA issue 'LSR failure emails don't create ticket for hdfs core oncall dashboard' exhibits challenges in proper issue management efficiency due to delayed resolution and unaddressed handoff considerations. The lack of immediate status updates and priority specification highlights workflow bottlenecks and inefficiencies, particularly in automation and monitoring practices. Team coordination appears impacted as the issue remains unresolved despite its high-priority classification, suggesting room for process improvement in task assignment and escalation paths.",
-              "GroupName": "Tag: LongResolution",
-              "GroupDescription": "Issues tagged with 'LongResolution', occurred 1 times"
-            }
-          },
-          {
-            "ItemsList": [
-              151125
-            ],
-            "GroupMetaData": {
-              "Actions": "Implement automation to ensure failure emails directly generate tickets, reducing manual effort and improving triage speed. Establish a structured workflow with clearly defined priority settings and enforce mandatory status updates to enhance resolution tracking and accountability. Conduct a monitoring system audit to identify and address gaps, ensuring timely detection of critical issues. Create a review mechanism for off-hours incidents to facilitate faster handoffs and ensure no delays in addressing high-priority issues.",
-              "GroupID": 23105,
-              "Insight": "The primary inefficiency stems from the absence of automation in processing failure emails, leading to manual interventions for ticket creation. This gap in automation has directly impacted resolution velocity and added operational toil. The issue's high-priority classification with unresolved status suggests bottlenecks in escalation and handoff mechanisms. The lack of a proper priority setting and status transition contributes to workflow opacity, hindering the team's ability to track and resolve the issue effectively. Repeated themes such as monitoring gaps and long resolution timelines point toward systemic process weaknesses in incident detection and handling.",
-              "Summary": "The analyzed JIRA issue demonstrates significant inefficiencies in both automated monitoring and manual workflow processes. The issue, marked as high priority, remains open despite its creation during off-hours, indicating delayed handoffs and potential gaps in triage and resolution processes. Unspecified priority and missing status updates further highlight challenges in workflow clarity and prioritization within the team.",
+              "Actions": "Develop a bulk recovery automation system to minimize manual steps, ensuring quicker machine restoration and reducing downtime by an estimated 30%.",
+              "GroupID": 23337,
+              "Insight": "Recurrent manual interventions for machine recovery indicate a gap in automation, causing inefficiency and inconsistency in handling failures during reimaging.",
+              "Summary": "Machines failing during reimage face delays due to the lack of a bulk recovery process, increasing downtime and operational risk.",
               "GroupName": "Tag: Automation_Missing",
               "GroupDescription": "Issues tagged with 'Automation_Missing', occurred 1 times"
             }
           },
           {
             "ItemsList": [
-              151125
+              152440
             ],
             "GroupMetaData": {
-              "Actions": "Introduce automated workflows in JIRA to ensure that LSR failure emails directly trigger ticket creation and assignment to the appropriate on-call team, supported by clear ownership guidelines. Configure custom escalations with defined SLAs to mitigate delays in off-hours triage and resolution for high-priority issues. Optimize the team's JIRA workflow by streamlining status transitions and enforcing standard prioritization schemes, leveraging automation rules to reduce manual interventions and improve tracking. Enhance monitoring dashboards to proactively detect incidents and minimize automation gaps, preventing future operational toil.",
-              "GroupID": 23109,
-              "Insight": "The triage and assignment process reveals systemic delays due to the absence of robust automation for ticket creation and routing, as identified by the missing LSR email-triggered automation. Status transition patterns suggest limited progress on high-priority tasks, amplified by the absence of explicit prioritization and unclear workflows. Collaboration inefficiencies and handoff difficulties emerge as contributors to the issue lifespan, particularly for off-hours incidents, hinting at gaps in on-call processes and escalation mechanisms. Recurring themes of missing automation and insufficient monitoring stand out as key improvement areas.",
-              "Summary": "The issue group exhibits inefficiencies in ticket lifecycle management, with prolonged resolutions likely caused by inadequate automation and ambiguous prioritization. Team coordination appears limited, as the current ticket assignee has not resolved the high-priority issue since its creation over two months ago, and the creation time during off-hours hints at possible delays in triage and assignment. Workflow bottlenecks persist, particularly in status transitions and escalations, indicating opportunities for process optimization to enhance overall operational efficiency.",
-              "GroupName": "Tag: Monitoring_Gap",
-              "GroupDescription": "Issues tagged with 'Monitoring_Gap', occurred 1 times"
+              "Actions": "Establish a standardized runbook for bulk recovery, conduct quarterly reviews, and validate it through simulated recovery scenarios.",
+              "GroupID": 23372,
+              "Insight": "Missing runbook caused delays in resolving machine failures, increasing downtime and operational inefficiencies during recovery processes.",
+              "Summary": "Critical gap identified: no standardized runbook for bulk machine recovery during reimage failures led to operational inconsistencies.",
+              "GroupName": "Tag: Runbook_Outdated",
+              "GroupDescription": "Issues tagged with 'Runbook_Outdated', occurred 1 times"
+            }
+          },
+          {
+            "ItemsList": [
+              152439,
+              152440
+            ],
+            "GroupMetaData": {
+              "Actions": "Implement ownership clarity, enforce resolution timelines, and introduce standardized processes with clear documentation to prevent delays.",
+              "GroupID": 23338,
+              "Insight": "Prolonged resolution stems from lack of standardized processes and inadequate documentation responsibilities, exacerbating delays in high-priority tasks.",
+              "Summary": "Two critical issues remain unresolved since July 31, likely due to unclear ownership and undefined timelines for resolution.",
+              "GroupName": "Tag: LongResolution",
+              "GroupDescription": "Issues tagged with 'LongResolution', occurred 2 times"
             }
           }
         ],
         "summaryType": "system_daily_v0"
       },
       "summaryType": "system_daily_v0",
-      "endTimestamp": 1749691800,
-      "startTimestamp": 1749648600
+      "endTimestamp": 1753968600,
+      "startTimestamp": 1753925400
+    },
+    {
+      "id": 3759,
+      "teamID": 6,
+      "teamName": "gridsre",
+      "createdAt": "2025-08-13T00:52:14Z",
+      "hashValue": "",
+      "isCurrent": true,
+      "versionId": "a14c6705-648c-4661-8b05-fd8a2b98c938",
+      "contentJSON": {
+        "Items": [
+          {
+            "id": 152458,
+            "tags": [
+              {
+                "id": 23331,
+                "name": "Access_Request",
+                "teamID": 6,
+                "isGroup": false,
+                "description": "Request for access or permissions to internal systems"
+              }
+            ],
+            "title": "Create Hadoop headless account - svc_pr_espcap",
+            "content": {
+              "labels": "",
+              "comments": [
+                {
+                  "created": "2025-08-01T16:36:03.590-0700",
+                  "updated": "2025-08-01T16:36:03.590-0700",
+                  "comment_body": "@Jeff Leung i couldn’t find you on grid portal ( maybe you missed this in the onboarding to create grid account https://www.grid.linkedin.com/self_service#/account .",
+                  "commented_by": "Aniket Dhuri"
+                },
+                {
+                  "created": "2025-08-04T21:10:41.560-0700",
+                  "updated": "2025-08-04T21:10:41.560-0700",
+                  "comment_body": "Asked in #ask_grid-sre and will bump the priority on this since it’s been more than 48 hours. https://linkedin-randd.slack.com/archives/CEMV913HN/p1754351464342769",
+                  "commented_by": "Aniket Dhuri"
+                },
+                {
+                  "created": "2025-08-05T00:40:10.798-0700",
+                  "updated": "2025-08-05T00:40:10.798-0700",
+                  "comment_body": "Request is automatically processed.",
+                  "commented_by": ""
+                }
+              ],
+              "priority": "Major",
+              "issue_key": "GRID-289799",
+              "created_ts": "2025-08-01T23:34:58.501+05:30",
+              "issue_title": "Create Hadoop headless account - svc_pr_espcap",
+              "resolved_ts": "2025-08-05T07:40:11.791Z",
+              "project_name": "GRID",
+              "assignee_name": "Anupchandra Rao",
+              "reporter_name": "Aniket Dhuri",
+              "assignee_email": "anchandrakanth@linkedin.com",
+              "reporter_email": "adhuri@linkedin.com",
+              "assignee_changes": [
+                {
+                  "timestamp": "2025-08-05 06:38:19.565000 UTC",
+                  "to_assignee": "Anupchandra Rao",
+                  "from_assignee": ""
+                }
+              ],
+              "issue_description": "Please allow up to 48 hours for this request to be processed. Self Service headless account creation request for  svc_pr_espcap : Description of Hadoop use case This account is used to fetch the data related to espresso's cluster capacity. The data is stored in holdem under openhouse.u_capengdev.resource_attribution Initial /jobs Quotas 3TB space / 20000 namespace Options Enable Voldemort Usage? False Copy ACLs from account None Admins: ['adhuri', 'amao', 'andasgup'] DMA Purpose: System_Operations Owning Crew ID: 1110",
+              "status_transitions": [
+                {
+                  "to_state": "Closed",
+                  "timestamp": "2025-08-05 07:40:11.832000 UTC",
+                  "from_state": "Open"
+                }
+              ]
+            },
+            "itemType": "JiraActivity",
+            "createdAt": "2025-08-01T18:04:59Z",
+            "productID": 6,
+            "timeSpent": 0,
+            "updatedAt": "2025-08-13T00:52:13Z",
+            "itemStatus": "",
+            "description": "",
+            "additionalContext": ""
+          },
+          {
+            "id": 152459,
+            "tags": [
+              {
+                "id": 23327,
+                "name": "LongResolution",
+                "teamID": 6,
+                "isGroup": false,
+                "description": "Long resolution time "
+              }
+            ],
+            "title": "Crossport PRs from li-2.10.0 to li-leapfrog-3.3 authored by you",
+            "content": {
+              "labels": "[leapfrog]",
+              "comments": [],
+              "priority": "Critical",
+              "issue_key": "LIHADOOP-83187",
+              "created_ts": "2025-08-01T21:55:20.956+05:30",
+              "issue_title": "Crossport PRs from li-2.10.0 to li-leapfrog-3.3 authored by you",
+              "resolved_ts": "0001-01-01T00:00:00Z",
+              "project_name": "HADOOP",
+              "assignee_name": "Aswin M Prabhu",
+              "reporter_name": "Janki Akhani",
+              "assignee_email": "asprabhu@linkedin.com",
+              "reporter_email": "jakhani@linkedin.com",
+              "assignee_changes": [],
+              "issue_description": "Please crossport PRs authored by you in this sheet (https://docs.google.com/spreadsheets/d/1zf-oXM3l5LUjSQNeuAQGQtUOWpB0I6S3R_mPnBTcevk/edit?gid=1912644446#gid=1912644446) by following this guide (https://docs.google.com/document/d/1X5k1uzwvSbYlJKXL344Ogc1mQtpFCsg_1yEj6aWF7HA/edit?tab=t.0)\n\nStep 1: Verify if the PR is still valid for Hadoop 3.3\nStep 2: Follow the guide and cherry-pick the PR\nStep 3: Resolve necessary conflicts\nStep 4: Run the build locally and verify unit tests are passing\nStep 5: Raise the PR, get it reviewed and Merge it.\nStep 6: Mark the Crossport Applied to True in the sheet for the PR\n\nPlease follow these steps for all the PRs you have authored in the sheet.",
+              "status_transitions": []
+            },
+            "itemType": "JiraActivity",
+            "createdAt": "2025-08-01T16:25:21Z",
+            "productID": 6,
+            "timeSpent": 0,
+            "updatedAt": "2025-08-13T00:52:13Z",
+            "itemStatus": "",
+            "description": "",
+            "additionalContext": ""
+          },
+          {
+            "id": 152460,
+            "tags": [
+              {
+                "id": 23331,
+                "name": "Access_Request",
+                "teamID": 6,
+                "isGroup": false,
+                "description": "Request for access or permissions to internal systems"
+              },
+              {
+                "id": 23334,
+                "name": "Config_Error",
+                "teamID": 6,
+                "isGroup": false,
+                "description": "Misconfiguration led to outage or degraded service"
+              }
+            ],
+            "title": "Grid - Change Directory Owner and/or Permissions in HDFS - 2025-08-01",
+            "content": {
+              "labels": "[ask_grid_sre, decision-grid, from-supportal, supportal-v1, supportal-v1-problem-type:askgridsre/change-directory-owner-andor-permissions-in-hdfs, supportal-v1-version:0.0.1406]",
+              "comments": [
+                {
+                  "created": "2025-08-04T12:56:59.414-0700",
+                  "updated": "2025-08-04T12:56:59.414-0700",
+                  "comment_body": "Both essproei and espproei are Espresso owned headless accounts used to access HDFS. Our workflows essproei to access /jobs/essproei/espresso-snapshotshc/ path and espproei to access / job s/espproei/espresso-hc I had manually created /jobs/essproei/espresso-snapshotshc/ in Faro and by mistake I used espproei to create this directory. I need to modify the owner to avoid running into any permission issues when I run my workflow.",
+                  "commented_by": "Gaurav Mishra"
+                },
+                {
+                  "created": "2025-08-05T09:08:00.766-0700",
+                  "updated": "2025-08-05T09:08:00.766-0700",
+                  "comment_body": "Thanks @Anupchandra Rao ! I had tried updating the owner after logging in as espprod/essprod but saw this exception: AccessControlException with unrecognized pattern has been encountered Can you please share details on why this exception was thrown?",
+                  "commented_by": "Gaurav Mishra"
+                },
+                {
+                  "created": "2025-08-04T23:55:59.514-0700",
+                  "updated": "2025-08-04T23:55:59.514-0700",
+                  "comment_body": "Its done. Kindly impersonate as the headless account next time and do it. It ideally should work. hdfs@ltx1-hcl6577 [ /export/home/anchandr ]$ hdfs dfs -ls /jobs/essproei/espresso-snapshotshc/\nFound 1 items\ndrwxr-xr-x   - espproei essproei          0 2025-07-17 00:35 /jobs/essproei/espresso-snapshotshc/lumos",
+                  "commented_by": "Anupchandra Rao"
+                },
+                {
+                  "created": "2025-08-01T20:07:34.054-0700",
+                  "updated": "2025-08-01T20:07:34.054-0700",
+                  "comment_body": "@Anupchandra Rao I am from Espresso team which owns these accounts. I tried changing the path but saw the following error: https://paste.corp.linkedin.com/show/71730631/ Can you please check why am I getting this error?",
+                  "commented_by": "Gaurav Mishra"
+                },
+                {
+                  "created": "2025-08-05T15:53:04.113-0700",
+                  "updated": "2025-08-05T15:53:04.113-0700",
+                  "comment_body": "Looks like thats the expected behavior and the other option you have to get write access is to use setFacl on this path",
+                  "commented_by": "Anupchandra Rao"
+                },
+                {
+                  "created": "2025-08-04T12:53:01.349-0700",
+                  "updated": "2025-08-04T12:53:01.349-0700",
+                  "comment_body": "@Gaurav Mishra Can you give a description of both accounts plus why you want to change it from one to another please?",
+                  "commented_by": "Anupchandra Rao"
+                },
+                {
+                  "created": "2025-08-01T18:48:29.861-0700",
+                  "updated": "2025-08-01T18:48:29.861-0700",
+                  "comment_body": "@Gaurav Mishra We do not modify paths owned by users unless its an incident causing issue. Please work with the admins of the headless account to change the permissions for that path. Thank you.",
+                  "commented_by": "Anupchandra Rao"
+                }
+              ],
+              "priority": "Unspecified",
+              "issue_key": "APA-132066",
+              "created_ts": "2025-08-01T21:40:38.635+05:30",
+              "issue_title": "Grid - Change Directory Owner and/or Permissions in HDFS - 2025-08-01",
+              "resolved_ts": "2025-08-05T22:53:12.935Z",
+              "project_name": "APA Support Project",
+              "assignee_name": "Anupchandra Rao",
+              "reporter_name": "Gaurav Mishra",
+              "assignee_email": "anchandrakanth@linkedin.com",
+              "reporter_email": "gmishra@linkedin.com",
+              "assignee_changes": [],
+              "issue_description": "HDFS Path: /jobs/essproei/espresso-snapshotshc/ Need to change the owner for the above path and all the directories/files within this path Error Message: Cluster Name: faro in EI HDFS User or Headless Account Name that launches the Job: Change the owner from espproei to essproei Nested Titles: Grid / Change Directory Owner and/or Permissions in HDFS",
+              "status_transitions": [
+                {
+                  "to_state": "Closed",
+                  "timestamp": "2025-08-05 22:53:12.982000 UTC",
+                  "from_state": "Open"
+                },
+                {
+                  "to_state": "Closed",
+                  "timestamp": "2025-08-02 01:48:38.155000 UTC",
+                  "from_state": "Open"
+                },
+                {
+                  "to_state": "Open",
+                  "timestamp": "2025-08-02 03:06:01.346000 UTC",
+                  "from_state": "Closed"
+                }
+              ]
+            },
+            "itemType": "JiraActivity",
+            "createdAt": "2025-08-01T16:10:39Z",
+            "productID": 6,
+            "timeSpent": 0,
+            "updatedAt": "2025-08-13T00:52:13Z",
+            "itemStatus": "",
+            "description": "",
+            "additionalContext": ""
+          }
+        ],
+        "Groups": [
+          {
+            "ItemsList": [
+              152459
+            ],
+            "GroupMetaData": {
+              "Actions": "Implement strict SLA monitoring, enforce frequent status updates, and assign clear ownership for all critical issues to expedite resolutions.",
+              "GroupID": 23333,
+              "Insight": "Lack of active tracking and ownership clarity contributed significantly to prolonged resolution times for high-priority tasks within the team.",
+              "Summary": "Critical issue LIHADOOP-83187 experienced delays due to unclear resolution ownership and lack of status updates since creation on 2025-08-01.",
+              "GroupName": "Tag: LongResolution",
+              "GroupDescription": "Issues tagged with 'LongResolution', occurred 1 times"
+            }
+          },
+          {
+            "ItemsList": [
+              152460
+            ],
+            "GroupMetaData": {
+              "Actions": "Implement strict change validation, automate permission checks, and ensure rollback readiness before committing configuration updates.",
+              "GroupID": 23335,
+              "Insight": "Weak validation and oversight in permission changes contributed to the misconfiguration, highlighting gaps in change control and testing processes.",
+              "Summary": "Misconfiguration in HDFS directory ownership and permissions caused delays, requiring over 102 hours to resolve.",
+              "GroupName": "Tag: Config_Error",
+              "GroupDescription": "Issues tagged with 'Config_Error', occurred 1 times"
+            }
+          },
+          {
+            "ItemsList": [
+              152458,
+              152460
+            ],
+            "GroupMetaData": {
+              "Actions": "Automate routine tasks, enforce clear priorities, and implement pre-approved access policies to minimize dependency on manual approvals.",
+              "GroupID": 23349,
+              "Insight": "Lack of documented status, unclear priorities, and manual approval workflows caused recurring inefficiencies and prolonged access resolution times.",
+              "Summary": "Two 'Access_Request' issues faced delays: 85+ and 102+ hours for account creation and permission changes, both assigned to the same engineer.",
+              "GroupName": "Tag: Access_Request",
+              "GroupDescription": "Issues tagged with 'Access_Request', occurred 2 times"
+            }
+          }
+        ],
+        "summaryType": "system_daily_v0"
+      },
+      "summaryType": "system_daily_v0",
+      "endTimestamp": 1754098200,
+      "startTimestamp": 1754055000
+    },
+    {
+      "id": 3760,
+      "teamID": 6,
+      "teamName": "gridsre",
+      "createdAt": "2025-08-13T00:55:21Z",
+      "hashValue": "",
+      "isCurrent": true,
+      "versionId": "fb1e72c4-254a-4db6-8bcc-615a5e1baf5c",
+      "contentJSON": {
+        "Items": [
+          {
+            "id": 152469,
+            "tags": [
+              {
+                "id": 23327,
+                "name": "LongResolution",
+                "teamID": 6,
+                "isGroup": false,
+                "description": "Long resolution time "
+              },
+              {
+                "id": 23331,
+                "name": "Access_Request",
+                "teamID": 6,
+                "isGroup": false,
+                "description": "Request for access or permissions to internal systems"
+              }
+            ],
+            "title": "Grid - Not Able to Access Data - 2025-08-04",
+            "content": {
+              "labels": "[ask_grid_sre, decision-grid, from-supportal, supportal-v1, supportal-v1-problem-type:askgridsre/not-able-to-access-data, supportal-v1-version:0.0.1406]",
+              "comments": [],
+              "priority": "Unspecified",
+              "issue_key": "APA-132091",
+              "created_ts": "2025-08-04T10:13:40.012+05:30",
+              "issue_title": "Grid - Not Able to Access Data - 2025-08-04",
+              "resolved_ts": "0001-01-01T00:00:00Z",
+              "project_name": "APA Support Project",
+              "assignee_name": "Gurpreet Singh",
+              "reporter_name": "Joel Van Veluwen",
+              "assignee_email": "gursingh@linkedin.com",
+              "reporter_email": "jvanveluwen@linkedin.com",
+              "assignee_changes": [],
+              "issue_description": "Cluster Name: Holdem Error Message: Need access to several hundred tables for several headless accounts User or Headless Account name that launches the job: Need access to several hundred tables for several headless accounts HDFS Path: Need access to several hundred tables for several headless accounts Nested Titles: Grid / Not Able to Access Data",
+              "status_transitions": []
+            },
+            "itemType": "JiraActivity",
+            "createdAt": "2025-08-04T04:43:40Z",
+            "productID": 6,
+            "timeSpent": 0,
+            "updatedAt": "2025-08-13T00:55:20Z",
+            "itemStatus": "",
+            "description": "",
+            "additionalContext": ""
+          }
+        ],
+        "Groups": [
+          {
+            "ItemsList": [
+              152469
+            ],
+            "GroupMetaData": {
+              "Actions": "Establish clear SLAs for resolution timelines, mandate priority tagging for all tickets, and introduce periodic reminders for assignees to update issue statuses.",
+              "GroupID": 23333,
+              "Insight": "Root causes include undefined priority, absence of status progression, and insufficient ownership accountability by assignee Gurpreet Singh.",
+              "Summary": "Issue APA-132091 involved unresolved delays due to unclear ownership, unspecified priorities, and lack of updates following the issue's creation on 2025-08-04.",
+              "GroupName": "Tag: LongResolution",
+              "GroupDescription": "Issues tagged with 'LongResolution', occurred 1 times"
+            }
+          },
+          {
+            "ItemsList": [
+              152469
+            ],
+            "GroupMetaData": {
+              "Actions": "Automate priority assignment, enforce status tracking, and establish proactive access provisioning workflows to reduce repetitive bottlenecks and approval inefficiencies.",
+              "GroupID": 23332,
+              "Insight": "Unspecified priority/status and unclear approval workflows contribute to delays, with no visible escalation or tracking mechanisms in place.",
+              "Summary": "The issue highlights an unresolved access request since 2025-08-04 with no specified priority or status, delaying user data access.",
+              "GroupName": "Tag: Access_Request",
+              "GroupDescription": "Issues tagged with 'Access_Request', occurred 1 times"
+            }
+          }
+        ],
+        "summaryType": "system_daily_v0"
+      },
+      "summaryType": "system_daily_v0",
+      "endTimestamp": 1754314200,
+      "startTimestamp": 1754271000
+    },
+    {
+      "id": 3761,
+      "teamID": 6,
+      "teamName": "gridsre",
+      "createdAt": "2025-08-13T00:56:35Z",
+      "hashValue": "",
+      "isCurrent": true,
+      "versionId": "4bb4f6b2-ccd2-4edf-a7a5-0339d9e36d3a",
+      "contentJSON": {
+        "Items": [
+          {
+            "id": 152470,
+            "tags": [
+              {
+                "id": 23327,
+                "name": "LongResolution",
+                "teamID": 6,
+                "isGroup": false,
+                "description": "Long resolution time "
+              },
+              {
+                "id": 23351,
+                "name": "Quota_Request",
+                "teamID": 6,
+                "isGroup": false,
+                "description": "User hit an internal quota or service limit"
+              }
+            ],
+            "title": "Grid - Other Grid Issue - 2025-08-04",
+            "content": {
+              "labels": "[ask_grid_sre, decision-grid, from-supportal, supportal-v1, supportal-v1-problem-type:askgridsre/other-grid-issue, supportal-v1-version:0.0.1406]",
+              "comments": [
+                {
+                  "created": "2025-08-04T14:50:51.998-0700",
+                  "updated": "2025-08-04T14:50:51.998-0700",
+                  "comment_body": "Our headless account jssflagship HDFS path",
+                  "commented_by": "Patrick Stetz"
+                },
+                {
+                  "created": "2025-08-05T16:03:53.397-0700",
+                  "updated": "2025-08-05T16:03:53.397-0700",
+                  "comment_body": "@Patrick Stetz I would recommend using go/myhdfsusage to check usage https://observe.prod.linkedin.com/g/d/ee9znfnxdgrggd/cdmp?orgId=1&var-cluster=ltx1-holdem&var-space=oh-u_jssflagship",
+                  "commented_by": "Anupchandra Rao"
+                },
+                {
+                  "created": "2025-08-05T16:10:43.089-0700",
+                  "updated": "2025-08-05T16:10:43.089-0700",
+                  "comment_body": "Thank you for the short-term fix",
+                  "commented_by": "Patrick Stetz"
+                }
+              ],
+              "priority": "Unspecified",
+              "issue_key": "APA-132129",
+              "created_ts": "2025-08-04T21:48:16.242+05:30",
+              "issue_title": "Grid - Other Grid Issue - 2025-08-04",
+              "resolved_ts": "0001-01-01T00:00:00Z",
+              "project_name": "APA Support Project",
+              "assignee_name": "Anupchandra Rao",
+              "reporter_name": "Patrick Stetz",
+              "assignee_email": "anchandrakanth@linkedin.com",
+              "reporter_email": "pstetz@linkedin.com",
+              "assignee_changes": [],
+              "issue_description": "Browser: Chrome Hadoop Job Link: N/A Cluster name: N/A Error Message: go/selfserve incorrectly shows no space quota Nested Titles: Grid / Other Grid Issue",
+              "status_transitions": [
+                {
+                  "to_state": "On Hold",
+                  "timestamp": "2025-08-05 23:03:58.033000 UTC",
+                  "from_state": "Open"
+                }
+              ]
+            },
+            "itemType": "JiraActivity",
+            "createdAt": "2025-08-04T16:18:16Z",
+            "productID": 6,
+            "timeSpent": 0,
+            "updatedAt": "2025-08-13T00:56:34Z",
+            "itemStatus": "",
+            "description": "",
+            "additionalContext": ""
+          }
+        ],
+        "Groups": [
+          {
+            "ItemsList": [
+              152470
+            ],
+            "GroupMetaData": {
+              "Actions": "Establish clear status transitions, enforce priority tagging, and conduct regular ownership reviews to ensure faster resolution of flagged issues.",
+              "GroupID": 23333,
+              "Insight": "Prolonged delays likely stem from lack of priority setting, undefined status workflows, and unclear ownership leading to response bottlenecks.",
+              "Summary": "A single long-pending issue with unclear status, unspecified priority, and inactive resolution progress was flagged for extended delays.",
+              "GroupName": "Tag: LongResolution",
+              "GroupDescription": "Issues tagged with 'LongResolution', occurred 1 times"
+            }
+          },
+          {
+            "ItemsList": [
+              152470
+            ],
+            "GroupMetaData": {
+              "Actions": "Standardize quota request logging, enforce metadata completeness, and improve monitoring of quota limits to enhance resolution efficiency and user satisfaction.",
+              "GroupID": 23362,
+              "Insight": "The issue data lacks clarity on status and priority, indicating a need for tighter workflow and better metadata for effective issue tracking.",
+              "Summary": "A single quota-related issue was identified, with missing details on status and priority, assigned to Anupchandra Rao, potentially impacting service resolution timelines.",
+              "GroupName": "Tag: Quota_Request",
+              "GroupDescription": "Issues tagged with 'Quota_Request', occurred 1 times"
+            }
+          }
+        ],
+        "summaryType": "system_daily_v0"
+      },
+      "summaryType": "system_daily_v0",
+      "endTimestamp": 1754357400,
+      "startTimestamp": 1754314200
+    },
+    {
+      "id": 3766,
+      "teamID": 6,
+      "teamName": "gridsre",
+      "createdAt": "2025-08-13T00:58:09Z",
+      "hashValue": "",
+      "isCurrent": true,
+      "versionId": "c6464082-0aca-4977-984e-f2bcd0f03b18",
+      "contentJSON": {
+        "Items": [
+          {
+            "id": 152492,
+            "tags": [],
+            "title": "Testing the support follow.",
+            "content": {
+              "labels": "[Grid-Autonomous-Fleet, decision-grid, from-supportal, supportal-onboarding, supportal-v1, supportal-v1-problem-type:askgridsre/gfuel-issues, supportal-v1-version:0.0.1407]",
+              "comments": [],
+              "priority": "Minor",
+              "issue_key": "GRID-290384",
+              "created_ts": "2025-08-05T21:58:31.576+05:30",
+              "issue_title": "Testing the support follow.",
+              "resolved_ts": "2025-08-05T21:59:49.607Z",
+              "project_name": "GRID",
+              "assignee_name": "Adeoluwa Akinwa",
+              "reporter_name": "Charles Li",
+              "assignee_email": "aakinwa@linkedin.com",
+              "reporter_email": "charlli@linkedin.com",
+              "assignee_changes": [],
+              "issue_description": "This is for testing purpose. Default Priority Select Form Element: Minor Affected Multiproduct(s): gridops-user-manager Stack trace or error output: Is this Issue Transient or Consistent?: Transient Which Gfuel Service is this for?: User-Manager-Api Curl/Call made: N/A Nested Titles: Grid / G-Fuel Issues",
+              "status_transitions": [
+                {
+                  "to_state": "Closed",
+                  "timestamp": "2025-08-05 21:59:49.637000 UTC",
+                  "from_state": "Open"
+                }
+              ]
+            },
+            "itemType": "JiraActivity",
+            "createdAt": "2025-08-05T16:28:32Z",
+            "productID": 6,
+            "timeSpent": 0,
+            "updatedAt": "2025-08-13T00:58:07Z",
+            "itemStatus": "",
+            "description": "",
+            "additionalContext": ""
+          },
+          {
+            "id": 152493,
+            "tags": [
+              {
+                "id": 23327,
+                "name": "LongResolution",
+                "teamID": 6,
+                "isGroup": false,
+                "description": "Long resolution time "
+              },
+              {
+                "id": 23334,
+                "name": "Config_Error",
+                "teamID": 6,
+                "isGroup": false,
+                "description": "Misconfiguration led to outage or degraded service"
+              },
+              {
+                "id": 23356,
+                "name": "Integration_Failure",
+                "teamID": 6,
+                "isGroup": false,
+                "description": "Dependency between systems or services failed"
+              }
+            ],
+            "title": "Grid - Change Directory Owner and/or Permissions in HDFS - 2025-08-05",
+            "content": {
+              "labels": "[ask_grid_sre, decision-grid, from-supportal, supportal-v1, supportal-v1-problem-type:askgridsre/change-directory-owner-andor-permissions-in-hdfs, supportal-v1-version:0.0.1407]",
+              "comments": [
+                {
+                  "created": "2025-08-07T07:49:14.231-0700",
+                  "updated": "2025-08-07T07:49:14.231-0700",
+                  "comment_body": "@Simin Wang works now",
+                  "commented_by": "Harry Guan"
+                },
+                {
+                  "created": "2025-08-06T16:20:24.982-0700",
+                  "updated": "2025-08-06T16:20:24.982-0700",
+                  "comment_body": "please retry",
+                  "commented_by": "Simin Wang"
+                }
+              ],
+              "priority": "Unspecified",
+              "issue_key": "APA-132179",
+              "created_ts": "2025-08-05T20:10:38.78+05:30",
+              "issue_title": "Grid - Change Directory Owner and/or Permissions in HDFS - 2025-08-05",
+              "resolved_ts": "0001-01-01T00:00:00Z",
+              "project_name": "APA Support Project",
+              "assignee_name": "Simin Wang",
+              "reporter_name": "Harry Guan",
+              "assignee_email": "simwang@linkedin.com",
+              "reporter_email": "harguan@linkedin.com",
+              "assignee_changes": [],
+              "issue_description": "HDFS Path: ltx1-holdemgw01.grid.linkedin.com Error Message: Connection to ltx1-holdemgw01.grid.linkedin.com closed. Cluster Name: holdem01 HDFS User or Headless Account Name that launches the Job: harguan Nested Titles: Grid / Change Directory Owner and/or Permissions in HDFS",
+              "status_transitions": [
+                {
+                  "to_state": "On Hold",
+                  "timestamp": "2025-08-06 23:22:08.804000 UTC",
+                  "from_state": "Open"
+                }
+              ]
+            },
+            "itemType": "JiraActivity",
+            "createdAt": "2025-08-05T14:40:39Z",
+            "productID": 6,
+            "timeSpent": 0,
+            "updatedAt": "2025-08-13T00:58:07Z",
+            "itemStatus": "",
+            "description": "",
+            "additionalContext": ""
+          },
+          {
+            "id": 152494,
+            "tags": [
+              {
+                "id": 23327,
+                "name": "LongResolution",
+                "teamID": 6,
+                "isGroup": false,
+                "description": "Long resolution time "
+              },
+              {
+                "id": 23373,
+                "name": "Infra_Maintenance_Impact",
+                "teamID": 6,
+                "isGroup": false,
+                "description": "Service degradation linked to planned or emergency maintenance"
+              }
+            ],
+            "title": "Check if Pokedex has history on the Decomm and Maintenance request that were made for the DN holding last block. (Note: increase the retention on pokedex data)",
+            "content": {
+              "labels": "[SEV4, incident-5164, rootly-incident]",
+              "comments": [],
+              "priority": "Major",
+              "issue_key": "ACTIONITEM-8439",
+              "created_ts": "2025-08-05T20:09:20.484+05:30",
+              "issue_title": "Check if Pokedex has history on the Decomm and Maintenance request that were made for the DN holding last block. (Note: increase the retention on pokedex data)",
+              "resolved_ts": "0001-01-01T00:00:00Z",
+              "project_name": "Action Items",
+              "assignee_name": "Naren Bhosle",
+              "reporter_name": "svc rootly-prod",
+              "assignee_email": "nbhosle@linkedin.com",
+              "reporter_email": "svc-rootly-prod@linkedin.com",
+              "assignee_changes": [],
+              "issue_description": "Action Item for  https://rootly.com/account/incidents/5164  : Check if Pokedex has history on the Decomm and Maintenance request that were made for the DN holding last block. (Note: increase the retention on pokedex data)",
+              "status_transitions": [
+                {
+                  "to_state": "In Progress",
+                  "timestamp": "2025-08-05 20:09:21.492000 UTC",
+                  "from_state": "Open"
+                }
+              ]
+            },
+            "itemType": "JiraActivity",
+            "createdAt": "2025-08-05T14:39:20Z",
+            "productID": 6,
+            "timeSpent": 0,
+            "updatedAt": "2025-08-13T00:58:07Z",
+            "itemStatus": "",
+            "description": "",
+            "additionalContext": ""
+          }
+        ],
+        "Groups": [
+          {
+            "ItemsList": [
+              152493,
+              152494
+            ],
+            "GroupMetaData": {
+              "Actions": "Define priorities, establish clear ownership, and implement automated escalation workflows to ensure timely resolution of critical tasks.",
+              "GroupID": 23338,
+              "Insight": "Delayed resolution stems from unspecified priorities, inadequate tracking of ownership, and absent escalation mechanisms for time-sensitive issues.",
+              "Summary": "Two Grid-related issues remain unresolved due to unclear priority, ownership, and lack of follow-through since creation on 2025-08-05.",
+              "GroupName": "Tag: LongResolution",
+              "GroupDescription": "Issues tagged with 'LongResolution', occurred 2 times"
+            }
+          },
+          {
+            "ItemsList": [
+              152493
+            ],
+            "GroupMetaData": {
+              "Actions": "Implement multi-tier validation for HDFS changes, enforce clear ownership rules, and automate pre-deployment checks with rollback mechanisms.",
+              "GroupID": 23335,
+              "Insight": "Lack of validation, unclear ownership guidelines, or insufficient change control processes contributed to recurring configuration errors.",
+              "Summary": "Misconfiguration in HDFS directory ownership/permissions caused operational disruptions, detailing insufficient controls during configuration modifications.",
+              "GroupName": "Tag: Config_Error",
+              "GroupDescription": "Issues tagged with 'Config_Error', occurred 1 times"
+            }
+          },
+          {
+            "ItemsList": [
+              152493
+            ],
+            "GroupMetaData": {
+              "Actions": "Recommend enhanced integration tests for permission changes and ensuring standardized permission handling protocols across HDFS environments.",
+              "GroupID": 23358,
+              "Insight": "Possible cause includes configuration mismatch or improper permission propagation across HDFS nodes, affecting interoperability between systems.",
+              "Summary": "Integration issue detected in HDFS directory owner/permissions change, potentially impacting file system accessibility and dependent operations.",
+              "GroupName": "Tag: Integration_Failure",
+              "GroupDescription": "Issues tagged with 'Integration_Failure', occurred 1 times"
+            }
+          },
+          {
+            "ItemsList": [
+              152494
+            ],
+            "GroupMetaData": {
+              "Actions": "Establish comprehensive data retention policies, ensure pre-maintenance communication, and develop robust rollback procedures to mitigate user impact during decommissioning.",
+              "GroupID": 23374,
+              "Insight": "Pokedex data retention policies were insufficient for rollback or historical traceability, indicating gaps in maintenance documentation and planning protocols.",
+              "Summary": "DN maintenance affecting last block raised concerns about Pokedex history retention, highlighting potential data inconsistency risks during decommissioning.",
+              "GroupName": "Tag: Infra_Maintenance_Impact",
+              "GroupDescription": "Issues tagged with 'Infra_Maintenance_Impact', occurred 1 times"
+            }
+          }
+        ],
+        "summaryType": "system_daily_v0"
+      },
+      "summaryType": "system_daily_v0",
+      "endTimestamp": 1754443800,
+      "startTimestamp": 1754400600
+    },
+    {
+      "id": 3767,
+      "teamID": 6,
+      "teamName": "gridsre",
+      "createdAt": "2025-08-13T00:58:43Z",
+      "hashValue": "",
+      "isCurrent": true,
+      "versionId": "8d07ddc8-ab86-4004-bfb4-adf48770d09d",
+      "contentJSON": {
+        "Items": [
+          {
+            "id": 152500,
+            "tags": [
+              {
+                "id": 23331,
+                "name": "Access_Request",
+                "teamID": 6,
+                "isGroup": false,
+                "description": "Request for access or permissions to internal systems"
+              }
+            ],
+            "title": "Request to add ltsins to svc_pr_cdmp headless account",
+            "content": {
+              "labels": "[grid_self_service]",
+              "comments": [
+                {
+                  "created": "2025-08-06T01:54:07.717-0700",
+                  "updated": "2025-08-06T01:54:07.717-0700",
+                  "comment_body": "Hello team Would you pls approve soon? We are trying to find the impact at our end on the new retention. Thanks.",
+                  "commented_by": "Mohseen M Kolhar"
+                },
+                {
+                  "created": "2025-08-06T01:53:08.727-0700",
+                  "updated": "2025-08-06T01:53:08.727-0700",
+                  "comment_body": "Added group admin(s) as watchers for approval. This request requires one of the following people to approve it in self service: @Naren Bhosle @Anupchandra Rao @Hao Fu @Chris Trezzo Please log in and visit https://www.grid.linkedin.com/self_service/#/account/svc_pr_cdmp to review this request.",
+                  "commented_by": ""
+                }
+              ],
+              "priority": "Unspecified",
+              "issue_key": "GRID-290516",
+              "created_ts": "2025-08-06T08:52:55.156+05:30",
+              "issue_title": "Request to add ltsins to svc_pr_cdmp headless account",
+              "resolved_ts": "0001-01-01T00:00:00Z",
+              "project_name": "GRID",
+              "assignee_name": "Naren Bhosle",
+              "reporter_name": "Mohseen M Kolhar",
+              "assignee_email": "nbhosle@linkedin.com",
+              "reporter_email": "mkolhar@linkedin.com",
+              "assignee_changes": [
+                {
+                  "timestamp": "2025-08-06 08:52:56.725000 UTC",
+                  "to_assignee": "Naren Bhosle",
+                  "from_assignee": ""
+                }
+              ],
+              "issue_description": "  Glean profile  has requested to add the  ltsins          headless account to the  svc_pr_cdmp  headless account. This would allow  ltsins : Access to all files on HDFS owned by  svc_pr_cdmp Permission to create and delete files on HDFS owned by  svc_pr_cdmp",
+              "status_transitions": []
+            },
+            "itemType": "JiraActivity",
+            "createdAt": "2025-08-06T03:22:55Z",
+            "productID": 6,
+            "timeSpent": 0,
+            "updatedAt": "2025-08-13T00:58:42Z",
+            "itemStatus": "",
+            "description": "",
+            "additionalContext": ""
+          }
+        ],
+        "Groups": [
+          {
+            "ItemsList": [
+              152500
+            ],
+            "GroupMetaData": {
+              "Actions": "Automate priority setting, enforce status updates, and proactively provision recurring access to minimize delays.",
+              "GroupID": 23332,
+              "Insight": "Lack of status updates, unclear priorities, and undefined approval steps hinder timely resolution of access requests.",
+              "Summary": "Access request GRID-290516 remains unresolved since 2025-08-06, with no status updates and unspecified priority, leading to potential delays in provisioning.",
+              "GroupName": "Tag: Access_Request",
+              "GroupDescription": "Issues tagged with 'Access_Request', occurred 1 times"
+            }
+          }
+        ],
+        "summaryType": "system_daily_v0"
+      },
+      "summaryType": "system_daily_v0",
+      "endTimestamp": 1754487000,
+      "startTimestamp": 1754443800
+    },
+    {
+      "id": 3770,
+      "teamID": 6,
+      "teamName": "gridsre",
+      "createdAt": "2025-08-13T01:00:17Z",
+      "hashValue": "",
+      "isCurrent": true,
+      "versionId": "222b4595-46c6-4be6-9e2b-84b54acac6a6",
+      "contentJSON": {
+        "Items": [
+          {
+            "id": 152509,
+            "tags": [
+              {
+                "id": 23366,
+                "name": "Deployment_Lag",
+                "teamID": 6,
+                "isGroup": false,
+                "description": "Fix merged but not yet rolled out"
+              }
+            ],
+            "title": "Evaluate and move to obhc_based ucm check instead of relying on ucm-reporting-api",
+            "content": {
+              "labels": "[SEV4, rootly-incident, incident-6079]",
+              "comments": [
+                {
+                  "created": "2025-08-11T21:53:15.402-0700",
+                  "updated": "2025-08-11T21:53:15.402-0700",
+                  "comment_body": "Changes has been merged and waiting for the deployment of obhc-agent from obhc-team They will follow a specific deployment cadence and this might take like 2 weeks to reach production",
+                  "commented_by": "Hariharan S"
+                },
+                {
+                  "created": "2025-08-10T21:20:30.697-0700",
+                  "updated": "2025-08-10T21:20:30.697-0700",
+                  "comment_body": "This is being worked upon and currently under testing Will be merged today and might need to wait for OBHC rollout",
+                  "commented_by": "Hariharan S"
+                },
+                {
+                  "created": "2025-08-07T05:59:35.370-0700",
+                  "updated": "2025-08-07T05:59:35.370-0700",
+                  "comment_body": "Being worked upon as part of this ticket: GRID-285071",
+                  "commented_by": "Hariharan S"
+                }
+              ],
+              "priority": "Unspecified",
+              "issue_key": "ACTIONITEM-8515",
+              "created_ts": "2025-08-07T12:59:01.715+05:30",
+              "issue_title": "Evaluate and move to obhc_based ucm check instead of relying on ucm-reporting-api",
+              "resolved_ts": "0001-01-01T00:00:00Z",
+              "project_name": "Action Items",
+              "assignee_name": "Hariharan S",
+              "reporter_name": "svc rootly-prod",
+              "assignee_email": "hsivaprakash@linkedin.com",
+              "reporter_email": "svc-rootly-prod@linkedin.com",
+              "assignee_changes": [],
+              "issue_description": "Evaluate and move to obhc_based ucm check instead of relying on ucm-reporting-api",
+              "status_transitions": [
+                {
+                  "to_state": "In Progress",
+                  "timestamp": "2025-08-11 04:17:28.044000 UTC",
+                  "from_state": "Accepted"
+                },
+                {
+                  "to_state": "Accepted",
+                  "timestamp": "2025-08-11 04:17:25.200000 UTC",
+                  "from_state": "Open"
+                }
+              ]
+            },
+            "itemType": "JiraActivity",
+            "createdAt": "2025-08-07T07:29:02Z",
+            "productID": 6,
+            "timeSpent": 0,
+            "updatedAt": "2025-08-13T01:00:16Z",
+            "itemStatus": "",
+            "description": "",
+            "additionalContext": ""
+          }
+        ],
+        "Groups": [
+          {
+            "ItemsList": [
+              152509
+            ],
+            "GroupMetaData": {
+              "Actions": "Automate dependency checks and enforce centralized task ownership to accelerate deployment pipelines and minimize delays.",
+              "GroupID": 23367,
+              "Insight": "Lack of prioritization on automating critical dependencies and unclear task ownership hinders deployment speed and efficiency.",
+              "Summary": "Deployment lag linked to outdated dependency on ucm-reporting-api, delaying fixes and impacting system reliability and feature rollout timelines.",
+              "GroupName": "Tag: Deployment_Lag",
+              "GroupDescription": "Issues tagged with 'Deployment_Lag', occurred 1 times"
+            }
+          }
+        ],
+        "summaryType": "system_daily_v0"
+      },
+      "summaryType": "system_daily_v0",
+      "endTimestamp": 1754573400,
+      "startTimestamp": 1754530200
+    },
+    {
+      "id": 3771,
+      "teamID": 6,
+      "teamName": "gridsre",
+      "createdAt": "2025-08-13T01:00:11Z",
+      "hashValue": "",
+      "isCurrent": true,
+      "versionId": "bf972486-608a-4c63-b458-656d7ca849b9",
+      "contentJSON": {
+        "Items": [
+          {
+            "id": 152502,
+            "tags": [
+              {
+                "id": 23331,
+                "name": "Access_Request",
+                "teamID": 6,
+                "isGroup": false,
+                "description": "Request for access or permissions to internal systems"
+              },
+              {
+                "id": 23351,
+                "name": "Quota_Request",
+                "teamID": 6,
+                "isGroup": false,
+                "description": "User hit an internal quota or service limit"
+              }
+            ],
+            "title": "Grid - Other Grid Issue - 2025-08-06",
+            "content": {
+              "labels": "[ask_grid_sre, decision-grid, from-supportal, supportal-v1, supportal-v1-problem-type:askgridsre/other-grid-issue, supportal-v1-version:0.0.1407]",
+              "comments": [],
+              "priority": "Unspecified",
+              "issue_key": "APA-132248",
+              "created_ts": "2025-08-06T23:04:25.255+05:30",
+              "issue_title": "Grid - Other Grid Issue - 2025-08-06",
+              "resolved_ts": "0001-01-01T00:00:00Z",
+              "project_name": "APA Support Project",
+              "assignee_name": "Jonathan Tan",
+              "reporter_name": "Aslan (Mu) Bai",
+              "assignee_email": "jontan@linkedin.com",
+              "reporter_email": "abai@linkedin.com",
+              "assignee_changes": [
+                {
+                  "timestamp": "2025-08-06 23:09:03.262000 UTC",
+                  "to_assignee": "Jonathan Tan",
+                  "from_assignee": "Simin Wang"
+                }
+              ],
+              "issue_description": "Browser: n/a Hadoop Job Link: n/a Cluster name: n/a Error Message: Nested Titles: Grid / Other Grid Issue accounts requested dataluxusrs, orphan Why do you need an exemption for this headless account?   Because we share this account between CPF, CDF, Catalyst and multiple customer team. 3 admins is not enough, especially when coordinating projects of this size, when somebody goes on DTO, or when another admin requests permission on something and requires another admin to approve it. What is this headless account used for? datalux for improving  data integrity  and  consistency Which team/org is responsible for this headless account? cp-catalyst Who would you like to designate as your 3 exemption PoCs?       What kind of capacity planning do you do for this headless account to inform your quota requests, if any? Yearly",
+              "status_transitions": []
+            },
+            "itemType": "JiraActivity",
+            "createdAt": "2025-08-06T17:34:25Z",
+            "productID": 6,
+            "timeSpent": 0,
+            "updatedAt": "2025-08-13T01:00:10Z",
+            "itemStatus": "",
+            "description": "",
+            "additionalContext": ""
+          },
+          {
+            "id": 152503,
+            "tags": [
+              {
+                "id": 23331,
+                "name": "Access_Request",
+                "teamID": 6,
+                "isGroup": false,
+                "description": "Request for access or permissions to internal systems"
+              }
+            ],
+            "title": "Promote the headless account `autoeval` to WAR",
+            "content": {
+              "labels": "[ask_grid_sre, decision-grid, from-supportal, supportal-v1, supportal-v1-problem-type:askgridsre/change-directory-owner-andor-permissions-in-hdfs, supportal-v1-version:0.0.1393]",
+              "comments": [
+                {
+                  "created": "2025-08-06T16:12:00.167-0700",
+                  "updated": "2025-08-06T16:12:00.167-0700",
+                  "comment_body": "please follow",
+                  "commented_by": "Simin Wang"
+                }
+              ],
+              "priority": "Unspecified",
+              "issue_key": "APA-132238",
+              "created_ts": "2025-08-06T21:08:30.806+05:30",
+              "issue_title": "Promote the headless account `autoeval` to WAR",
+              "resolved_ts": "0001-01-01T00:00:00Z",
+              "project_name": "APA Support Project",
+              "assignee_name": "Simin Wang",
+              "reporter_name": "Hannah Han",
+              "assignee_email": "simwang@linkedin.com",
+              "reporter_email": "huhan@linkedin.com",
+              "assignee_changes": [
+                {
+                  "timestamp": "2025-08-06 21:09:46.144000 UTC",
+                  "to_assignee": "Simin Wang",
+                  "from_assignee": "Heagan Ahmed"
+                }
+              ],
+              "issue_description": "HDFS Path: N/A Error Message: Promote the headless account  autoeval  to WAR Cluster Name: WAR HDFS User or Headless Account Name that launches the Job: autoeval Nested Titles: Grid / Change Directory Owner and/or Permissions in HDFS",
+              "status_transitions": [
+                {
+                  "to_state": "On Hold",
+                  "timestamp": "2025-08-06 23:22:17.868000 UTC",
+                  "from_state": "Open"
+                }
+              ]
+            },
+            "itemType": "JiraActivity",
+            "createdAt": "2025-08-06T15:38:31Z",
+            "productID": 6,
+            "timeSpent": 0,
+            "updatedAt": "2025-08-13T01:00:10Z",
+            "itemStatus": "",
+            "description": "",
+            "additionalContext": ""
+          }
+        ],
+        "Groups": [
+          {
+            "ItemsList": [
+              152502,
+              152503
+            ],
+            "GroupMetaData": {
+              "Actions": "Implement SLA for 'Access_Request', automate low-priority approvals, and establish clear accountability mechanisms for managing unresolved access requests.",
+              "GroupID": 23349,
+              "Insight": "No defined workflows or SLA adherence for 'Access_Request' issues. Lack of urgency signals delays in resolution for internal permissions.",
+              "Summary": "Two 'Access_Request' issues, both created on 2025-08-06, remain unaddressed with no specified status or priority, indicating delays in processing and approvals.",
+              "GroupName": "Tag: Access_Request",
+              "GroupDescription": "Issues tagged with 'Access_Request', occurred 2 times"
+            }
+          },
+          {
+            "ItemsList": [
+              152502
+            ],
+            "GroupMetaData": {
+              "Actions": "Improve issue documentation, enforce status updates, and enhance quota monitoring to proactively address user quota-related concerns.",
+              "GroupID": 23362,
+              "Insight": "No clear patterns or bottlenecks found; incomplete issue data suggests potential gaps in tracking or documentation practices.",
+              "Summary": "Single quota request issue identified with no status or resolution details, making impact analysis unclear.",
+              "GroupName": "Tag: Quota_Request",
+              "GroupDescription": "Issues tagged with 'Quota_Request', occurred 1 times"
+            }
+          }
+        ],
+        "summaryType": "system_daily_v0"
+      },
+      "summaryType": "system_daily_v0",
+      "endTimestamp": 1754530200,
+      "startTimestamp": 1754487000
     }
   ],
   "insightMetrics": {
@@ -1604,21 +1311,22 @@ const SAMPLE_DATA =
       5,
       5,
       5,
-      51811,
-      62300,
-      62854,
-      72702,
-      80835
+      5,
+      5,
+      5,
+      5135,
+      6162
     ],
-    "count": 42,
-    "totalTimeSpent": 1296499,
+    "count": 24,
+    "totalTimeSpent": 17890,
     "timeSpentBucket": {
-      "0": 21,
-      "4": 21
+      "0": 20,
+      "4": 4
     },
-    "averageTimeSpent": 30869
+    "averageTimeSpent": 745
   }
 }
+ 
  
 
 function App() {
