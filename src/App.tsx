@@ -16,13 +16,16 @@ import {
   ArrowUp,
   ArrowDown,
   User,
+  Users,
   AlertTriangle,
   Clock,
-  Users,
   RefreshCw,
   Shield,
   TrendingUp
 } from 'lucide-react';
+
+// Import components
+import GroupIssueDetails from './components/GroupIssueDetails';
 
 // Filter types
 interface DateFilter {
@@ -1624,6 +1627,13 @@ function App() {
   const [jsonData, setJsonData] = useState<any>(SAMPLE_DATA);
   const [jsonInput, setJsonInput] = useState('');
   const [parseError, setParseError] = useState<string | null>(null);
+  
+  // State for tag filter navigation
+  const [tagFilter, setTagFilter] = useState<string | null>(null);
+  const [previousTab, setPreviousTab] = useState<string>('overview');
+  const [groupFilteredItems, setGroupFilteredItems] = useState<any[]>([]);
+  const [groupFilterName, setGroupFilterName] = useState<string>('');
+  const [sourceGroupId, setSourceGroupId] = useState<string>('');
 
   // Global filters state - applied filters that affect the data
   const [appliedFilters, setAppliedFilters] = useState<GlobalFilters>({
@@ -2267,6 +2277,7 @@ function App() {
   const tabs = [
     { id: 'dashboard', name: 'Dashboard', icon: BarChart3 },
     { id: 'issues', name: 'Issues', icon: Search },
+
     { id: 'tags', name: 'Tags', icon: Tags },
     { id: 'summaries', name: 'Analysis and Insights', icon: Calendar },
     { id: 'input', name: 'Input', icon: FileJson },
@@ -2728,7 +2739,14 @@ function App() {
           {tabs.map((tab) => (
             <button
               key={tab.id}
-              onClick={() => setActiveTab(tab.id)}
+              onClick={() => {
+                setActiveTab(tab.id);
+                // Clear group filter when switching tabs unless staying on issues tab
+                if (tab.id !== 'issues') {
+                  setGroupFilteredItems([]);
+                  setGroupFilterName('');
+                }
+              }}
               className={`flex items-center gap-2 py-4 px-2 border-b-3 font-medium text-sm transition-all duration-200 ${
                 activeTab === tab.id
                   ? 'border-blue-600 text-blue-600 bg-blue-50/50'
@@ -2789,7 +2807,7 @@ function App() {
 
   // Chart components - removed unused charts
 
-  const DataTable = () => {
+  const DataTable = ({ items = filteredItems }: { items?: any[] } = {}) => {
     const [selectedIssue, setSelectedIssue] = useState<any>(null);
     const [showComments, setShowComments] = useState<boolean>(false);
     const [sortColumn, setSortColumn] = useState<string>('created');
@@ -2809,7 +2827,7 @@ function App() {
     };
 
     // Sort items
-    const sortedItems = [...filteredItems].sort((a, b) => {
+    const sortedItems = [...items].sort((a, b) => {
       let aValue: any;
       let bValue: any;
 
@@ -3467,7 +3485,8 @@ function App() {
                 insights: group.GroupMetaData.Insight,
                 actions: group.GroupMetaData.Actions,
                 itemsCount: group.ItemsList?.length || 0,
-                itemsList: group.ItemsList || []
+                ItemsList: group.ItemsList || [], // Keep original capitalization for compatibility
+                itemsList: group.ItemsList || []  // Also add lowercase version
               });
             }
           });
@@ -3588,15 +3607,69 @@ function App() {
                   <div className="grid gap-6">
                     {summary.groups.map((group: any, groupIndex: number) => (
                       <div key={`group-${group.groupId}-${groupIndex}`} 
+                           id={`group-${group.groupId}`}
                            className="bg-gradient-to-br from-gray-50 to-slate-50 rounded-xl border border-gray-200 p-6 hover:shadow-md transition-shadow duration-200">
                         
                         {/* Group Header */}
                         <div className="mb-5 pb-4 border-b border-gray-200">
-                          <h5 className="text-lg font-bold text-gray-800 mb-2">{group.groupName}</h5>
-                          <p className="text-sm text-gray-600 mb-2">{group.groupDescription}</p>
-                          <div className="inline-flex items-center bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-xs font-medium">
-                            <div className="w-2 h-2 bg-gray-400 rounded-full mr-2"></div>
-                            {group.itemsCount} items
+                          <div className="flex items-start justify-between">
+                            <div className="flex-1">
+                              <h5 className="text-lg font-bold text-gray-800 mb-2">{group.groupName}</h5>
+                              <p className="text-sm text-gray-600 mb-2">{group.groupDescription}</p>
+                              <div className="inline-flex items-center bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-xs font-medium">
+                                <div className="w-2 h-2 bg-gray-400 rounded-full mr-2"></div>
+                                {group.itemsCount} items
+                              </div>
+                            </div>
+                            
+                            {/* View Issues Button */}
+                            <div className="ml-4">
+                              <button
+                                onClick={() => {
+                                  console.log('🔍 Button clicked for group:', group.groupName, 'ID:', group.groupId);
+                                  console.log('🔍 Group ItemsList:', group.ItemsList);
+                                  
+                                  // Find the daily summary that contains this group
+                                  const dailySummary = jsonData.dailySummaries.find((ds: any) => 
+                                    ds.contentJSON?.Groups?.some((g: any) => g.GroupMetaData?.GroupID === group.groupId)
+                                  );
+                                  
+                                  console.log('🔍 Found daily summary:', dailySummary?.id);
+                                  console.log('🔍 Daily summary has items:', !!dailySummary?.contentJSON?.Items);
+                                  
+                                  if (dailySummary?.contentJSON?.Items && group.ItemsList && group.ItemsList.length > 0) {
+                                    // Get the items that match the ItemsList
+                                    const groupItems = group.ItemsList.map((itemId: number) => {
+                                      const item = dailySummary.contentJSON.Items.find((item: any) => item.id === itemId);
+                                      console.log('🔍 Looking for item ID:', itemId, 'Found:', !!item);
+                                      return item;
+                                    }).filter(Boolean);
+                                    
+                                    console.log('🔍 Group items found:', groupItems.length);
+                                    
+                                    if (groupItems.length > 0) {
+                                      // Store the filtered items for the issue table
+                                      setGroupFilteredItems(groupItems);
+                                      setGroupFilterName(group.groupName);
+                                      setSourceGroupId(group.groupId);
+                                      
+                                      // Navigate to issues tab
+                                      setActiveTab('issues');
+                                    } else {
+                                      console.warn('⚠️ No matching items found for group:', group.groupName);
+                                    }
+                                  } else {
+                                    console.warn('⚠️ No daily summary or items found for group:', group.groupName);
+                                  }
+                                }}
+                                className="flex items-center gap-2 px-4 py-2 bg-indigo-600 text-white text-sm font-medium rounded-lg hover:bg-indigo-700 transition-colors duration-200 shadow-sm hover:shadow-md"
+                              >
+                                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
+                                </svg>
+                                View Issues ({group.ItemsList?.length || 0})
+                              </button>
+                            </div>
                           </div>
                         </div>
                         
@@ -4015,9 +4088,69 @@ function App() {
 
     // Issues Tab - Detailed issue list and analysis
     if (activeTab === 'issues') {
+      // Use group-filtered items if available, otherwise use all filtered items
+      const displayItems = groupFilteredItems.length > 0 ? groupFilteredItems : filteredItems;
+      const isGroupFiltered = groupFilteredItems.length > 0;
+      
       return (
         <div className="flex-1 p-6 space-y-6 scrollbar-hide overflow-y-auto">
           <DataSummaryBanner />
+          
+          {/* Group Filter Banner */}
+          {isGroupFiltered && (
+            <div className="bg-indigo-50 border border-indigo-200 rounded-lg p-4">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-3">
+                  <div className="bg-indigo-600 rounded-full p-2">
+                    <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.707A1 1 0 013 7V4z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-indigo-900">Filtered by Group: {groupFilterName}</h3>
+                    <p className="text-sm text-indigo-700">Showing {displayItems.length} issues from this group</p>
+                  </div>
+                </div>
+                <button
+                  onClick={() => {
+                    // Clear the group filter
+                    setGroupFilteredItems([]);
+                    setGroupFilterName('');
+                    
+                    // Navigate back to groups view
+                    setActiveTab('summaries');
+                    
+                    // Scroll to the specific group after a short delay to allow the tab to load
+                    if (sourceGroupId) {
+                      setTimeout(() => {
+                        const groupElement = document.getElementById(`group-${sourceGroupId}`);
+                        if (groupElement) {
+                          groupElement.scrollIntoView({ 
+                            behavior: 'smooth', 
+                            block: 'center'
+                          });
+                          // Add a highlight effect
+                          groupElement.style.transform = 'scale(1.02)';
+                          groupElement.style.boxShadow = '0 8px 25px rgba(99, 102, 241, 0.3)';
+                          setTimeout(() => {
+                            groupElement.style.transform = '';
+                            groupElement.style.boxShadow = '';
+                          }, 2000);
+                        }
+                      }, 100);
+                      setSourceGroupId(''); // Clear after use
+                    }
+                  }}
+                  className="flex items-center gap-2 px-4 py-2 bg-indigo-600 text-white text-sm font-medium rounded-lg hover:bg-indigo-700 transition-colors duration-200"
+                >
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                  </svg>
+                  Back to {groupFilterName}
+                </button>
+              </div>
+            </div>
+          )}
           
           {/* Issue Summary Cards */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -4026,7 +4159,7 @@ function App() {
                 <div>
                   <p className="text-sm font-medium text-gray-600">Open Issues</p>
                   <p className="text-2xl font-bold text-red-600">
-                    {jsonData ? filteredItems.filter(item => {
+                    {jsonData ? displayItems.filter(item => {
                       const resolved = item.content?.resolved_ts;
                       return !resolved || resolved === "0001-01-01T00:00:00Z";
                     }).length : 0}
@@ -4041,7 +4174,7 @@ function App() {
                 <div>
                   <p className="text-sm font-medium text-gray-600">Resolved Issues</p>
                   <p className="text-2xl font-bold text-green-600">
-                    {jsonData ? filteredItems.filter(item => {
+                    {jsonData ? displayItems.filter(item => {
                       const resolved = item.content?.resolved_ts;
                       return resolved && resolved !== "0001-01-01T00:00:00Z";
                     }).length : 0}
@@ -4056,7 +4189,7 @@ function App() {
                 <div>
                   <p className="text-sm font-medium text-gray-600">Critical Issues</p>
                   <p className="text-2xl font-bold text-orange-600">
-                    {jsonData ? filteredItems.filter(item => 
+                    {jsonData ? displayItems.filter(item => 
                       item.content?.priority?.toLowerCase() === 'critical'
                     ).length : 0}
                   </p>
@@ -4066,8 +4199,36 @@ function App() {
             </div>
           </div>
 
+          {/* Back to Tags button when filtering by tag */}
+          {tagFilter && (
+            <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 transform transition-all duration-300 hover:shadow-md">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center">
+                  <Tags className="w-5 h-5 text-blue-600 mr-2" />
+                  <span className="text-sm text-blue-800">
+                    Showing issues with tag: <span className="font-semibold">"{tagFilter}"</span>
+                  </span>
+                </div>
+                <button
+                  onClick={() => {
+                    setActiveTab(previousTab || 'tags');
+                    setTagFilter(null);
+                    setAppliedFilters(prev => ({
+                      ...prev,
+                      selectedTags: []
+                    }));
+                  }}
+                  className="px-3 py-2 text-sm bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-all duration-200 flex items-center gap-2 transform hover:scale-105"
+                >
+                  <ChevronLeft className="w-4 h-4" />
+                  Back to Tags
+                </button>
+              </div>
+            </div>
+          )}
+
           {/* Issue Data Table */}
-          <DataTable />
+          <DataTable items={displayItems} />
         </div>
       );
     }
@@ -4105,16 +4266,30 @@ function App() {
                         return (
                           <div 
                             key={index} 
-                            className="group relative flex flex-col items-center"
-                            title={`${tag.tag}: ${tag.count} issues (${tag.percentage.toFixed(1)}%)`}
+                            className="group relative flex flex-col items-center cursor-pointer"
+                            title={`${tag.tag}: ${tag.count} issues (${tag.percentage.toFixed(1)}%) - Click to view in Issues tab`}
+                            onClick={() => {
+                              // Set the tag filter
+                              setTagFilter(tag.tag);
+                              setPreviousTab(activeTab);
+                              
+                              // Apply the filter to the global filters
+                              setAppliedFilters(prev => ({
+                                ...prev,
+                                selectedTags: [tag.tag]
+                              }));
+                              
+                              // Switch to issues tab
+                              setActiveTab('issues');
+                            }}
                           >
                             {/* Vertical bar */}
                             <div 
-                              className="w-12 bg-gray-200 rounded-t-lg mb-2 flex items-end justify-center pb-1 transition-all duration-500 ease-out hover:shadow-lg"
+                              className="w-12 bg-gray-200 rounded-t-lg mb-2 flex items-end justify-center pb-1 transition-all duration-300 ease-out hover:shadow-lg transform hover:scale-105"
                               style={{ height: `${height}px` }}
                             >
                               <div 
-                                className="w-full rounded-t-lg flex items-end justify-center pb-1"
+                                className="w-full rounded-t-lg flex items-end justify-center pb-1 transition-all duration-300"
                                 style={{ 
                                   backgroundColor: `rgba(10, 102, 194, ${opacity})`,
                                   height: '100%'
@@ -4138,7 +4313,7 @@ function App() {
                             
                             {/* Hover tooltip */}
                             <div className="absolute bottom-full mb-2 left-1/2 transform -translate-x-1/2 bg-gray-900 text-white px-2 py-1 rounded text-xs opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10 whitespace-nowrap">
-                              {tag.tag}: {tag.count} issues ({tag.percentage.toFixed(1)}%)
+                              {tag.tag}: {tag.count} issues ({tag.percentage.toFixed(1)}%) - Click to view
                             </div>
                           </div>
                         );
