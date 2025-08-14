@@ -252,6 +252,9 @@ export default function GroupIssueDetails({ data }: GroupIssueDetailsProps) {
                                   {issue.content?.status_transitions?.length > 0 && (
                                     <div>Transitions: {issue.content.status_transitions.length}</div>
                                   )}
+                                  {issue.content?.assignee_changes?.length > 0 && (
+                                    <div>Assignee Changes: {issue.content.assignee_changes.length}</div>
+                                  )}
                                   {issue.content?.comments?.length > 0 && (
                                     <div>Comments: {issue.content.comments.length}</div>
                                   )}
